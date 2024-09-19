@@ -15,7 +15,7 @@
       "name": "Next.js: debug client-side",
       "type": "chrome",
       "request": "launch",
-      "url": "http://localhost:5000",
+      "url": "http://localhost:3000",
       "cwd": "/home/alejandro/solidcode/apps/website"
     }
   ]

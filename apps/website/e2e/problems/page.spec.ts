@@ -4,7 +4,7 @@ import { test, expect } from "@playwright/test";
 test("Submission code must be longer or equal than 20 characters", async ({
   page,
 }) => {
-  await page.goto("http://localhost:5000/problems/reverse-the-array");
+  await page.goto("http://localhost:3000/problems/reverse-the-array");
   const monacoEditor = page.locator(".monaco-editor").nth(0);
   await monacoEditor.click();
   await page.keyboard.press("ControlOrMeta+KeyA");
@@ -18,7 +18,7 @@ test("Submission code must be longer or equal than 20 characters", async ({
 test("Submission code must be less or equal than 10000 characters", async ({
   page,
 }) => {
-  await page.goto("http://localhost:5000/problems/reverse-the-array");
+  await page.goto("http://localhost:3000/problems/reverse-the-array");
   const monacoEditor = page.locator(".monaco-editor").nth(0);
   await monacoEditor.click();
   await page.keyboard.press("ControlOrMeta+KeyA");
@@ -389,7 +389,7 @@ TextLongerThan1000Characters
 });
 
 test("Must be authenticated before submitting the code", async ({ page }) => {
-  await page.goto("http://localhost:5000/problems/reverse-the-array");
+  await page.goto("http://localhost:3000/problems/reverse-the-array");
   await page.getByRole("button", { name: "Ejecutar" }).click();
   await expect(page.getByRole("heading", { level: 2 })).toHaveText(
     "Inicia la sesión para continuar",
@@ -400,15 +400,15 @@ if (!process.env.CI) {
   test("Given a code that respect precondition and postcondition then the submission is correct", async ({
     page,
   }) => {
-    await page.goto("http://localhost:5000/es/signin");
+    await page.goto("http://localhost:3000/es/signin");
     await page.getByText("Correo electrónico").waitFor();
     await page.getByLabel("Correo electrónico").fill(env.AUTH_EMAIL);
     await page
       .getByLabel("Contraseña", { exact: true })
       .fill(env.AUTH_EMAIL_PASSWORD);
     await page.getByRole("button", { name: "Iniciar sesión", exact: true }).click();
-    await page.waitForURL("http://localhost:5000/es", { timeout: 3000 });
-    await page.goto("http://localhost:5000/es/problems/reverse-the-array");
+    await page.waitForURL("http://localhost:3000/es", { timeout: 3000 });
+    await page.goto("http://localhost:3000/es/problems/reverse-the-array");
     await page.getByText("Ejecutar").waitFor();
     await page.getByRole("button", { name: "Ejecutar" }).click();
     await expect(page.getByRole("heading", { level: 3 })).toHaveText(
