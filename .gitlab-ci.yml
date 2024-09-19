@@ -1,0 +1,32 @@
+stages:
+  - external
+  - test
+run_tests:
+  environment:
+    name: test
+    action: stop
+  variables:
+    POSTGRES_DB: solidCode-prod
+    POSTGRES_HOST_AUTH_METHOD: trust
+    SRH_MODE: env
+    SRH_TOKEN: example_token
+    SRH_CONNECTION_STRING: 'redis://solidCode-Redis-Prod:6379'
+    PORT: 5000
+    NODE_ENV: test
+  stage: test
+  services:
+    - name: postgres:16-alpine
+      alias: solidCode-Postgres-Prod
+    - name: redis:7-alpine
+      alias: solidCode-Redis-Prod
+    - name: hiett/serverless-redis-http:latest
+      alias: serverless-Redis-Http
+  image: mcr.microsoft.com/playwright:v1.47.1-jammy
+  script:
+    - npm install -g pnpm@9.10.0
+    - cd apps/website
+    - pnpm install
+    - pnpm db:push
+    - pnpm db:seed
+    - pnpm build
+    - pnpm test:e2e

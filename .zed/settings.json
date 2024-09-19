@@ -1,0 +1,37 @@
+{
+  "middle_click_paste": false,
+  "features": {
+    "inline_completion_provider": "supermaven"
+  },
+  "format_on_save": "off",
+  "languages": {
+    "Python": {
+      "language_servers": ["ruff"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
+    "PHP": {
+      "language_servers": ["intelephense"],
+      "formatter": [
+        {
+          "language_server": {
+            "name": "intelephense"
+          }
+        }
+      ]
+    },
+    "JavaScript": {
+      "format_on_save": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"]
+        }
+      }
+    }
+  }
+}

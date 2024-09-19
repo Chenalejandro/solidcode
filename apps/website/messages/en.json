@@ -1,0 +1,15 @@
+{
+  "App": {
+    "name": "SolidCode",
+    "title": "Solid Code",
+    "description": "A platform to help you prepare your technical interviews",
+    "Buy": "Buy",
+    "PrevPage": "Previous page",
+    "NextPage": "Next page"
+  },
+  "ProblemTab": {
+    "description": "Description",
+    "submissions": "Submissions",
+    "solutions": "Solutions"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "App": {
+    "name": "SolidCode",
+    "title": "Solid Code",
+    "description": "Una plataforma para preparar entrevistas técnicas",
+    "Buy": "Comprar",
+    "PrevPage": "Página anterior",
+    "NextPage": "Página posterior"
+  },
+  "ProblemTab": {
+    "description": "Descripción",
+    "submissions": "Ejecuciones del código",
+    "solutions": "Soluciones"
+  },
+  "Titles": {
+    "reverse-the-array": "Revertir el arreglo",
+    "most-even-cut": "Corte mas parejo",
+    "maximum-length-of-songs-on-cd": "Máxima duración de canciones en CD",
+    "most-gain-cut": "Corte de mayor ganancia",
+    "in-order-binary-tree-traversal": "Recorrido del árbol binario en orden",
+    "dice-sum": "Suma de los dados",
+    "split-students-into-groups": "Dividir estudiantes en grupos",
+    "highest-profit-path": "Camino de mayor ganancia",
+    "water-containers": "Recipientes de agua",
+    "invert-a-binary-tree": "Invertir arbol binario"
+  }
+}

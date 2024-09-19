@@ -1,0 +1,22 @@
+## Corte de mayor ganancia
+
+Tenemos una compañia que vende varillas de acero largas. Luego las corta en pedazos más pequeños y los vende.
+Para cada metro de acero tenemos su precio, siendo el primer elemento del arreglo el precio de 1 metro, el segundo el precio de 2 metros, etc.
+El problema es, dada una vara de n metros, determinar la máxima ganancia que podemos obtener cortando la vara y vendiendo los pedazos.
+Para tener en cuenta: puede ser que la solución óptima sea vender la vara entera.
+
+### Ejemplos
+
+Entrada:
+
+`precios = [2, 3, 5, 7]`
+
+`longitud = 4`
+
+Salida: `8`
+
+Explicación: La mayor ganancia se consigue vendiendo 4 varillas de 1 metro cada uno, que nos da `2 * 4 = 8`. Las otras alternativas tienen menor ganancia ya que
+
+1. Dos varillas de 2 metros cada uno nos da `3 * 2 = 6`.
+2. Una varilla de 1 metro y otra de 3 metros nos da `2 + 5 = 7`.
+3. Una varilla de 4 metros nos da `7`.

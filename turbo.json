@@ -1,0 +1,44 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "ui": "tui",
+
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "env": [],
+      "outputs": ["dist/**"]
+    },
+    "website#build": {
+      "dependsOn": ["^build"],
+      "env": [
+        "NEXT_PUBLIC_ENABLE_SENTRY",
+        "NEXT_PUBLIC_ENABLE_POSTHOG",
+        "NEXT_PUBLIC_POSTHOG_KEY",
+        "NEXT_PUBLIC_POSTHOG_HOST",
+        "RATE_LIMIT_COUNT",
+        "KV_REST_API_URL",
+        "KV_REST_API_TOKEN",
+        "SVIX_WEBHOOK_SECRET",
+        "DATABASE_URL",
+        "FUTUREJUDGE_TOKEN",
+        "FUTURE_JUDGE_API_URL",
+        "POSTGRES_DRIVER",
+        "NEXT_PUBLIC_MELI_PUBLIC_KEY",
+        "MELI_ACCESS_TOKEN",
+        "MELI_WEBHOOK_SECRET",
+        "SENTRY_AUTH_TOKEN",
+        "NEXT_PUBLIC_STACK_PROJECT_ID",
+        "NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY",
+        "STACK_SECRET_SERVER_KEY"
+      ],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    },
+    "dev": {
+      "persistent": true,
+      "cache": false
+    }
+  }
+}

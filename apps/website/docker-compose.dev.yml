@@ -1,0 +1,38 @@
+x-logging: &default-logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 100m
+
+services:
+  postgresSolidCodeDev:
+    <<: *default-logging
+    container_name: postgresSolidCodeDevContainer
+    image: postgres:16-alpine
+    ports:
+      - "127.0.0.1:5400:5432"
+    environment:
+      POSTGRES_DB: solidCodeDev-postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - solidCodeDev-postgres-data:/var/lib/postgresql/data/
+  redisSolidCodeDev:
+    <<: *default-logging
+    container_name: redisSolidCodeDevContainer
+    image: redis:7-alpine
+    ports:
+      - "127.0.0.1:5300:6379"
+    volumes:
+      - solidCodeDev-redis-data:/data
+  serverless-redis-http:
+    ports:
+      - '5200:80'
+    image: hiett/serverless-redis-http:latest
+    environment:
+      SRH_MODE: env
+      SRH_TOKEN: example_token
+      SRH_CONNECTION_STRING: 'redis://redisSolidCodeDevContainer:6379'
+
+volumes:
+  solidCodeDev-postgres-data:
+  solidCodeDev-redis-data:

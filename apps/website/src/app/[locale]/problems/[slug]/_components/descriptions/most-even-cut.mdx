@@ -1,0 +1,21 @@
+## Corte más parejo
+
+Dado un array de números **_s_**, denominamos corte de _s_ a cualquier par de arrays tal que al concatenar la primera con la segunda se obtiene _s_. Por ejemplo, los posibles cortes del array `[1, 3, 2]` son `([],[1,3,2])`, `([1],[3,2])`, `([1,3],[2])` y `([1,3,2],[])`.
+
+Ahora, dado un array de números, el corte más parejo es un corte tal que la diferencia de la suma de los elementos de cada lado del corte sea mínima entre todos los cortes posibles.
+
+Para simplificar, vamos a pedir retornar la diferencia mínima del corte más parejo.
+
+### Ejemplos
+
+Entrada: `[1, 2, 1]`
+
+Salida: `2`
+
+Explicación: el corte más parejo es `([1,2],[1])`. La diferencia es `(1 + 2) - 1 = 2`. Notar que puede existir más de un corte que de el mismo resultado, por ejemplo `([1],[2,1])`.
+
+Entrada: `[1, 2, 3, 4, 2]`
+
+Salida: `0`
+
+Explicación: el corte más parejo es `([1,2,3],[4,2])`, porque la diferencia entre la suma de los elementos de cada array es cero.
