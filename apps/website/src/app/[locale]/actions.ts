@@ -11,6 +11,7 @@ export async function getUserInfo() {
   const isUserSubscribed = await subscribed(user.id);
   return {
     id: user.id,
+    email: user.primaryEmail,
     profileImageUrl: user.profileImageUrl,
     displayName: user.displayName,
     isUserSubscribed,
