@@ -1,0 +1,68 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      NODE_ENV: test
+      AUTH_EMAIL_USERNAME: ${{ vars.AUTH_EMAIL_USERNAME }}
+      DATABASE_URL: ${{ vars.DATABASE_URL }}
+      GITLAB_CI_CD_ENVIRONMENT: ${{ vars.GITLAB_CI_CD_ENVIRONMENT }}
+      IS_TESTING: ${{ vars.IS_TESTING }}
+      NEXT_PUBLIC_ENABLE_POSTHOG: ${{ vars.NEXT_PUBLIC_ENABLE_POSTHOG }}
+      NEXT_PUBLIC_ENABLE_SENTRY: ${{ vars.NEXT_PUBLIC_ENABLE_SENTRY }}
+      POSTGRES_DRIVER: ${{ vars.POSTGRES_DRIVER }}
+      RATE_LIMIT_COUNT: ${{ vars.RATE_LIMIT_COUNT }}
+      AUTH_EMAIL_PASSWORD: ${{ secrets.AUTH_EMAIL_PASSWORD }}
+      FUTUREJUDGE_TOKEN: ${{ secrets.FUTUREJUDGE_TOKEN }}
+      FUTURE_JUDGE_API_URL: ${{ secrets.FUTURE_JUDGE_API_URL }}
+      KV_REST_API_TOKEN: ${{ secrets.KV_REST_API_TOKEN }}
+      KV_REST_API_URL: ${{ secrets.KV_REST_API_URL }}
+      MELI_ACCESS_TOKEN: ${{ secrets.MELI_ACCESS_TOKEN }}
+      MELI_WEBHOOK_SECRET: ${{ secrets.MELI_WEBHOOK_SECRET }}
+      NEXT_PUBLIC_MELI_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_MELI_PUBLIC_KEY }}
+      NEXT_PUBLIC_POSTHOG_HOST: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
+      NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+      NEXT_PUBLIC_STACK_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_STACK_PROJECT_ID }}
+      NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      STACK_SECRET_SERVER_KEY: ${{ secrets.STACK_SECRET_SERVER_KEY }}
+      SVIX_WEBHOOK_SECRET: ${{ secrets.SVIX_WEBHOOK_SECRET }}
+    timeout-minutes: 60
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Install Playwright Browsers
+        run: pnpx playwright install --with-deps
+      - name: Start Docker Compose
+        run: docker compose -f ./apps/website/docker-compose.dev.yml up -d
+      - name: Wait on Postgres
+        run: pnpx wait-on tcp:127.0.0.1:5400
+      - name: Initialize database
+        run: pnpm db:push
+      - name: Seed database
+        run: pnpm db:seed
+      - name: Build
+        run: pnpm build
+      - name: Run Playwright tests
+        run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

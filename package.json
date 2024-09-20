@@ -3,6 +3,9 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "db:push": "pnpm --filter=website db:push",
+    "db:seed": "pnpm --filter=website db:seed",
+    "test:e2e": "pnpm --filter=website test:e2e",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
@@ -18,7 +21,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "@stackframe/stack@2.5.35": "patches/@stackframe__stack@2.5.35.patch"
+      "@stackframe/stack@2.5.37": "patches/@stackframe__stack@2.5.37.patch"
     }
   }
 }
