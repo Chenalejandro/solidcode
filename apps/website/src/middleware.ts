@@ -159,5 +159,5 @@ export default withExtraMiddleware(
 export const config: MiddlewareConfig = {
   // The following matcher runs middleware on all routes
   // except static assets.
-  matcher: ["/((?!.*\\..*|_next|monitoring|ingest).*)", "/", "/(api|trpc)(.*)"],
+  matcher: ["/((?!.*\\..*|_next|monitoring|ingest|favicon.ico|sitemap.xml|robots.txt).*)", "/", "/(api|trpc)(.*)"],
 };
