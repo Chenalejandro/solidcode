@@ -80,16 +80,16 @@ export default async function RootLayout({
               lang={locale === "es" ? "es-ES" : "en-US"}
             >
               <StackTheme nonce={nonce}>
-                <CSPostHogProvider>
-                  <TanstackQueryClientProvider>
+                <TanstackQueryClientProvider>
+                  <CSPostHogProvider>
                     <TopNav />
                     {children}
                     <ReactQueryDevtools initialIsOpen={false} />
                     <Sonner />
                     <Toaster />
                     <Tracking />
-                  </TanstackQueryClientProvider>
-                </CSPostHogProvider>
+                  </CSPostHogProvider>
+                </TanstackQueryClientProvider>
               </StackTheme>
             </StackProvider>
           </ThemeProvider>
