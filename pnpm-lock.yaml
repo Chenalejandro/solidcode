@@ -140,8 +140,8 @@ importers:
         specifier: ^0.3.0
         version: 0.3.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       posthog-js:
-        specifier: ^1.164.2
-        version: 1.164.2
+        specifier: ^1.164.3
+        version: 1.164.3
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -231,8 +231,8 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-tailwindcss:
-        specifier: ^0.6.6
-        version: 0.6.6(prettier@3.3.3)
+        specifier: ^0.6.7
+        version: 0.6.7(prettier@3.3.3)
       tailwindcss:
         specifier: ^3.4.13
         version: 3.4.13
@@ -4577,18 +4577,18 @@ packages:
     resolution: {integrity: sha512-IbyN+9KslkqcXa8AO9fxpk97PA4pzewvpi2B3Dwy9u4zpV32QicaEdgmF3eSQUzdRk7ttDHQejNgAEr4XoeH4A==}
     engines: {node: '>=12'}
 
-  posthog-js@1.164.2:
-    resolution: {integrity: sha512-WyoVJS0rZHGafyIXuXBihVtxR6ZhrIuN378SuziJWzYOXFheSUi5cjG4Mxu8XRc8/NBXpSAMY/9MZvLF+MzDuA==}
+  posthog-js@1.164.3:
+    resolution: {integrity: sha512-MKtvSfaFgrkBUD9X8tJUKsJ/FXKTMR+Qg1AYrMfLXabsCawAe3HFLhwMpWVlbBXHRj/oumtchNbd69jtAMexEQ==}
 
-  preact@10.24.0:
-    resolution: {integrity: sha512-aK8Cf+jkfyuZ0ZZRG9FbYqwmEiGQ4y/PUO4SuTWoyWL244nZZh7bd5h2APd4rSNDYTBNghg1L+5iJN3Skxtbsw==}
+  preact@10.24.1:
+    resolution: {integrity: sha512-PnBAwFI3Yjxxcxw75n6VId/5TFxNW/81zexzWD9jn1+eSrOP84NdsS38H5IkF/UH3frqRPT+MvuCoVHjTDTnDw==}
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-tailwindcss@0.6.6:
-    resolution: {integrity: sha512-OPva5S7WAsPLEsOuOWXATi13QrCKACCiIonFgIR6V4lYv4QLp++UXVhZSzRbZxXGimkQtQT86CC6fQqTOybGng==}
+  prettier-plugin-tailwindcss@0.6.7:
+    resolution: {integrity: sha512-Gr9C8SURB46Fm9MQcb9gFxNfMiPgmhvq8St4We8I55r0GroqAptCgjzaKAastoDpjsdHkl6dxjcPMZCa4WCTLw==}
     engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
@@ -10282,17 +10282,17 @@ snapshots:
 
   postgres@3.4.4: {}
 
-  posthog-js@1.164.2:
+  posthog-js@1.164.3:
     dependencies:
       fflate: 0.4.8
-      preact: 10.24.0
+      preact: 10.24.1
       web-vitals: 4.2.3
 
-  preact@10.24.0: {}
+  preact@10.24.1: {}
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-tailwindcss@0.6.6(prettier@3.3.3):
+  prettier-plugin-tailwindcss@0.6.7(prettier@3.3.3):
     dependencies:
       prettier: 3.3.3
 
