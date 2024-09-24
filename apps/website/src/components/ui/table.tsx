@@ -1,8 +1,8 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { ComponentProps } from "react";
+import { Link } from "@/i18n/routing";
+import { type ComponentProps } from "react";
 
 const Table = React.forwardRef<
   HTMLTableElement,

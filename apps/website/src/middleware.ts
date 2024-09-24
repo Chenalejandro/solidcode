@@ -7,7 +7,7 @@ import {
 } from "next/server";
 import { env } from "@/env";
 import createMiddleware from "next-intl/middleware";
-import { locales } from "./i18n";
+import { routing } from "@/i18n/routing";
 
 // import { auth } from "@/auth";
 // export default auth((req) => {
@@ -153,7 +153,7 @@ function withExtraMiddleware(next: NextMiddleware) {
 }
 
 export default withExtraMiddleware(
-  createMiddleware({ locales: locales, defaultLocale: "es" }),
+  createMiddleware(routing),
 );
 
 export const config: MiddlewareConfig = {

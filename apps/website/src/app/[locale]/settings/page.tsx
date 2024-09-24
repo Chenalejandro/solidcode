@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 import SettingsPage from "@/app/[locale]/settings/SettingsPage";
 import { stackServerApp } from "@/stack";
 import { getActiveSubscription } from "@/server/data/subscriptions-dto";
@@ -14,6 +14,7 @@ export default async function Page() {
 
   if (!user) {
     redirect("/signin");
+    return;
   }
   const activeSubscription = await getActiveSubscription(user.id);
   return <SettingsPage user={{ userId: user.id, userName: user.displayName ?? ""}}

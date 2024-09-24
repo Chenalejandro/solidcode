@@ -1,5 +1,5 @@
 import { getActiveSubscription } from "@/server/data/subscriptions-dto";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 import { UnsubscribeButton } from "./UnsubscribeButton";
 import { stackServerApp } from "@/stack";
 

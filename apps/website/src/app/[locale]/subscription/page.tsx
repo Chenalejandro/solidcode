@@ -1,6 +1,6 @@
 import PaymentForm from "./_components/PaymentForm";
 import { subscribed } from "@/server/data/subscriptions-dto";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 import { env } from "@/env";
 import { stackServerApp } from "@/stack";
 

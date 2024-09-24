@@ -1,6 +1,6 @@
 "use client";
 import { Tabs as ShadCnTab } from "@/components/ui/tabs";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/routing";
 import { type ComponentProps } from "react";
 import { useCreateQueryString } from "../utils";
 

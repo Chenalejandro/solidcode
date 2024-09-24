@@ -59,7 +59,7 @@ export function ProblemDataTable({ columns, data }: DataTableProps) {
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRowAsLink
-                  href={`problems/${row.original.slug}`}
+                  href={`/problems/${row.original.slug}`}
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                   className="hover:cursor-pointer"

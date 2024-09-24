@@ -21,7 +21,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { type ResolvingMetadata, type Metadata } from "next";
 import { stackServerApp } from "@/stack";
 import { StackProvider, StackTheme } from "@stackframe/stack";
-import { locales } from "@/i18n";
+import { routing } from "@/i18n/routing";
 import { CSPostHogProvider } from "@/app/_analytics/provider";
 
 export async function generateMetadata(
@@ -42,7 +42,7 @@ const fontSans = FontSans({
 });
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function RootLayout({
