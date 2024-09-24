@@ -81,7 +81,7 @@ function withExtraMiddleware(next: NextMiddleware) {
 
     if (
       request.nextUrl.pathname === "/es" ||
-      request.nextUrl.pathname === "/en"
+      request.nextUrl.pathname === "/es/"
     ) {
       cspHeader = `
     default-src 'self';
@@ -152,12 +152,14 @@ function withExtraMiddleware(next: NextMiddleware) {
   };
 }
 
-export default withExtraMiddleware(
-  createMiddleware(routing),
-);
+export default withExtraMiddleware(createMiddleware(routing));
 
 export const config: MiddlewareConfig = {
   // The following matcher runs middleware on all routes
   // except static assets.
-  matcher: ["/((?!.*\\..*|_next|monitoring|ingest|favicon.ico|sitemap.xml|robots.txt).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    "/((?!.*\\..*|_next|monitoring|ingest|favicon.ico|sitemap.xml|robots.txt).*)",
+    "/",
+    "/(api|trpc)(.*)",
+  ],
 };
