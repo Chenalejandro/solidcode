@@ -7,7 +7,7 @@ import {
 } from "next/server";
 import { env } from "@/env";
 import createMiddleware from "next-intl/middleware";
-import { locales } from "./i18n";
+import { routing } from "@/i18n/routing";
 
 // import { auth } from "@/auth";
 // export default auth((req) => {
@@ -48,7 +48,7 @@ function withExtraMiddleware(next: NextMiddleware) {
     const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
     let cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : "'unsafe-eval'"};
+    script-src 'self' 'nonce-${nonce}' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
     script-src-elem 'self' 'nonce-${nonce}' 'strict-dynamic'
       https://http2.mlstatic.com
       https://*.mercadopago.com
@@ -81,7 +81,7 @@ function withExtraMiddleware(next: NextMiddleware) {
 
     if (
       request.nextUrl.pathname === "/es" ||
-      request.nextUrl.pathname === "/en"
+      request.nextUrl.pathname === "/es/"
     ) {
       cspHeader = `
     default-src 'self';
@@ -152,12 +152,14 @@ function withExtraMiddleware(next: NextMiddleware) {
   };
 }
 
-export default withExtraMiddleware(
-  createMiddleware({ locales: locales, defaultLocale: "es" }),
-);
+export default withExtraMiddleware(createMiddleware(routing));
 
 export const config: MiddlewareConfig = {
   // The following matcher runs middleware on all routes
   // except static assets.
-  matcher: ["/((?!.*\\..*|_next|monitoring|ingest).*)", "/", "/(api|trpc)(.*)"],
+  matcher: [
+    "/((?!.*\\..*|_next|monitoring|ingest|favicon.ico|sitemap.xml|robots.txt).*)",
+    "/",
+    "/(api|trpc)(.*)",
+  ],
 };

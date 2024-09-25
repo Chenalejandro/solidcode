@@ -1,5 +1,5 @@
 import ThemeToggle from "@/components/ui/theme-toggle";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { getTranslations } from "next-intl/server";
 import dynamic from "next/dynamic";

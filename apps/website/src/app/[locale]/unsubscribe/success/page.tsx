@@ -1,6 +1,6 @@
 import { getActiveSubscription } from "@/server/data/subscriptions-dto";
 import { stackServerApp } from "@/stack";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 
 export default async function SuccessSubscription() {
   const user = await stackServerApp.getUser();

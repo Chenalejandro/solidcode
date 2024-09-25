@@ -14,10 +14,10 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { updateProfile } from "./actions";
 import { useQueryClient } from "@tanstack/react-query";
 import { UnsubscribeButton } from "../unsubscribe/UnsubscribeButton";
 import { updateProfileSchema, type UpdateProfileValues } from "./schema";
+import { useUser } from "@stackframe/stack";
 
 export default function SettingsPage(props: {
   user: { userName: string; userId: string };
@@ -31,10 +31,10 @@ export default function SettingsPage(props: {
     resolver: zodResolver(updateProfileSchema),
     defaultValues: { name: user.userName },
   });
-
+  const clientUser = useUser();
   async function onSubmit(data: UpdateProfileValues) {
     try {
-      await updateProfile(data);
+      await clientUser?.setDisplayName(data.name);
       void queryClient.invalidateQueries({
         queryKey: ["get-user"],
       });

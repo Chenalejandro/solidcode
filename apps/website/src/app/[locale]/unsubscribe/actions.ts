@@ -7,7 +7,7 @@ import {
 } from "@/server/data/subscriptions-dto";
 import { stackServerApp } from "@/stack";
 import { MercadoPagoConfig, PreApproval } from "mercadopago";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/routing";
 
 export async function unsubscribe() {
   const user = await stackServerApp.getUser();
