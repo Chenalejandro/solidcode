@@ -48,7 +48,7 @@ function withExtraMiddleware(next: NextMiddleware) {
     const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
     let cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : "'unsafe-eval'"};
+    script-src 'self' 'nonce-${nonce}' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
     script-src-elem 'self' 'nonce-${nonce}' 'strict-dynamic'
       https://http2.mlstatic.com
       https://*.mercadopago.com
