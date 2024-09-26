@@ -36,14 +36,6 @@ const config = {
     return config;
   },
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
-  images: {
-    remotePatterns: [
-      {
-        hostname: "avatars.githubusercontent.com",
-        protocol: "https",
-      },
-    ],
-  },
   rewrites: async () => {
     const isVercel = !!process.env.VERCEL_ENV;
     if (isVercel) {
