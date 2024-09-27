@@ -15,7 +15,7 @@ run_tests:
     NODE_ENV: test
   stage: test
   services:
-    - name: postgres:16-alpine
+    - name: postgres:17-alpine
       alias: solidCode-Postgres-Prod
     - name: redis:7-alpine
       alias: solidCode-Redis-Prod
