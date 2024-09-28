@@ -74,6 +74,7 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
             nonce={nonce}
+            enableColorScheme={false}
           >
             <StackProvider
               app={stackServerApp}
