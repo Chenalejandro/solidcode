@@ -60,6 +60,7 @@ export default function RightContent({
       {!data.isUserSubscribed && subscribeButton}
       {themeToggle}
       <UserIcon
+        email={data.email}
         profileImageUrl={data.profileImageUrl}
         displayName={data.displayName}
       ></UserIcon>
@@ -68,9 +69,11 @@ export default function RightContent({
 }
 
 export function UserIcon({
+  email,
   profileImageUrl,
   displayName,
 }: {
+  email: string | null;
   profileImageUrl: string | null;
   displayName: string | null;
 }) {
@@ -85,7 +88,7 @@ export function UserIcon({
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>{displayName}</DropdownMenuLabel>
+        <DropdownMenuLabel>{displayName ?? email}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
@@ -96,9 +99,11 @@ export function UserIcon({
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
-          <SignOutButton />
-        </DropdownMenuItem>
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <SignOutButton />
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
