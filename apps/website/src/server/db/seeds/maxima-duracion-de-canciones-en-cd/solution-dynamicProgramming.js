@@ -22,17 +22,12 @@ function aux(matrix, duraciones, capacidadRestante, indice) {
         matrix,
         duraciones,
         capacidadRestante,
-        indice + 1,
+        indice + 1
       );
     } else {
       matrix[indice][capacidadRestante] = Math.max(
-        aux(
-          matrix,
-          duraciones,
-          capacidadRestante - duraciones[indice],
-          indice + 1,
-        ) + duraciones[indice],
-        aux(matrix, duraciones, capacidadRestante, indice + 1),
+        aux(matrix, duraciones, capacidadRestante - duraciones[indice], indice + 1) + duraciones[indice],
+        aux(matrix, duraciones, capacidadRestante, indice + 1)
       );
     }
   }
