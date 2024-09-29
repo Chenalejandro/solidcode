@@ -7,16 +7,16 @@ def maximaDuracionDeCancionesEnCd(duraciones, capacidad):
     rows = len(duraciones)
     columns = capacidad + 1
     matrix = [[None] * columns for _ in range(rows)]
-    return aux(matrix, duraciones, capacidad, len(duraciones) - 1)
+    return aux(matrix, duraciones, capacidad, 0)
 
 
 def aux(matrix, duraciones, capacidadRestante, indice):
-    if indice == -1:
+    if indice == len(duraciones):
         return 0
     if matrix[indice][capacidadRestante] is None:
         if duraciones[indice] > capacidadRestante:
             matrix[indice][capacidadRestante] = aux(
-                matrix, duraciones, capacidadRestante, indice - 1
+                matrix, duraciones, capacidadRestante, indice + 1
             )
         else:
             matrix[indice][capacidadRestante] = max(
@@ -24,9 +24,9 @@ def aux(matrix, duraciones, capacidadRestante, indice):
                     matrix,
                     duraciones,
                     capacidadRestante - duraciones[indice],
-                    indice - 1,
+                    indice + 1,
                 )
                 + duraciones[indice],
-                aux(matrix, duraciones, capacidadRestante, indice - 1),
+                aux(matrix, duraciones, capacidadRestante, indice + 1),
             )
     return matrix[indice][capacidadRestante]
