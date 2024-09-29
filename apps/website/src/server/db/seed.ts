@@ -172,6 +172,7 @@ async function main() {
           {
             input: `165\n${testForDynamicProgramming.length}\n${testForDynamicProgramming.join(" ")}`,
             expectedResult: "165",
+            longRunningTest: true,
           },
         ]),
       },
