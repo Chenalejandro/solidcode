@@ -5,20 +5,19 @@
  */
 
 function maximaDuracionDeCancionesEnCd(duraciones, capacidad) {
-  const rows = duraciones.length + 1;
+  const rows = duraciones.length;
   const columns = capacidad + 1;
   const matrix = Array.from({ length: rows }, () => new Array(columns));
-  return aux(matrix, duraciones, capacidad, duraciones.length);
+  return aux(matrix, duraciones, capacidad, duraciones.length - 1);
 }
 
 function aux(matrix, duraciones, capacidadRestante, indice) {
-  if (indice === 0) {
+  if (indice === -1) {
     return 0;
   }
 
-  const indiceReal = indice - 1;
   if (matrix[indice][capacidadRestante] === undefined) {
-    if (duraciones[indiceReal] > capacidadRestante) {
+    if (duraciones[indice] > capacidadRestante) {
       matrix[indice][capacidadRestante] = aux(
         matrix,
         duraciones,
@@ -30,9 +29,9 @@ function aux(matrix, duraciones, capacidadRestante, indice) {
         aux(
           matrix,
           duraciones,
-          capacidadRestante - duraciones[indiceReal],
+          capacidadRestante - duraciones[indice],
           indice - 1,
-        ) + duraciones[indiceReal],
+        ) + duraciones[indice],
         aux(matrix, duraciones, capacidadRestante, indice - 1),
       );
     }

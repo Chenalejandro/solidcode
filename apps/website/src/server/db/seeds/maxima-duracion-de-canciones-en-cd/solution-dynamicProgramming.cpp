@@ -4,19 +4,18 @@ using namespace std;
 
 long aux(vector<vector<long>> &matrix, vector<long> &duraciones,
          long capacidadRestante, long indice) {
-  if (indice == 0) {
+  if (indice == -1) {
     return 0;
   }
-  long indiceReal = indice - 1;
   if (matrix[indice][capacidadRestante] == -1) {
-    if (duraciones[indiceReal] > capacidadRestante) {
+    if (duraciones[indice] > capacidadRestante) {
       matrix[indice][capacidadRestante] =
           aux(matrix, duraciones, capacidadRestante, indice - 1);
     } else {
       matrix[indice][capacidadRestante] =
           max(aux(matrix, duraciones,
-                  capacidadRestante - duraciones[indiceReal], indice - 1) +
-                  duraciones[indiceReal],
+                  capacidadRestante - duraciones[indice], indice - 1) +
+                  duraciones[indice],
               aux(matrix, duraciones, capacidadRestante, indice - 1));
     }
   }
@@ -24,8 +23,8 @@ long aux(vector<vector<long>> &matrix, vector<long> &duraciones,
 }
 
 long maximaDuracionDeCancionesEnCd(vector<long> duraciones, long capacidad) {
-  long rows = duraciones.size() + 1;
+  long rows = duraciones.size();
   long columns = capacidad + 1;
   vector<vector<long>> matrix(rows, vector<long>(columns, -1));
-  return aux(matrix, duraciones, capacidad, duraciones.size());
+  return aux(matrix, duraciones, capacidad, duraciones.size() -1);
 }
