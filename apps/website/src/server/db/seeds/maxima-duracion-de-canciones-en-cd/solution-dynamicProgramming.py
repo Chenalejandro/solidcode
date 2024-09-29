@@ -4,18 +4,17 @@
 # Esta función retorna un arreglo de números.
 #
 def maximaDuracionDeCancionesEnCd(duraciones, capacidad):
-    rows = len(duraciones) + 1
+    rows = len(duraciones)
     columns = capacidad + 1
     matrix = [[None] * columns for _ in range(rows)]
-    return aux(matrix, duraciones, capacidad, len(duraciones))
+    return aux(matrix, duraciones, capacidad, len(duraciones) - 1)
 
 
 def aux(matrix, duraciones, capacidadRestante, indice):
-    if indice == 0:
+    if indice == -1:
         return 0
-    indiceReal = indice - 1
     if matrix[indice][capacidadRestante] is None:
-        if duraciones[indiceReal] > capacidadRestante:
+        if duraciones[indice] > capacidadRestante:
             matrix[indice][capacidadRestante] = aux(
                 matrix, duraciones, capacidadRestante, indice - 1
             )
@@ -24,10 +23,10 @@ def aux(matrix, duraciones, capacidadRestante, indice):
                 aux(
                     matrix,
                     duraciones,
-                    capacidadRestante - duraciones[indiceReal],
+                    capacidadRestante - duraciones[indice],
                     indice - 1,
                 )
-                + duraciones[indiceReal],
+                + duraciones[indice],
                 aux(matrix, duraciones, capacidadRestante, indice - 1),
             )
     return matrix[indice][capacidadRestante]
