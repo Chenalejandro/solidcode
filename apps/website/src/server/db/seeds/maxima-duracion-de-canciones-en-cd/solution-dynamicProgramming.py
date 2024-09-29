@@ -15,18 +15,10 @@ def aux(matrix, duraciones, capacidadRestante, indice):
         return 0
     if matrix[indice][capacidadRestante] is None:
         if duraciones[indice] > capacidadRestante:
-            matrix[indice][capacidadRestante] = aux(
-                matrix, duraciones, capacidadRestante, indice + 1
-            )
+            matrix[indice][capacidadRestante] = aux(matrix, duraciones, capacidadRestante, indice + 1)
         else:
             matrix[indice][capacidadRestante] = max(
-                aux(
-                    matrix,
-                    duraciones,
-                    capacidadRestante - duraciones[indice],
-                    indice + 1,
-                )
-                + duraciones[indice],
-                aux(matrix, duraciones, capacidadRestante, indice + 1),
+                aux(matrix, duraciones, capacidadRestante - duraciones[indice], indice + 1) + duraciones[indice],
+                aux(matrix, duraciones, capacidadRestante, indice + 1)
             )
     return matrix[indice][capacidadRestante]

@@ -9,14 +9,12 @@ long aux(vector<vector<long>> &matrix, vector<long> &duraciones,
   }
   if (matrix[indice][capacidadRestante] == -1) {
     if (duraciones[indice] > capacidadRestante) {
-      matrix[indice][capacidadRestante] =
-          aux(matrix, duraciones, capacidadRestante, indice + 1);
+      matrix[indice][capacidadRestante] = aux(matrix, duraciones, capacidadRestante, indice + 1);
     } else {
-      matrix[indice][capacidadRestante] =
-          max(aux(matrix, duraciones,
-                  capacidadRestante - duraciones[indice], indice + 1) +
-                  duraciones[indice],
-              aux(matrix, duraciones, capacidadRestante, indice + 1));
+      matrix[indice][capacidadRestante] = max(
+          aux(matrix, duraciones, capacidadRestante - duraciones[indice], indice + 1) + duraciones[indice],
+          aux(matrix, duraciones, capacidadRestante, indice + 1)
+      );
     }
   }
   return matrix[indice][capacidadRestante];
