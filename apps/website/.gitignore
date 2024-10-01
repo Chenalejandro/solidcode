@@ -53,3 +53,9 @@ yarn-error.log*
 
 # turbo files
 .turbo
+
+# sst
+.sst
+
+# open-next
+.open-next
