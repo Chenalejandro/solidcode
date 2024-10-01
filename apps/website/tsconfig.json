@@ -38,5 +38,5 @@
     "**/*.js",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "src/server/db/seeds"]
+  "exclude": ["node_modules", "src/server/db/seeds","sst.config.ts"]
 }
