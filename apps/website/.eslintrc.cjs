@@ -11,7 +11,7 @@ const config = {
     "plugin:@typescript-eslint/stylistic-type-checked",
   ],
   ignorePatterns: [
-    "src/server/db/seeds/*",
+    "src/server/db/seeds/*", "sst.config.ts"
   ],
   rules: {
     "@typescript-eslint/array-type": "off",
