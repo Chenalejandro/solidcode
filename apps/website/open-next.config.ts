@@ -4,9 +4,9 @@ const config = {
   default: {
     override: { wrapper: "aws-lambda-streaming" },
   },
-  middleware: {
-    external: true,
-  },
+  // middleware: {
+  //   external: true,
+  // },
 } satisfies OpenNextConfig;
 
 export default config;
