@@ -57,6 +57,7 @@ function withExtraMiddleware(next: NextMiddleware) {
         ? "'unsafe-inline'"
         : `'nonce-${nonce}' 'strict-dynamic'`
     }
+      https://us-assets.i.posthog.com
       https://http2.mlstatic.com
       https://*.mercadopago.com
       https://*.mercadolibre.com;
@@ -80,6 +81,7 @@ function withExtraMiddleware(next: NextMiddleware) {
       https://*.mercadolibre.com;
     connect-src 'self' ${env.NODE_ENV === "development" ? "http://localhost:8102" : ""}
       data:
+      https://us.i.posthog.com
       https://http2.mlstatic.com
       https://*.mercadopago.com
       https://*.mercadolibre.com
