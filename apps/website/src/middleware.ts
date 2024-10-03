@@ -45,76 +45,46 @@ function withExtraMiddleware(next: NextMiddleware) {
     // }
 
     const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-    let cspHeader = `
+    const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
-    script-src-elem 'self' 'nonce-${nonce}' 'strict-dynamic'
-      https://http2.mlstatic.com
-      https://*.mercadopago.com
-      https://*.mercadolibre.com;
-    style-src 'self' 'nonce-${nonce}';
-    style-src-elem 'self' 'unsafe-inline';
-    style-src-attr 'self' 'unsafe-inline';
-    img-src 'self'
-      data:
-      https://secure.gravatar.com
-      https://*.mercadopago.com
-      https://*.mercadolibre.com
-      https://*.mercadolivre.com;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'none';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-    worker-src 'self' blob:;
-    frame-src 'self'
-      https://*.mercadopago.com
-      https://*.mercadolibre.com;
-    connect-src 'self' ${env.NODE_ENV === "development" ? "http://localhost:8102" : ""}
-      data:
-      https://http2.mlstatic.com
-      https://*.mercadopago.com
-      https://*.mercadolibre.com
-      https://*.stack-auth.com;
-  `;
-
-    if (
-      request.nextUrl.pathname === "/es" ||
-      request.nextUrl.pathname === "/es/"
-    ) {
-      cspHeader = `
-    default-src 'self';
-    script-src 'self' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
-    script-src-elem 'self' 'unsafe-inline'
-      https://http2.mlstatic.com
-      https://*.mercadopago.com
-      https://*.mercadolibre.com;
-    style-src 'self' 'nonce-${nonce}';
-    style-src-elem 'self' 'unsafe-inline';
-    style-src-attr 'self' 'unsafe-inline';
-    img-src 'self'
-      data:
-      https://secure.gravatar.com
-      https://*.mercadopago.com
-      https://*.mercadolibre.com
-      https://*.mercadolivre.com;
-    font-src 'self';
-    object-src 'none';
-    base-uri 'none';
-    frame-ancestors 'none';
-    upgrade-insecure-requests;
-    worker-src 'self' blob:;
-    frame-src 'self'
-      https://*.mercadopago.com
-      https://*.mercadolibre.com;
-    connect-src 'self' ${env.NODE_ENV === "development" ? "http://localhost:8102" : ""}
-      data:
-      https://http2.mlstatic.com
-      https://*.mercadopago.com
-      https://*.mercadolibre.com
-      https://*.stack-auth.com;
-  `;
+    script-src 'self' ${
+      request.nextUrl.pathname === "/es" || request.nextUrl.pathname === "/es/"
+        ? ""
+        : `'nonce-${nonce}'`
+    } ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
+    script-src-elem 'self' ${
+      request.nextUrl.pathname === "/es" || request.nextUrl.pathname === "/es/"
+        ? "'unsafe-inline'"
+        : `'nonce-${nonce}' 'strict-dynamic'`
     }
+      https://http2.mlstatic.com
+      https://*.mercadopago.com
+      https://*.mercadolibre.com;
+    style-src 'self' 'nonce-${nonce}';
+    style-src-elem 'self' 'unsafe-inline';
+    style-src-attr 'self' 'unsafe-inline';
+    img-src 'self'
+      data:
+      https://secure.gravatar.com
+      https://*.mercadopago.com
+      https://*.mercadolibre.com
+      https://*.mercadolivre.com;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'none';
+    frame-ancestors 'none';
+    upgrade-insecure-requests;
+    worker-src 'self' blob:;
+    frame-src 'self'
+      https://*.mercadopago.com
+      https://*.mercadolibre.com;
+    connect-src 'self' ${env.NODE_ENV === "development" ? "http://localhost:8102" : ""}
+      data:
+      https://http2.mlstatic.com
+      https://*.mercadopago.com
+      https://*.mercadolibre.com
+      https://*.stack-auth.com;
+  `;
 
     // Replace newline characters and spaces
     const contentSecurityPolicyHeaderValue = cspHeader
