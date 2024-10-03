@@ -5,5 +5,9 @@ import "sst"
 export {}
 declare module "sst" {
   export interface Resource {
+    "SolidCode": {
+      "type": "sst.aws.Nextjs"
+      "url": string
+    }
   }
 }
