@@ -44,7 +44,6 @@ function withExtraMiddleware(next: NextMiddleware) {
     //   }
     // }
 
-    // FIXME: remove unsafe-eval when the issue in stack-auth is fixed.
     const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
     let cspHeader = `
     default-src 'self';
@@ -85,7 +84,7 @@ function withExtraMiddleware(next: NextMiddleware) {
     ) {
       cspHeader = `
     default-src 'self';
-    script-src 'self' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : "'unsafe-eval'"};
+    script-src 'self' ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
     script-src-elem 'self' 'unsafe-inline'
       https://http2.mlstatic.com
       https://*.mercadopago.com
