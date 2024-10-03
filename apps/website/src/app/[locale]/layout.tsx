@@ -23,6 +23,10 @@ import { stackServerApp } from "@/stack";
 import { StackProvider, StackTheme } from "@stackframe/stack";
 import { routing } from "@/i18n/routing";
 import { CSPostHogProvider } from "@/app/_analytics/provider";
+import dynamic from "next/dynamic";
+const PostHogPageView = dynamic(() => import("../PostHogPageView"), {
+  ssr: false,
+});
 
 export async function generateMetadata(
   { params: { locale } }: { params: { locale: string } },
@@ -83,6 +87,7 @@ export default async function RootLayout({
               <StackTheme nonce={nonce}>
                 <TanstackQueryClientProvider>
                   <CSPostHogProvider>
+                    <PostHogPageView />
                     <TopNav />
                     {children}
                     <ReactQueryDevtools initialIsOpen={false} />

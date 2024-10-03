@@ -37,48 +37,15 @@ const config = {
   },
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
   rewrites: async () => {
-    const isVercel = !!process.env.VERCEL_ENV;
-    if (isVercel) {
-      return {
-        beforeFiles: [
-          {
-            source: "/:path*.map",
-            destination: "/404",
-          },
-        ],
-        afterFiles: [
-          {
-            source: "/ingest/static/:path*",
-            destination: "https://us-assets.i.posthog.com/static/:path*",
-          },
-          {
-            source: "/ingest/:path*",
-            destination: "https://us.i.posthog.com/:path*",
-          },
-          {
-            source: "/ingest/decide",
-            destination: "https://us.i.posthog.com/decide",
-          },
-        ],
-        fallback: [],
-      };
-    }
     return {
-      beforeFiles: [],
-      afterFiles: [
+      // Disallow access to the source nap files.
+      beforeFiles: [
         {
-          source: "/ingest/static/:path*",
-          destination: "https://us-assets.i.posthog.com/static/:path*",
-        },
-        {
-          source: "/ingest/:path*",
-          destination: "https://us.i.posthog.com/:path*",
-        },
-        {
-          source: "/ingest/decide",
-          destination: "https://us.i.posthog.com/decide",
+          source: "/:path*.map",
+          destination: "/404",
         },
       ],
+      afterFiles: [],
       fallback: [],
     };
   },
