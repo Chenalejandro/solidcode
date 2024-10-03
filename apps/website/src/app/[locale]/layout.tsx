@@ -60,7 +60,7 @@ export default async function RootLayout({
   const nonce = headers().get("x-nonce")!;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning={true}>
       <body
         className={cn(
           "flex max-h-dvh min-h-dvh flex-col bg-background font-sans antialiased",
