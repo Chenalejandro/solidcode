@@ -1,28 +1,17 @@
 "use client";
 import { Tabs as ShadCnTab } from "@/components/ui/tabs";
-import { usePathname } from "@/i18n/routing";
 import { type ComponentProps } from "react";
-import { useCreateQueryString } from "../utils";
+import { useQueryState } from "nuqs";
 
 export function Tabs(
   props: Omit<ComponentProps<typeof ShadCnTab>, "onValueChange"> & {
-    searchParamKey: string;
+    tabKeyName: string;
   },
 ) {
-  const { searchParamKey, ...otherProps } = props;
-  const pathname = usePathname();
-  const { createQueryString } = useCreateQueryString();
+  const { tabKeyName, ...otherProps } = props;
+  const [selectedTab, setSelectedTab] = useQueryState(tabKeyName, {
+    defaultValue: "",
+  });
 
-  return (
-    <ShadCnTab
-      onValueChange={(tab) => {
-        window.history.replaceState(
-          null,
-          "",
-          `${pathname}?${createQueryString(searchParamKey, tab)}`,
-        );
-      }}
-      {...otherProps}
-    ></ShadCnTab>
-  );
+  return <ShadCnTab onValueChange={setSelectedTab} {...otherProps}></ShadCnTab>;
 }

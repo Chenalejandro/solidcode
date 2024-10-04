@@ -87,7 +87,7 @@ export default async function GeneralInformation(props: {
     <Tabs
       defaultValue={selectedTab}
       className="flex h-full flex-col"
-      searchParamKey="selectedTab"
+      tabKeyName="selectedTab"
     >
       <TabsList>
         {tabDatas.map((tab) => {
