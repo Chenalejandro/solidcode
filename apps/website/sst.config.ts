@@ -10,6 +10,10 @@ export default $config({
   async run() {
     new sst.aws.Nextjs("SolidCode", {
       openNextVersion: "3.1.3",
+      server: {
+        architecture: "x86_64",
+        memory: "2048 MB",
+      },
       environment: {
         NEXT_PUBLIC_ENABLE_POSTHOG:
           process.env.NEXT_PUBLIC_ENABLE_POSTHOG ?? "",
