@@ -9,6 +9,7 @@ export default $config({
   },
   async run() {
     new sst.aws.Nextjs("SolidCode", {
+      openNextVersion: "3.1.3",
       environment: {
         NEXT_PUBLIC_ENABLE_POSTHOG:
           process.env.NEXT_PUBLIC_ENABLE_POSTHOG ?? "",
