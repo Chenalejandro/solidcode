@@ -11,7 +11,7 @@ export default {
     "./src/server/db/schema/languages.ts",
   ],
   dbCredentials: {
-    url: env.DATABASE_URL,
+    url: env.DATABASE_URL_UNPOOLED,
   },
   dialect: "postgresql",
   tablesFilter: ["!pg_stat_statements_info", "!pg_stat_statements"],

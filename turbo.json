@@ -20,6 +20,7 @@
         "KV_REST_API_TOKEN",
         "SVIX_WEBHOOK_SECRET",
         "DATABASE_URL",
+        "DATABASE_URL_UNPOOLED",
         "FUTUREJUDGE_TOKEN",
         "FUTURE_JUDGE_API_URL",
         "POSTGRES_DRIVER",
