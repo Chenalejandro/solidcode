@@ -15,4 +15,5 @@ export default {
   },
   dialect: "postgresql",
   tablesFilter: ["!pg_stat_statements_info", "!pg_stat_statements"],
+  casing: "snake_case",
 } satisfies Config;

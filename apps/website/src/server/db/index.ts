@@ -20,7 +20,7 @@ const schema = {
 export const db =
   env.POSTGRES_DRIVER === "postgres"
     ? getDrizzlePostgres()
-    : drizzle(neon(env.DATABASE_URL), { schema });
+    : drizzle(neon(env.DATABASE_URL), { schema, casing: "snake_case" });
 
 function getDrizzlePostgres() {
   const globalForDb = globalThis as unknown as {
@@ -29,5 +29,5 @@ function getDrizzlePostgres() {
 
   const conn = globalForDb.conn ?? postgres(env.DATABASE_URL);
   if (env.NODE_ENV !== "production") globalForDb.conn = conn;
-  return drizzlePostgres(conn, { schema });
+  return drizzlePostgres(conn, { schema, casing: "snake_case" });
 }
