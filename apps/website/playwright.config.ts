@@ -17,8 +17,7 @@ export default defineConfig({
   timeout: 10 * 6000,
   // Test directory
   testDir: path.join(__dirname, "e2e"),
-  // If a test fails, retry it additional 2 times
-  retries: 0,
+  retries: 1,
   // Artifacts folder where screenshots, videos, and traces are stored.
   outputDir: "test-results/",
 
