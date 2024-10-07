@@ -23,6 +23,7 @@ export default $config({
         KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN ?? "",
         SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN ?? "",
         DATABASE_URL: process.env.DATABASE_URL ?? "",
+        DATABASE_URL_UNPOOLED: process.env.DATABASE_URL_UNPOOLED ?? "",
         SVIX_WEBHOOK_SECRET: process.env.SVIX_WEBHOOK_SECRET ?? "",
         POSTGRES_DRIVER: process.env.POSTGRES_DRIVER ?? "",
         NODE_ENV: process.env.NODE_ENV ?? "",
