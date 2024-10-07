@@ -1,11 +1,4 @@
-import {
-  timestamp,
-  text,
-  integer,
-  varchar,
-  pgEnum,
-  decimal,
-} from "drizzle-orm/pg-core";
+import { pgEnum, decimal } from "drizzle-orm/pg-core";
 import { relations, sql } from "drizzle-orm";
 import { problems, problemTestCases } from "./problems";
 import { createTable } from "../utils";
@@ -33,32 +26,31 @@ export const submissionStatusEnum = pgEnum(
   submissionStatuses,
 );
 
-export const submissions = createTable("submissions", {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-  userId: text("user_id").notNull(),
-  problemId: integer("problem_id").notNull(),
-  publicId: varchar("public_id", { length: 12 }).notNull().unique(),
-  languageId: integer("language_id").notNull(),
-  languageVersionId: integer("language_version_id").notNull(),
-  code: text("code").notNull(),
-  status: submissionStatusEnum("status").notNull(),
-  createdAt: timestamp("created_at", { withTimezone: true })
-    .defaultNow()
-    .notNull(),
-  updatedAt: timestamp("updated_at", { withTimezone: true })
+export const submissions = createTable("submissions", (t) => ({
+  id: t.integer().primaryKey().generatedAlwaysAsIdentity(),
+  userId: t.text().notNull(),
+  problemId: t.integer().notNull(),
+  publicId: t.varchar("public_id", { length: 12 }).notNull().unique(),
+  languageId: t.integer().notNull(),
+  languageVersionId: t.integer().notNull(),
+  code: t.text().notNull(),
+  status: submissionStatusEnum().notNull(),
+  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  updatedAt: t
+    .timestamp({ withTimezone: true })
     .defaultNow()
     .$onUpdate(() => sql`now()`)
     .notNull(),
-});
+}));
 
 export const wrongSubmissionAnswerDatas = createTable(
   "wrong_submission_answer_datas",
-  {
-    id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-    submissionId: integer("submission_id"),
-    output: text("output"),
-    problemTestCaseId: integer("problem_testCase_id").notNull(),
-  },
+  (t) => ({
+    id: t.integer().primaryKey().generatedAlwaysAsIdentity(),
+    submissionId: t.integer(),
+    output: t.text(),
+    problemTestCaseId: t.integer().notNull(),
+  }),
 );
 
 export const wrongSubmissionAnswerDatasRelations = relations(
@@ -75,16 +67,16 @@ export const wrongSubmissionAnswerDatasRelations = relations(
   }),
 );
 
-export const submissionDatas = createTable("submission_datas", {
-  submissionId: integer("submission_id").primaryKey(),
-  executionResult: text("execution_result"),
-  stdout: text("stdout"),
-  stderr: text("stderr"),
-  message: text("message"),
-  compileOutput: text("compile_output"),
-  executionTime: decimal("execution_time"),
-  memoryUsage: integer("memory_usage"),
-});
+export const submissionDatas = createTable("submission_datas", (t) => ({
+  submissionId: t.integer().primaryKey(),
+  executionResult: t.text(),
+  stdout: t.text(),
+  stderr: t.text(),
+  message: t.text(),
+  compileOutput: t.text(),
+  executionTime: decimal(),
+  memoryUsage: t.integer(),
+}));
 
 export const submissionsRelations = relations(submissions, ({ one, many }) => ({
   language: one(languages, {

@@ -1,4 +1,4 @@
-import { timestamp, text, pgEnum, bigint, integer } from "drizzle-orm/pg-core";
+import { pgEnum } from "drizzle-orm/pg-core";
 import { createTable } from "../utils";
 import { relations } from "drizzle-orm";
 import { subscriptions } from "./subscriptions";
@@ -35,21 +35,26 @@ export const paymentOperationTypesEnum = pgEnum(
   paymentOperationTypes,
 );
 
-export const payments = createTable("payments", {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-  externalId: bigint("external_id", { mode: "number" }).notNull().unique(),
-  payerId: bigint("payer_id", { mode: "number" }).notNull(),
-  status: paymentStatusEnum("status").notNull(),
-  lastModifiedByMercadopago: timestamp("last_modified_by_mercadopago", {
-    withTimezone: true,
-  }).notNull(),
-  operationType: paymentOperationTypesEnum("operation_type").notNull(),
-});
+export const payments = createTable("payments", (t) => ({
+  id: t.integer().primaryKey().generatedAlwaysAsIdentity(),
+  externalId: t.bigint("external_id", { mode: "number" }).notNull().unique(),
+  payerId: t.bigint({ mode: "number" }).notNull(),
+  status: paymentStatusEnum().notNull(),
+  lastModifiedByMercadopago: t
+    .timestamp({
+      withTimezone: true,
+    })
+    .notNull(),
+  operationType: paymentOperationTypesEnum().notNull(),
+}));
 
-export const recurringPaymentDatas = createTable("recurring_payment_datas", {
-  paymentId: integer("payment_id").primaryKey(),
-  subscriptionId: integer("subscription_id").notNull(),
-});
+export const recurringPaymentDatas = createTable(
+  "recurring_payment_datas",
+  (t) => ({
+    paymentId: t.integer().primaryKey(),
+    subscriptionId: t.integer().notNull(),
+  }),
+);
 
 export const invoiceStatuses = [
   "scheduled",
@@ -60,14 +65,16 @@ export const invoiceStatuses = [
 
 export const invoiceStatusEnum = pgEnum("invoice_status", invoiceStatuses);
 
-export const invoices = createTable("invoices", {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
-  externalId: text("external_id").notNull().unique(),
-  status: invoiceStatusEnum("status").notNull(),
-  lastModifiedByMercadopago: timestamp("last_modified_by_mercadopago", {
-    withTimezone: true,
-  }).notNull(),
-});
+export const invoices = createTable("invoices", (t) => ({
+  id: t.integer().primaryKey().generatedAlwaysAsIdentity(),
+  externalId: t.text("external_id").notNull().unique(),
+  status: invoiceStatusEnum().notNull(),
+  lastModifiedByMercadopago: t
+    .timestamp({
+      withTimezone: true,
+    })
+    .notNull(),
+}));
 
 export const recurringPaymentDatasRelations = relations(
   recurringPaymentDatas,

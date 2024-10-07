@@ -18,7 +18,7 @@ import { z } from "zod";
 import { sql, type InferSelectModel } from "drizzle-orm";
 
 const client = postgres(env.DATABASE_URL);
-const db = drizzle(client);
+const db = drizzle(client, { casing: "snake_case" });
 
 const languageSchema = z.object({
   id: z.number().positive(),
