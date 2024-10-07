@@ -20,7 +20,7 @@
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@mercadopago/sdk-react": "^0.0.19",
-    "@neondatabase/serverless": "^0.10.0",
+    "@neondatabase/serverless": "^0.10.1",
     "@next/mdx": "^14.2.14",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
