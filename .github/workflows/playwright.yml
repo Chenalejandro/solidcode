@@ -10,7 +10,8 @@ jobs:
     env:
       NODE_ENV: test
       AUTH_EMAIL_USERNAME: ${{ vars.AUTH_EMAIL_USERNAME }}
-      DATABASE_URL: ${{ vars.DATABASE_URL }}
+      DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
+      DATABASE_URL_UNPOOLED: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
       GITLAB_CI_CD_ENVIRONMENT: ${{ vars.GITLAB_CI_CD_ENVIRONMENT }}
       IS_TESTING: ${{ vars.IS_TESTING }}
       NEXT_PUBLIC_ENABLE_POSTHOG: ${{ vars.NEXT_PUBLIC_ENABLE_POSTHOG }}
