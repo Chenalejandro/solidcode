@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  '@stackframe/stack@2.6.2':
+  '@stackframe/stack@2.6.3':
     hash: kbkvk4xw6ibinj2e4lkq2yfp5u
-    path: patches/@stackframe__stack@2.6.2.patch
+    path: patches/@stackframe__stack@2.6.3.patch
 
 importers:
 
@@ -74,8 +74,8 @@ importers:
         specifier: ^8.33.1
         version: 8.33.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.26.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.26.0(@opentelemetry/api@1.9.0))(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.19.2))
       '@stackframe/stack':
-        specifier: ^2.6.2
-        version: 2.6.2(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)
+        specifier: ^2.6.3
+        version: 2.6.3(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)
       '@t3-oss/env-nextjs':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.6.2)(zod@3.23.8)
@@ -204,8 +204,8 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6
       '@types/node':
-        specifier: ^20.16.10
-        version: 20.16.10
+        specifier: ^20.16.11
+        version: 20.16.11
       '@types/react':
         specifier: ^18.3.11
         version: 18.3.11
@@ -2876,14 +2876,14 @@ packages:
   '@stablelib/base64@1.0.1':
     resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
 
-  '@stackframe/stack-sc@2.6.2':
-    resolution: {integrity: sha512-l47b0uM1G1nlo+1Q6IlY02GPxZawwi8v8+XiQT8dUhhkJnskgW9wF0wlyXsPS0rMmQOPJ8dPxSsnKUGFcwwNAQ==}
+  '@stackframe/stack-sc@2.6.3':
+    resolution: {integrity: sha512-OCvtMlYtNNDBMgFg/lZgj23u3F57vgQv0cK7g7eLCn9LIjx+wRyq/MUv2yMMqFVDoQKQHVJ82OTWLoR/ivLMoQ==}
     peerDependencies:
       next: '>=14.1'
       react: '>=18.2'
 
-  '@stackframe/stack-shared@2.6.2':
-    resolution: {integrity: sha512-nBH5mxMGSxJNmuegk+La6VhJ7JTHokS9YoKREMhJ1PLXWsIBleJ4055ZkuKAVA7U4IDUtQQU4+3TE40h8R5PVw==}
+  '@stackframe/stack-shared@2.6.3':
+    resolution: {integrity: sha512-4XvOFKvM+tMbM11COTf0CmEHgF03aFOfYtAUSA5DN+rOGhc9a/nX1YYt2OqloqGZEna1JPMEOFsz124qRbAZNQ==}
     peerDependencies:
       react: '>=18.2'
       yup: ^1.4.0
@@ -2893,8 +2893,8 @@ packages:
       yup:
         optional: true
 
-  '@stackframe/stack-ui@2.6.2':
-    resolution: {integrity: sha512-XmVLRMw8jelWc0M5A5OcPVfrWbbAOnj6uEN4gTMY/rSgUnEWhF05ay1buNTa/tZKIX314xO1TSsf1DF9ja9/YQ==}
+  '@stackframe/stack-ui@2.6.3':
+    resolution: {integrity: sha512-BvTFIwDGrxN5oN7ZbLNNVB1RxSzL/GaLt8XvTUhhsYw2ZP8bA2yVnxQWYzEbGFhLPINayb4rvgw6ljvWXaxt6g==}
     peerDependencies:
       react: '>=18.2'
       yup: ^1.4.0
@@ -2904,8 +2904,8 @@ packages:
       yup:
         optional: true
 
-  '@stackframe/stack@2.6.2':
-    resolution: {integrity: sha512-FRAf9DcLarhGRt0cgdU9KIqHkUPmWauXKD7e+323tmfrvrY3JhyaqJizI7XPC3IPk0veij0GWpkXGubvRzc1Fg==}
+  '@stackframe/stack@2.6.3':
+    resolution: {integrity: sha512-yLjPiOhhDm+4Tl0E8P3wiLtAeaH/5BNt/tnycuUJE9ivUm+tTveM45WLxnAszo5uwaA5jvvA6tJJNUWYCDsJcA==}
     peerDependencies:
       next: '>=14.1'
       react: '>=18.2'
@@ -3020,8 +3020,8 @@ packages:
   '@types/mysql@2.15.26':
     resolution: {integrity: sha512-DSLCOXhkvfS5WNNPbfn2KdICAmk8lLc+/PNvnPnF7gOdMZCxopXduqv0OQ13y/yA/zXTSikZZqVgybUxOEg6YQ==}
 
-  '@types/node@20.16.10':
-    resolution: {integrity: sha512-vQUKgWTjEIRFCvK6CyriPH3MZYiYlNy0fKiEYHWbcoWLEgs4opurGGKlebrTLqdSMIbXImH6XExNiIyNUv3WpA==}
+  '@types/node@20.16.11':
+    resolution: {integrity: sha512-y+cTCACu92FyA5fgQSAI8A1H429g7aSK2HsO7K4XYUWc4dY5IUz55JSDIYT6/VsOLfGy8vmvQYC2hfb0iF16Uw==}
 
   '@types/pg-pool@2.0.6':
     resolution: {integrity: sha512-TaAUE5rq2VQYxab5Ts7WZhKNmuN78Q6PiFonTDdpbx8a1H0M1vhy3rhiMjl+e2iHmogyMw7jZF4FrE6eJUy5HQ==}
@@ -9321,14 +9321,14 @@ snapshots:
 
   '@stablelib/base64@1.0.1': {}
 
-  '@stackframe/stack-sc@2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@stackframe/stack-sc@2.6.3(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       next: 14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
-  '@stackframe/stack-shared@2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
+  '@stackframe/stack-shared@2.6.3(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
     dependencies:
-      '@stackframe/stack-sc': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@stackframe/stack-sc': 2.6.3(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       bcrypt: 5.1.1
       elliptic: 6.5.7
       jose: 5.9.3
@@ -9343,7 +9343,7 @@ snapshots:
       - next
       - supports-color
 
-  '@stackframe/stack-ui@2.6.2(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
+  '@stackframe/stack-ui@2.6.3(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
     dependencies:
       '@radix-ui/react-accordion': 1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-alert-dialog': 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9373,7 +9373,7 @@ snapshots:
       '@radix-ui/react-toggle': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-toggle-group': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tooltip': 1.1.3(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@stackframe/stack-shared': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
+      '@stackframe/stack-shared': 2.6.3(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
       '@tanstack/react-table': 8.20.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       class-variance-authority: 0.7.0
       clsx: 2.1.1
@@ -9397,12 +9397,12 @@ snapshots:
       - react-dom
       - supports-color
 
-  '@stackframe/stack@2.6.2(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)':
+  '@stackframe/stack@2.6.3(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)':
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.53.0(react@18.3.1))
-      '@stackframe/stack-sc': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@stackframe/stack-shared': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
-      '@stackframe/stack-ui': 2.6.2(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)
+      '@stackframe/stack-sc': 2.6.3(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@stackframe/stack-shared': 2.6.3(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
+      '@stackframe/stack-ui': 2.6.3(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)
       browser-image-compression: 2.0.2
       class-variance-authority: 0.7.0
       clsx: 2.1.1
@@ -9504,7 +9504,7 @@ snapshots:
 
   '@types/connect@3.4.36':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 20.16.11
 
   '@types/debug@4.1.12':
     dependencies:
@@ -9541,9 +9541,9 @@ snapshots:
 
   '@types/mysql@2.15.26':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 20.16.11
 
-  '@types/node@20.16.10':
+  '@types/node@20.16.11':
     dependencies:
       undici-types: 6.19.8
 
@@ -9553,13 +9553,13 @@ snapshots:
 
   '@types/pg@8.11.6':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 20.16.11
       pg-protocol: 1.7.0
       pg-types: 4.0.2
 
   '@types/pg@8.6.1':
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 20.16.11
       pg-protocol: 1.7.0
       pg-types: 2.2.0
 
@@ -11310,7 +11310,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 20.16.10
+      '@types/node': 20.16.11
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
