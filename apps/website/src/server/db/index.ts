@@ -1,4 +1,4 @@
-import { drizzle } from "drizzle-orm/neon-http";
+import { drizzle } from "drizzle-orm/vercel-postgres";
 import * as paymentsSchema from "./schema/payments";
 import * as problemsSchema from "./schema/problems";
 import * as submissionsSchema from "./schema/submissions";
@@ -7,7 +7,7 @@ import * as languagesSchema from "./schema/languages";
 import { env } from "@/env";
 import { drizzle as drizzlePostgres } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { neon } from "@neondatabase/serverless";
+import { createPool } from "@vercel/postgres";
 
 const schema = {
   ...paymentsSchema,
@@ -20,7 +20,10 @@ const schema = {
 export const db =
   env.POSTGRES_DRIVER === "postgres"
     ? getDrizzlePostgres()
-    : drizzle(neon(env.DATABASE_URL), { schema, casing: "snake_case" });
+    : drizzle(createPool({ connectionString: env.DATABASE_URL }), {
+        schema,
+        casing: "snake_case",
+      });
 
 function getDrizzlePostgres() {
   const globalForDb = globalThis as unknown as {
