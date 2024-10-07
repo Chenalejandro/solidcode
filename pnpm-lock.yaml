@@ -5,9 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 patchedDependencies:
-  '@stackframe/stack@2.6.1':
+  '@stackframe/stack@2.6.2':
     hash: kbkvk4xw6ibinj2e4lkq2yfp5u
-    path: patches/@stackframe__stack@2.6.1.patch
+    path: patches/@stackframe__stack@2.6.2.patch
 
 importers:
 
@@ -74,8 +74,8 @@ importers:
         specifier: ^8.33.1
         version: 8.33.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.26.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.26.0(@opentelemetry/api@1.9.0))(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.19.2))
       '@stackframe/stack':
-        specifier: ^2.6.1
-        version: 2.6.1(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)
+        specifier: ^2.6.2
+        version: 2.6.2(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)
       '@t3-oss/env-nextjs':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.6.2)(zod@3.23.8)
@@ -170,8 +170,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sst:
-        specifier: ^3.1.66
-        version: 3.1.66
+        specifier: ^3.1.67
+        version: 3.1.67
       svix:
         specifier: ^1.37.0
         version: 1.37.0
@@ -553,9 +553,11 @@ packages:
 
   '@esbuild-kit/core-utils@3.3.2':
     resolution: {integrity: sha512-sPRAnw9CdSsRmEtnsl2WXWdyquogVpB3yZ3dgwJfe8zrOzTsV7cJvmwrKVa+0ma5BoiGJ+BoqkMvawbayKUsqQ==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild-kit/esm-loader@2.6.5':
     resolution: {integrity: sha512-FxEMIkJKnodyA1OaCUoEvbYRkoZlLZ4d/eXFu9Fh8CbBBgP5EmZxrfTRyN0qpXZ4vOvqnE5YdRdcrmUUXuU+dA==}
+    deprecated: 'Merged into tsx: https://tsx.is'
 
   '@esbuild-plugins/node-resolve@0.2.2':
     resolution: {integrity: sha512-+t5FdX3ATQlb53UFDBRb4nqjYBz492bIrnVWvpQHpzZlu9BQL5HasMZhqc409ygUwOWCXZhrWr6NyZ6T6Y+cxw==}
@@ -2871,14 +2873,14 @@ packages:
   '@stablelib/base64@1.0.1':
     resolution: {integrity: sha512-1bnPQqSxSuc3Ii6MhBysoWCg58j97aUjuCSZrGSmDxNqtytIi0k8utUenAwTZN4V5mXXYGsVUI9zeBqy+jBOSQ==}
 
-  '@stackframe/stack-sc@2.6.1':
-    resolution: {integrity: sha512-DNY7v8o4kZzVX2PopIXxJvMlj//lBSRyVe/7TJPoN0jf01ph5tPMB4AA/jM08hs52r0pGUoLs/spL3vzNwSFlQ==}
+  '@stackframe/stack-sc@2.6.2':
+    resolution: {integrity: sha512-l47b0uM1G1nlo+1Q6IlY02GPxZawwi8v8+XiQT8dUhhkJnskgW9wF0wlyXsPS0rMmQOPJ8dPxSsnKUGFcwwNAQ==}
     peerDependencies:
       next: '>=14.1'
       react: '>=18.2'
 
-  '@stackframe/stack-shared@2.6.1':
-    resolution: {integrity: sha512-j/Lfjjtp7aC9CKXm7q7xK5qnXoVhZrNWH4ZuU8IpV1PMX2rA5Sq0gnig+XD63xDnUDPLUtcH1eHfkgizlExMSQ==}
+  '@stackframe/stack-shared@2.6.2':
+    resolution: {integrity: sha512-nBH5mxMGSxJNmuegk+La6VhJ7JTHokS9YoKREMhJ1PLXWsIBleJ4055ZkuKAVA7U4IDUtQQU4+3TE40h8R5PVw==}
     peerDependencies:
       react: '>=18.2'
       yup: ^1.4.0
@@ -2888,8 +2890,8 @@ packages:
       yup:
         optional: true
 
-  '@stackframe/stack-ui@2.6.1':
-    resolution: {integrity: sha512-qMbHWy4ckchzO+qSRebu1wVoZUheZdytj9mNi1zs7ckviajFPfqnCrmiDxGMGL9Jv1e6+110Azv/OYpnHJXiXA==}
+  '@stackframe/stack-ui@2.6.2':
+    resolution: {integrity: sha512-XmVLRMw8jelWc0M5A5OcPVfrWbbAOnj6uEN4gTMY/rSgUnEWhF05ay1buNTa/tZKIX314xO1TSsf1DF9ja9/YQ==}
     peerDependencies:
       react: '>=18.2'
       yup: ^1.4.0
@@ -2899,8 +2901,8 @@ packages:
       yup:
         optional: true
 
-  '@stackframe/stack@2.6.1':
-    resolution: {integrity: sha512-tt64d46I6IwMdc50qOrq/wwH/swcF+ajBONcjRbiuctjg/6fqBjUKTeCW7JqcJVDCpYS0OGoBX1KQknlM1jxiw==}
+  '@stackframe/stack@2.6.2':
+    resolution: {integrity: sha512-FRAf9DcLarhGRt0cgdU9KIqHkUPmWauXKD7e+323tmfrvrY3JhyaqJizI7XPC3IPk0veij0GWpkXGubvRzc1Fg==}
     peerDependencies:
       next: '>=14.1'
       react: '>=18.2'
@@ -5592,33 +5594,33 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  sst-darwin-arm64@3.1.66:
-    resolution: {integrity: sha512-SS62n3MSDJ2nA4zHlEQ7oRSWU253VqYOGZ92kPAh0huCmcyLPrebs6ZM3ViLyANx/M6brFePLByprmMZs5rauA==}
+  sst-darwin-arm64@3.1.67:
+    resolution: {integrity: sha512-f46SbXvsrXeKupRfdGSFiprh6MzZ6jQ4kHGVG+ukNdOYSMmKjN8zDV3spAmHqiK8RCjyaCsUP0LNpKVszF/BZQ==}
     cpu: [arm64]
     os: [darwin]
 
-  sst-darwin-x64@3.1.66:
-    resolution: {integrity: sha512-GHjwiPO1sCagQF8RCh6E8GhRR3ceQRFz7MG3gloI8cspo/EtD78ubBSXs75wErXeRF4/wxa+0A0SM2q6EjnwGA==}
+  sst-darwin-x64@3.1.67:
+    resolution: {integrity: sha512-hh4qqSDOwV6BN0PkmzD/DvtKQHPV1Vfk7w5GDjj7NrIrXeRqL07B7rWD+0qInLQ2vV2MFaP5Gk0Y+lDTxx7vUA==}
     cpu: [x64]
     os: [darwin]
 
-  sst-linux-arm64@3.1.66:
-    resolution: {integrity: sha512-ggv5WaOQyglkrAoLiWPEQUTjGf+b6dNz+eRRGWrjImLR9ks8HTdGK8dflZkh57gP4UblnXQdU4Z/0a4vjOamVw==}
+  sst-linux-arm64@3.1.67:
+    resolution: {integrity: sha512-4i+AaUnv2EX+vcnpNcI+YWK2JKi3RPUBbQKCkFu5MgvLzDm7+UmMGtg4GpWaxJsJUPZCjEb9Y0zTxUNb/zwPQA==}
     cpu: [arm64]
     os: [linux]
 
-  sst-linux-x64@3.1.66:
-    resolution: {integrity: sha512-AV8DfNE6Qnhb0bs0Umptli2bqS3R2qru4rmn6N/l27vqADXOfXnUcSZAs7pl2wTzXcHPS/Kq3dkDoeHt7ndlpA==}
+  sst-linux-x64@3.1.67:
+    resolution: {integrity: sha512-mVmbxwji6oLzoCpkdzPBEV7MBnZgQrqH6yyVewWPmXt+k9nI+BqlhYRSmGG3vgra8xYsPOIGJRNq/6kReDM1+g==}
     cpu: [x64]
     os: [linux]
 
-  sst-linux-x86@3.1.66:
-    resolution: {integrity: sha512-RZ8Sk2vxAx8r5rgCSrLriADCuyOhxU9QdCXtQrQX/sm7r7dPqqwyNdxGfPy8rImz07mr8NiH4hpyq7iVwvtLsQ==}
+  sst-linux-x86@3.1.67:
+    resolution: {integrity: sha512-8Ue8CWKFNcYNEdXPMzSKTx9aNVL1df0U8Gv2ITIEQIQMBk0tspialD/Hoz07TMp8vEPtgwf/yaKAC5LBT/M9Cw==}
     cpu: [x86]
     os: [linux]
 
-  sst@3.1.66:
-    resolution: {integrity: sha512-0/zFei5qN0l0j75e+cBmZQl7Aiso+vJ3vp9JWTJu1jm0EDJxblGQ1YDC6e27kpsPR18bDCO3kKvMTwhKZBYaqQ==}
+  sst@3.1.67:
+    resolution: {integrity: sha512-iam4bGAmk28cuhKSWvv/JxERGgQ4TaExyLF7NYHoBK9XKYznNOzoRnEleMLfeHFYMSBmJEivC9zmSqB8QcyXIw==}
     hasBin: true
     peerDependencies:
       hono: 4.x
@@ -9309,14 +9311,14 @@ snapshots:
 
   '@stablelib/base64@1.0.1': {}
 
-  '@stackframe/stack-sc@2.6.1(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@stackframe/stack-sc@2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
       next: 14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
 
-  '@stackframe/stack-shared@2.6.1(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
+  '@stackframe/stack-shared@2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
     dependencies:
-      '@stackframe/stack-sc': 2.6.1(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@stackframe/stack-sc': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       bcrypt: 5.1.1
       elliptic: 6.5.7
       jose: 5.9.3
@@ -9331,7 +9333,7 @@ snapshots:
       - next
       - supports-color
 
-  '@stackframe/stack-ui@2.6.1(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
+  '@stackframe/stack-ui@2.6.2(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)':
     dependencies:
       '@radix-ui/react-accordion': 1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-alert-dialog': 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9361,7 +9363,7 @@ snapshots:
       '@radix-ui/react-toggle': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-toggle-group': 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-tooltip': 1.1.3(@types/react-dom@18.3.0)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@stackframe/stack-shared': 2.6.1(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
+      '@stackframe/stack-shared': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
       '@tanstack/react-table': 8.20.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       class-variance-authority: 0.7.0
       clsx: 2.1.1
@@ -9385,12 +9387,12 @@ snapshots:
       - react-dom
       - supports-color
 
-  '@stackframe/stack@2.6.1(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)':
+  '@stackframe/stack@2.6.2(patch_hash=kbkvk4xw6ibinj2e4lkq2yfp5u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)':
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.53.0(react@18.3.1))
-      '@stackframe/stack-sc': 2.6.1(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
-      '@stackframe/stack-shared': 2.6.1(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
-      '@stackframe/stack-ui': 2.6.1(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)
+      '@stackframe/stack-sc': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      '@stackframe/stack-shared': 2.6.2(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(yup@1.4.0)
+      '@stackframe/stack-ui': 2.6.2(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.14(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.47.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(yup@1.4.0)
       browser-image-compression: 2.0.2
       class-variance-authority: 0.7.0
       clsx: 2.1.1
@@ -12534,32 +12536,32 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  sst-darwin-arm64@3.1.66:
+  sst-darwin-arm64@3.1.67:
     optional: true
 
-  sst-darwin-x64@3.1.66:
+  sst-darwin-x64@3.1.67:
     optional: true
 
-  sst-linux-arm64@3.1.66:
+  sst-linux-arm64@3.1.67:
     optional: true
 
-  sst-linux-x64@3.1.66:
+  sst-linux-x64@3.1.67:
     optional: true
 
-  sst-linux-x86@3.1.66:
+  sst-linux-x86@3.1.67:
     optional: true
 
-  sst@3.1.66:
+  sst@3.1.67:
     dependencies:
       aws4fetch: 1.0.20
       jose: 5.2.3
       openid-client: 5.6.4
     optionalDependencies:
-      sst-darwin-arm64: 3.1.66
-      sst-darwin-x64: 3.1.66
-      sst-linux-arm64: 3.1.66
-      sst-linux-x64: 3.1.66
-      sst-linux-x86: 3.1.66
+      sst-darwin-arm64: 3.1.67
+      sst-darwin-x64: 3.1.67
+      sst-linux-arm64: 3.1.67
+      sst-linux-x64: 3.1.67
+      sst-linux-x86: 3.1.67
 
   stacktrace-parser@0.1.10:
     dependencies:
