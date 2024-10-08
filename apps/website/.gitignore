@@ -8,10 +8,6 @@
 # testing
 /coverage
 
-# database
-/prisma/db.sqlite
-/prisma/db.sqlite-journal
-
 # next.js
 /.next/
 /out/
@@ -41,8 +37,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# project planning
-.~lock.ProjectPlanning.ods#
 /test-results/
 /playwright-report/
 /blob-report/
