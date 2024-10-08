@@ -66,6 +66,7 @@ function withExtraMiddleware(next: NextMiddleware) {
     style-src-attr 'self' 'unsafe-inline';
     img-src 'self'
       data:
+      https://avatars.githubusercontent.com
       https://secure.gravatar.com
       https://*.mercadopago.com
       https://*.mercadolibre.com
