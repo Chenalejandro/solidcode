@@ -9,6 +9,9 @@ export default $config({
   },
   async run() {
     new sst.aws.Nextjs("SolidCode", {
+      buildCommand: ["npx", "--yes", `@opennextjs/aws@3.1.4`, "build"].join(
+        " ",
+      ),
       openNextVersion: "3.1.4",
       server: {
         architecture: "x86_64",
