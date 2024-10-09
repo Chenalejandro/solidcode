@@ -4,9 +4,6 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/app/_components/theme-provider";
 import { TopNav } from "@/app/_components/top-nav";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
-import { env } from "@/env";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { headers } from "next/headers";
 import { TanstackQueryClientProvider } from "@/components/TanstackQueryClientProvider";
@@ -93,7 +90,6 @@ export default async function RootLayout({
                     <ReactQueryDevtools initialIsOpen={false} />
                     <Sonner />
                     <Toaster />
-                    <Tracking />
                   </CSPostHogProvider>
                 </TanstackQueryClientProvider>
               </StackTheme>
@@ -102,17 +98,5 @@ export default async function RootLayout({
         </NextIntlClientProvider>
       </body>
     </html>
-  );
-}
-
-function Tracking() {
-  if (env.NODE_ENV !== "production") {
-    return <></>;
-  }
-  return (
-    <>
-      <SpeedInsights />
-      <Analytics />
-    </>
   );
 }
