@@ -44,6 +44,7 @@ export const env = createEnv({
     NEXT_PUBLIC_MELI_PUBLIC_KEY: z.string(),
     NEXT_PUBLIC_STACK_PROJECT_ID: z.string(),
     NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: z.string(),
+    NEXT_PUBLIC_ALLOW_INSECURE_COOKIES: z.enum(["true", "false"]).optional(),
   },
 
   /**
@@ -51,6 +52,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    NEXT_PUBLIC_ALLOW_INSECURE_COOKIES: process.env.NEXT_PUBLIC_ALLOW_INSECURE_COOKIES,
     NEXT_PUBLIC_ENABLE_POSTHOG: process.env.NEXT_PUBLIC_ENABLE_POSTHOG,
     NEXT_PUBLIC_ENABLE_SENTRY: process.env.NEXT_PUBLIC_ENABLE_SENTRY,
     RATE_LIMIT_COUNT: process.env.RATE_LIMIT_COUNT,

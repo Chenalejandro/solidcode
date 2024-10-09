@@ -26,31 +26,3 @@ index 18703b4465ef31d04e1e890926fbbee5d71eeb3a..ebe03b9d7c8eaae044bcfd468047ea1a
    return /* @__PURE__ */ jsx(
      "script",
      {
-diff --git a/dist/esm/lib/cookie.js b/dist/esm/lib/cookie.js
-index 7d098400508a4414f586b75a8ba52e62fa42abe5..3f2d4d7e1a79055c12123806ad79d375b2aaa372 100644
---- a/dist/esm/lib/cookie.js
-+++ b/dist/esm/lib/cookie.js
-@@ -172,9 +172,6 @@ function setCookie(name, value, options = {}) {
-     });
-   } catch (e) {
-     if (isRscCookieUnavailableError(e)) {
--      if (window.location.protocol !== "https:" && isProd && !process.env.NEXT_PUBLIC_SUPPRESS_HTTPS_COOKIE_ERROR) {
--        throw new Error("Attempted to set a secure cookie, but this build was compiled as a production build, but the current page is not served over HTTPS. This is a security risk and is not allowed in production.");
--      }
-       Cookies.set(name, value, {
-         secure: isProd,
-         expires: options.maxAge === void 0 ? void 0 : new Date(Date.now() + options.maxAge * 1e3)
-diff --git a/dist/lib/cookie.js b/dist/lib/cookie.js
-index aca0ae4ed5774dc2fd97ceda0e6262936ce00cab..f8a10509115071fafd7c7282ed430f30efede2c0 100644
---- a/dist/lib/cookie.js
-+++ b/dist/lib/cookie.js
-@@ -211,9 +211,6 @@ function setCookie(name, value, options = {}) {
-     });
-   } catch (e) {
-     if (isRscCookieUnavailableError(e)) {
--      if (window.location.protocol !== "https:" && isProd && !process.env.NEXT_PUBLIC_SUPPRESS_HTTPS_COOKIE_ERROR) {
--        throw new Error("Attempted to set a secure cookie, but this build was compiled as a production build, but the current page is not served over HTTPS. This is a security risk and is not allowed in production.");
--      }
-       import_js_cookie.default.set(name, value, {
-         secure: isProd,
-         expires: options.maxAge === void 0 ? void 0 : new Date(Date.now() + options.maxAge * 1e3)

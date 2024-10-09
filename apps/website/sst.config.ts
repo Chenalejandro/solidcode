@@ -18,6 +18,8 @@ export default $config({
         memory: "2048 MB",
       },
       environment: {
+        // This env var is not needed for production. It is only needed when running e2e tests.
+        // NEXT_PUBLIC_ALLOW_INSECURE_COOKIES: process.env.NEXT_PUBLIC_ALLOW_INSECURE_COOKIES,
         NEXT_PUBLIC_ENABLE_POSTHOG:
           process.env.NEXT_PUBLIC_ENABLE_POSTHOG ?? "",
         NEXT_PUBLIC_ENABLE_SENTRY: process.env.NEXT_PUBLIC_ENABLE_SENTRY ?? "",

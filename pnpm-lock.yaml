@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@stackframe/stack@2.6.5':
-    hash: 6fsjqbrbs5w24wshkmoh7xsus4
+    hash: pcyyw4g6aya2zhxacy6rdbk65u
     path: patches/@stackframe__stack@2.6.5.patch
 
 importers:
@@ -78,7 +78,7 @@ importers:
         version: 8.33.1(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.26.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.53.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.26.0(@opentelemetry/api@1.9.0))(next@14.2.15(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(webpack@5.94.0(esbuild@0.19.2))
       '@stackframe/stack':
         specifier: ^2.6.5
-        version: 2.6.5(patch_hash=6fsjqbrbs5w24wshkmoh7xsus4)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.15(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)
+        version: 2.6.5(patch_hash=pcyyw4g6aya2zhxacy6rdbk65u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.15(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)
       '@t3-oss/env-nextjs':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.6.3)(zod@3.23.8)
@@ -9385,7 +9385,7 @@ snapshots:
       - react-dom
       - supports-color
 
-  '@stackframe/stack@2.6.5(patch_hash=6fsjqbrbs5w24wshkmoh7xsus4)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.15(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)':
+  '@stackframe/stack@2.6.5(patch_hash=pcyyw4g6aya2zhxacy6rdbk65u)(@babel/core@7.25.7)(@types/react-dom@18.3.0)(@types/react@18.3.11)(next@14.2.15(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(tailwindcss@3.4.13)':
     dependencies:
       '@hookform/resolvers': 3.9.0(react-hook-form@7.53.0(react@18.3.1))
       '@stackframe/stack-sc': 2.6.5(next@14.2.15(@babel/core@7.25.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
