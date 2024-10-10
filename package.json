@@ -21,7 +21,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "@stackframe/stack@2.6.6": "patches/@stackframe__stack@2.6.6.patch"
+      "@stackframe/stack@2.6.7": "patches/@stackframe__stack@2.6.7.patch"
     }
   }
 }
