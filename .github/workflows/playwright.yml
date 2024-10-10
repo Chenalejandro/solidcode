@@ -8,7 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_ALLOW_INSECURE_COOKIES: "true"
+      NEXT_PUBLIC_STACK_ALLOW_INSECURE_COOKIES: "true"
       NODE_ENV: test
       AUTH_EMAIL_USERNAME: ${{ vars.AUTH_EMAIL_USERNAME }}
       DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
