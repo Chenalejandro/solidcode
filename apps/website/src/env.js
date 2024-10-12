@@ -28,6 +28,7 @@ export const env = createEnv({
     STACK_SECRET_SERVER_KEY: z.string(),
     AUTH_EMAIL: z.string().email().default("chenalejandro@outlook.com"),
     AUTH_EMAIL_PASSWORD: z.string().default("12345678"),
+    NEXT_RUNTIME: z.enum(["nodejs", "edge"]),
   },
 
   /**
@@ -51,6 +52,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     NEXT_PUBLIC_ENABLE_POSTHOG: process.env.NEXT_PUBLIC_ENABLE_POSTHOG,
     NEXT_PUBLIC_ENABLE_SENTRY: process.env.NEXT_PUBLIC_ENABLE_SENTRY,
     RATE_LIMIT_COUNT: process.env.RATE_LIMIT_COUNT,

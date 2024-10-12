@@ -7,6 +7,7 @@ import nextMdx from "@next/mdx";
 import { withSentryConfig } from "@sentry/nextjs";
 import createNextIntlPlugin from "next-intl/plugin";
 import MonacoWebpackPlugin from "monaco-editor-webpack-plugin";
+import { env } from "./src/env.js";
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -56,7 +57,7 @@ const config = {
 const withNextIntlWithMdxConfig = withNextIntl(withMdx(config));
 
 const finalConfig =
-  process.env.NEXT_PUBLIC_ENABLE_SENTRY === "false"
+  env.NEXT_PUBLIC_ENABLE_SENTRY === "false"
     ? withNextIntlWithMdxConfig
     : withSentryConfig(withNextIntlWithMdxConfig, {
         // For all available options, see:
@@ -65,8 +66,7 @@ const finalConfig =
         org: "solid-code-fm",
         project: "javascript-nextjs",
 
-        // Only print logs for uploading source maps in CI
-        silent: !process.env.CI,
+        silent: false,
 
         // For all available options, see:
         // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
