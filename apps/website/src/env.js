@@ -28,7 +28,7 @@ export const env = createEnv({
     STACK_SECRET_SERVER_KEY: z.string(),
     AUTH_EMAIL: z.string().email().default("chenalejandro@outlook.com"),
     AUTH_EMAIL_PASSWORD: z.string().default("12345678"),
-    NEXT_RUNTIME: z.enum(["nodejs", "edge"]),
+    NEXT_RUNTIME: z.enum(["nodejs", "edge"]).optional(),
   },
 
   /**
