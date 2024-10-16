@@ -1,5 +1,5 @@
 import "server-only";
-import { db } from "../db";
+import { db, dbWithTransaction } from "../db";
 import { and, desc, eq, gt, or, sql } from "drizzle-orm";
 import {
   subscriptions,
@@ -34,7 +34,7 @@ export async function updateSubscription(
   lastModifiedByMercadopago: Date,
   status: SubscriptionStatus,
 ) {
-  await db.transaction(async (transaction) => {
+  await dbWithTransaction.transaction(async (transaction) => {
     const [subscription] = await transaction
       .select()
       .from(subscriptions)

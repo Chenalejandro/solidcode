@@ -1,6 +1,6 @@
 import "server-only";
 import { type Status } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
-import { db } from "@/server/db";
+import { db, dbWithTransaction } from "@/server/db";
 import {
   submissionDatas,
   submissions,
@@ -22,7 +22,7 @@ export async function saveSubmission(
   userId: string,
   code: string,
 ) {
-  await db.transaction(async (transaction) => {
+  await dbWithTransaction.transaction(async (transaction) => {
     const languageVersion = await transaction.query.languageVersions.findFirst({
       columns: { id: true },
       where: eq(languageVersions.languageId, languageId),
@@ -55,7 +55,7 @@ export async function saveSubmissionResult(
   memory: number | null,
   failedTestCases: FailedTestCaseInfo[],
 ) {
-  await db.transaction(async (transaction) => {
+  await dbWithTransaction.transaction(async (transaction) => {
     const [submission] = await transaction
       .update(submissions)
       .set({

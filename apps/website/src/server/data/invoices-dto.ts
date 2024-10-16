@@ -1,7 +1,7 @@
 import "server-only";
 import { invoices, invoiceStatuses } from "../db/schema/payments";
 import { z } from "zod";
-import { db } from "../db";
+import { dbWithTransaction } from "../db";
 import { eq } from "drizzle-orm";
 
 export const invoiceStatusEnum = z.enum(invoiceStatuses);
@@ -13,7 +13,7 @@ export async function upsertInvoice(
   status: InvoiceStatus,
   lastModifiedByMercadopago: Date,
 ) {
-  await db.transaction(async (transaction) => {
+  await dbWithTransaction.transaction(async (transaction) => {
     const [invoice] = await transaction
       .select()
       .from(invoices)
