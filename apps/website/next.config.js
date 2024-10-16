@@ -21,6 +21,11 @@ const withMdx = nextMdx({
 
 /** @type {import("next").NextConfig} */
 const config = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   webpack: (config, options) => {
     if (!options.isServer) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
