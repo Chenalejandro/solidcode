@@ -164,8 +164,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sst:
-        specifier: ^3.2.26
-        version: 3.2.26
+        specifier: ^3.2.31
+        version: 3.2.31
       svix:
         specifier: ^1.37.0
         version: 1.37.0
@@ -5558,33 +5558,33 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  sst-darwin-arm64@3.2.26:
-    resolution: {integrity: sha512-E/JbcWzXaOAE0wMNj6rzIYfeBaGdLkLGdLDrpUg5d1i2bx9frlrTvmPXwx1L207qisInm4kwFrA02X9D/JNnbQ==}
+  sst-darwin-arm64@3.2.31:
+    resolution: {integrity: sha512-IkMU7Vf91tmx74bCX4nCr4u0KJ15hdnIYINK2tIPSpAfANw+ZRSLMV7X4WmmQFFiELCdKWg+6pEtb5EiOpU58A==}
     cpu: [arm64]
     os: [darwin]
 
-  sst-darwin-x64@3.2.26:
-    resolution: {integrity: sha512-47h8pLkKUbb2Yu0Rv7ysKVEyghni+eOjWE7Q7oeJNR3Qe9a/MdzDanqc+L2vIomIWz/JVrjDY8ZKMz24URrNJg==}
+  sst-darwin-x64@3.2.31:
+    resolution: {integrity: sha512-GXUzVoXbQJo0W01SKHBU8FnLcHKtj6FMzYgFTF7sb5se2za9bVvdIkBVnZM6+oJY5fWacMDSlabgU8Ruv7P28w==}
     cpu: [x64]
     os: [darwin]
 
-  sst-linux-arm64@3.2.26:
-    resolution: {integrity: sha512-3hNlbHR2qGxR8lwzZoCSMZYgwMgY6YRsUn3jSUhwPSV4A7eHT/UYWyltg6jxWtIQfqFUAEeUisp/tjcRL/qqfQ==}
+  sst-linux-arm64@3.2.31:
+    resolution: {integrity: sha512-yV1XZTihiuDVP7BNzTV9DbUl8sHzBEi044n8xIUU/pEr/yJSHliuZqMIESnQ+W0y3o+qJ1Ldr/Mp505TRG9ssQ==}
     cpu: [arm64]
     os: [linux]
 
-  sst-linux-x64@3.2.26:
-    resolution: {integrity: sha512-ekZ4blOxF7Milp7bOFcGxDZ+F2ZxSQXj57uNkJ2bWTYsKK4vBJDpbtpOnImCY9/zzype1Ww61pnvXPJ61nxujw==}
+  sst-linux-x64@3.2.31:
+    resolution: {integrity: sha512-UycmzraCh1zowc7SPMvbooUpIYQfYsiVWiT2H3z7z2rJF1Z8CMY5QHbQfCXXlTSNvbYztOVIlp2AvQ2SXJOVFQ==}
     cpu: [x64]
     os: [linux]
 
-  sst-linux-x86@3.2.26:
-    resolution: {integrity: sha512-bfY5IEPz+RPLgdiZ8N3k1bjQ6CixL4zSIr5RoMjkEsXZY2Sct68r2FUjv2Y9cRhlrqgCdiftasQibg8ZRLU27g==}
+  sst-linux-x86@3.2.31:
+    resolution: {integrity: sha512-3t2Al+q/6wRrD06LbyFuN1yj5hAcoUfITQT+XhD9afiTZryKZD+YmeQ7o9VND8iuwLaiBJyoZjxF5myZqdzXRg==}
     cpu: [x86]
     os: [linux]
 
-  sst@3.2.26:
-    resolution: {integrity: sha512-L8reOZOu/yOtC/FjnSYT5lxTDXoqkMBEcI+SC6yve28pvKK9TDWrlBehvYVcJcFaf0oywc/azt1X1SZRJf96nw==}
+  sst@3.2.31:
+    resolution: {integrity: sha512-YsPUeYITAk9H1c9INpSCvKBvvbxbko4Ep/SiGk0yID8S7I3fewOktSJ6fLeBS6MH1N9l6bL6YAmJ+EJ/YgI96Q==}
     hasBin: true
     peerDependencies:
       hono: 4.x
@@ -5750,8 +5750,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  terser@5.35.0:
-    resolution: {integrity: sha512-TmYbQnzVfrx3RQsPoItoPplymixIAtp2R2xlpyVBYmFmvI34IzLhCLj8SimRb/kZXlq4t1gA+vbcTqLQ3+5Q5g==}
+  terser@5.36.0:
+    resolution: {integrity: sha512-IYV9eNMuFAV4THUspIRXkLakHnV6XO7FEdtKjf/mDyrnqUg9LnlOn6/RwRvM9SZjR4GUq8Nk8zj67FzVARr74w==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -12506,32 +12506,32 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  sst-darwin-arm64@3.2.26:
+  sst-darwin-arm64@3.2.31:
     optional: true
 
-  sst-darwin-x64@3.2.26:
+  sst-darwin-x64@3.2.31:
     optional: true
 
-  sst-linux-arm64@3.2.26:
+  sst-linux-arm64@3.2.31:
     optional: true
 
-  sst-linux-x64@3.2.26:
+  sst-linux-x64@3.2.31:
     optional: true
 
-  sst-linux-x86@3.2.26:
+  sst-linux-x86@3.2.31:
     optional: true
 
-  sst@3.2.26:
+  sst@3.2.31:
     dependencies:
       aws4fetch: 1.0.20
       jose: 5.2.3
       openid-client: 5.6.4
     optionalDependencies:
-      sst-darwin-arm64: 3.2.26
-      sst-darwin-x64: 3.2.26
-      sst-linux-arm64: 3.2.26
-      sst-linux-x64: 3.2.26
-      sst-linux-x86: 3.2.26
+      sst-darwin-arm64: 3.2.31
+      sst-darwin-x64: 3.2.31
+      sst-linux-arm64: 3.2.31
+      sst-linux-x64: 3.2.31
+      sst-linux-x86: 3.2.31
 
   stacktrace-parser@0.1.10:
     dependencies:
@@ -12729,7 +12729,7 @@ snapshots:
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
-      terser: 5.35.0
+      terser: 5.36.0
       webpack: 5.94.0(esbuild@0.19.2)
     optionalDependencies:
       esbuild: 0.19.2
@@ -12741,7 +12741,7 @@ snapshots:
       commander: 2.20.3
       source-map-support: 0.5.21
 
-  terser@5.35.0:
+  terser@5.36.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
       acorn: 8.13.0
