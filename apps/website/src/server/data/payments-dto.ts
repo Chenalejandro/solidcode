@@ -5,7 +5,7 @@ import {
   paymentStatuses,
   recurringPaymentDatas,
 } from "../db/schema/payments";
-import { db } from "../db";
+import { dbWithTransaction } from "../db";
 import { z } from "zod";
 import { eq } from "drizzle-orm";
 import { subscriptions } from "../db/schema/subscriptions";
@@ -26,7 +26,7 @@ export async function upsertPayment(
   operationType: OperationType,
   subscriptionExternalId: string,
 ) {
-  await db.transaction(async (transaction) => {
+  await dbWithTransaction.transaction(async (transaction) => {
     const [payment] = await transaction
       .select()
       .from(payments)

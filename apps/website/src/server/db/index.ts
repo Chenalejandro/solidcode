@@ -6,7 +6,8 @@ import * as languagesSchema from "./schema/languages";
 import { env } from "@/env";
 import { drizzle as drizzlePostgres } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { drizzle } from 'drizzle-orm/neon-http';
+import { drizzle } from "drizzle-orm/neon-http";
+import { drizzle as drizzleWithTransaction } from "drizzle-orm/neon-serverless";
 
 const schema = {
   ...paymentsSchema,
@@ -20,6 +21,14 @@ export const db =
   env.POSTGRES_DRIVER === "postgres"
     ? getDrizzlePostgres()
     : drizzle(env.DATABASE_URL, {
+        schema,
+        casing: "snake_case",
+      });
+
+export const dbWithTransaction =
+  env.POSTGRES_DRIVER === "postgres"
+    ? getDrizzlePostgres()
+    : drizzleWithTransaction(env.DATABASE_URL, {
         schema,
         casing: "snake_case",
       });
