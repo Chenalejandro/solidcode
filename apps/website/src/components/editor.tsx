@@ -5,7 +5,8 @@ import {
   useRef,
   useState,
 } from "react";
-import { editor } from "monaco-editor";
+// FIXME: https://github.com/microsoft/monaco-editor/issues/2874
+import { editor } from "monaco-editor/esm/vs/editor/editor.api";
 import { cn } from "@/lib/utils";
 
 export type Language = "javascript" | "typescript" | "php" | "python" | "cpp";
@@ -35,7 +36,7 @@ export default function Editor(props: {
     if (!editorRef.current) {
       throw new Error("the ref.current is null");
     }
-    console.log('mounting editor');
+    console.log("mounting editor");
     const model = editor.createModel(initialValue, language);
     const codeEditor = editor.create(editorRef.current, {
       model,
