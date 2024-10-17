@@ -17,14 +17,11 @@ import {
 import { stackServerApp } from "@/stack";
 import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
-import { z } from "zod";
 import { Tabs } from "./tab";
 import { Submissions } from "./Submissions";
+import { validTabNames } from "./validTabNames";
 
-const validTabNames = ["description", "submissions", "solutions"] as const;
-
-const tabNameSchema = z.enum(validTabNames);
-type TabName = z.infer<typeof tabNameSchema>;
+type TabName = (typeof validTabNames)[number];
 
 type TabData = {
   name: TabName;
@@ -35,11 +32,8 @@ type TabData = {
 export default async function GeneralInformation(props: {
   problemId: number;
   problemSlug: string;
-  selectedTabNotParsed: string;
 }) {
-  const { problemId, selectedTabNotParsed, problemSlug } = props;
-  const { success, data } = tabNameSchema.safeParse(selectedTabNotParsed);
-  const selectedTab = success ? data : validTabNames[0];
+  const { problemId, problemSlug } = props;
   const problemExamples = await getProblemExamples(problemId);
 
   const t = await getTranslations("ProblemTab");
@@ -84,11 +78,7 @@ export default async function GeneralInformation(props: {
   ];
 
   return (
-    <Tabs
-      defaultValue={selectedTab}
-      className="flex h-full flex-col"
-      tabKeyName="selectedTab"
-    >
+    <Tabs className="flex h-full flex-col" tabKeyName="selectedTab">
       <TabsList>
         {tabDatas.map((tab) => {
           return (

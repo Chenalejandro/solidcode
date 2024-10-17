@@ -43,7 +43,6 @@ export default async function ProblemPage({
         <GeneralInformation
           problemSlug={problem.slug}
           problemId={problem.id}
-          selectedTabNotParsed={selectedTab}
         />
       </main>
     );
@@ -61,7 +60,6 @@ export default async function ProblemPage({
           <GeneralInformation
             problemSlug={problem.slug}
             problemId={problem.id}
-            selectedTabNotParsed={selectedTab}
           />
         }
       />
