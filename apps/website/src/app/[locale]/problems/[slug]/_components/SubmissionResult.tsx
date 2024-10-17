@@ -18,20 +18,23 @@ import {
 } from "@/components/ui/card";
 import { type Status } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
 import { useEffect } from "react";
-import { useUser } from "@stackframe/stack";
+import { type ClientUser } from "../page";
 
 export function CodeSubmissionResult({
   submissionPublicId,
   onPoolingResultCompletes,
+  user,
 }: {
   submissionPublicId?: string;
   onPoolingResultCompletes: () => void;
+  user: ClientUser;
 }) {
   if (!submissionPublicId) {
     return <></>;
   }
   return (
     <Result
+      user={user}
       submissionPublicId={submissionPublicId}
       onPoolingResultCompletes={onPoolingResultCompletes}
     />
@@ -41,9 +44,11 @@ export function CodeSubmissionResult({
 function Result({
   submissionPublicId,
   onPoolingResultCompletes,
+  user,
 }: {
   submissionPublicId: string;
   onPoolingResultCompletes: () => void;
+  user: ClientUser;
 }) {
   const queryClient = useQueryClient();
   const { isPending, isError, data, error } = useQuery({
@@ -78,7 +83,6 @@ function Result({
     },
     retryDelay: 500,
   });
-  const user = useUser();
   // FIXME: We should be using revalidatePath() in the server action, but currently there are some issues
   useEffect(() => {
     if (
