@@ -1,7 +1,8 @@
 "use client";
 import { Tabs as ShadCnTab } from "@/components/ui/tabs";
 import { type ComponentProps } from "react";
-import { useQueryState } from "nuqs";
+import { useQueryState, parseAsStringLiteral } from "nuqs";
+import { validTabNames } from "./validTabNames";
 
 export function Tabs(
   props: Omit<ComponentProps<typeof ShadCnTab>, "onValueChange"> & {
@@ -9,9 +10,17 @@ export function Tabs(
   },
 ) {
   const { tabKeyName, ...otherProps } = props;
-  const [selectedTab, setSelectedTab] = useQueryState(tabKeyName, {
-    defaultValue: "",
-  });
+  const [selectedTab, setSelectedTab] = useQueryState(
+    tabKeyName,
+    parseAsStringLiteral(validTabNames).withDefault("description"),
+  );
 
-  return <ShadCnTab onValueChange={setSelectedTab} {...otherProps}></ShadCnTab>;
+  return (
+    <ShadCnTab
+      // @ts-expect-error "ignoring type error"
+      onValueChange={setSelectedTab}
+      value={selectedTab}
+      {...otherProps}
+    ></ShadCnTab>
+  );
 }

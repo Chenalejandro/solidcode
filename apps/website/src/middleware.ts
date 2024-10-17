@@ -126,12 +126,26 @@ function withExtraMiddleware(next: NextMiddleware) {
 
 export default withExtraMiddleware(createMiddleware(routing));
 
-export const config: MiddlewareConfig = {
-  // The following matcher runs middleware on all routes
-  // except static assets.
+// FIXME: add type anotations in next.js 15
+// export const config: MiddlewareConfig = {
+export const config = {
   matcher: [
-    "/((?!.*\\..*|_next|monitoring|ingest|favicon.ico|sitemap.xml|robots.txt).*)",
-    "/",
-    "/(api|trpc)(.*)",
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - sitemap.xml (sitemap file)
+     * - robots.txt (robots file)
+     */
+    {
+      source:
+        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+      missing: [
+        { type: "header", key: "next-router-prefetch" },
+        { type: "header", key: "purpose", value: "prefetch" },
+      ],
+    },
   ],
 };
