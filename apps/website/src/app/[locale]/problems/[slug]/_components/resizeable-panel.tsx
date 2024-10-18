@@ -100,6 +100,7 @@ export function ResizeablePanel({
             collapsedSize={6}
           >
             <CodeSubmissionResult
+              user={user}
               submissionPublicId={submissionPublicId}
               onPoolingResultCompletes={onPoolingResultCompletes}
             />

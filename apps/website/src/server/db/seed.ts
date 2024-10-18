@@ -8,7 +8,6 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import { env } from "@/env";
 import { readFileSync } from "node:fs";
 import path from "path";
-import { fileURLToPath } from "url";
 import {
   languages,
   languageVersions,
@@ -48,8 +47,7 @@ async function getLanguages() {
 type LanguageModel = InferSelectModel<typeof languages>;
 
 async function main() {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
+  const __dirname = import.meta.dirname;
   const futureJudgeLanguages = await getLanguages();
   const t = {
     "reverse-the-array": "revertir-el-arreglo",
