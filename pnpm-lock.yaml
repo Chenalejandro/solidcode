@@ -31,12 +31,6 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.9.0
         version: 3.9.0(react-hook-form@7.53.0(react@18.3.1))
-      '@mdx-js/loader':
-        specifier: ^3.0.1
-        version: 3.0.1(webpack@5.94.0(esbuild@0.19.2))
-      '@mdx-js/react':
-        specifier: ^3.0.1
-        version: 3.0.1(@types/react@18.3.11)(react@18.3.1)
       '@mercadopago/sdk-react':
         specifier: ^0.0.19
         version: 0.0.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -110,8 +104,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(@types/react-dom@18.3.1)(@types/react@18.3.11)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       drizzle-orm:
-        specifier: ^0.35.1
-        version: 0.35.1(@neondatabase/serverless@0.10.1)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@18.3.11)(@vercel/postgres@0.10.0(utf-8-validate@6.0.4))(postgres@3.4.4)(react@18.3.1)
+        specifier: ^0.35.2
+        version: 0.35.2(@neondatabase/serverless@0.10.1)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@18.3.11)(@vercel/postgres@0.10.0(utf-8-validate@6.0.4))(postgres@3.4.4)(react@18.3.1)
       js-cookie:
         specifier: ^3.0.5
         version: 3.0.5
@@ -140,8 +134,8 @@ importers:
         specifier: ^1.20.0
         version: 1.20.0(next@14.2.15(@babel/core@7.25.8)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       posthog-js:
-        specifier: ^1.174.0
-        version: 1.174.0
+        specifier: ^1.174.2
+        version: 1.174.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -164,8 +158,8 @@ importers:
         specifier: ^1.5.0
         version: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sst:
-        specifier: ^3.2.33
-        version: 3.2.33
+        specifier: ^3.2.36
+        version: 3.2.36
       svix:
         specifier: ^1.37.0
         version: 1.37.0
@@ -3670,8 +3664,8 @@ packages:
     resolution: {integrity: sha512-cMq8omEKywjIy5KcqUo6LvEFxkl8/zYHsgYjFVXjmPWWtuW4blcz+YW9+oIhoaALgs2ebRjzXwsJgN9i6P49Dw==}
     hasBin: true
 
-  drizzle-orm@0.35.1:
-    resolution: {integrity: sha512-HQxDdYuXlZFuvDPztlUIzrX8TqWa/Ej6uN6L0hkbuGL4slexOUMc3u4nXVU15RQ5QYbk+uLQnR6v1+OIrdCTXQ==}
+  drizzle-orm@0.35.2:
+    resolution: {integrity: sha512-bLQtRchl8QvRo2MyG6kcZC90UDzR7Ubir4YwOHV3cZPdJbF+4jU/Yt0QOczsoXe25wLRt6CtCWLXtSDQKft3yg==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -5193,8 +5187,8 @@ packages:
     resolution: {integrity: sha512-IbyN+9KslkqcXa8AO9fxpk97PA4pzewvpi2B3Dwy9u4zpV32QicaEdgmF3eSQUzdRk7ttDHQejNgAEr4XoeH4A==}
     engines: {node: '>=12'}
 
-  posthog-js@1.174.0:
-    resolution: {integrity: sha512-60qCn8bloCxVc3oBQ/JP77J40J7UD+cRGUfYXJdsqjUH82s2wmCx4MicuNrcn9Hd2dHM25nXmOAMLO5iwSq9gg==}
+  posthog-js@1.174.2:
+    resolution: {integrity: sha512-UgS7eRcDVvVz2XSJ09NMX8zBcdpFnPayfiWDNF3xEbJTsIu1GipkkYNrVlsWlq8U1PIrviNm6i0Dyq8daaxssw==}
 
   preact@10.24.3:
     resolution: {integrity: sha512-Z2dPnBnMUfyQfSQ+GBdsGa16hz35YmLmtTLhM169uW944hYL6xzTYkJjC07j+Wosz733pMWx0fgON3JNw1jJQA==}
@@ -5564,33 +5558,33 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  sst-darwin-arm64@3.2.33:
-    resolution: {integrity: sha512-0eXDgCGLgCGrjvrUhB9GpXS/Xb8VipDyRRnJ2ZVinJjfAJMyTS/BAh3Bvvg4/vEezu96SV5qr24P+OEfDVTkXA==}
+  sst-darwin-arm64@3.2.36:
+    resolution: {integrity: sha512-oB0jAjOnaHltYQ+U0WQL4q2EPdPTChr+ekkKJOV+xOFo9tusPRyeIBXYHQIPwgcwDuQbqM3quyI8r5PcQuGcUQ==}
     cpu: [arm64]
     os: [darwin]
 
-  sst-darwin-x64@3.2.33:
-    resolution: {integrity: sha512-x0FtlfQzkGMLQAIEPePt2+rMhGWOd9r08NNytaeEdONPRBW9QWt8opKN3sicCo3EvzWIAPAcXdl40zP1kWw8dQ==}
+  sst-darwin-x64@3.2.36:
+    resolution: {integrity: sha512-By9GZ20Tb5laV49t3ntd3mrn0osTtT++hLSBLCD72gla/lxanzb98duoQH+d6K/CJt+LXSJhgUblp7LKfzF9NA==}
     cpu: [x64]
     os: [darwin]
 
-  sst-linux-arm64@3.2.33:
-    resolution: {integrity: sha512-wwu0HmZ5NMvkG1nq7hHQJV0LYFQ+XiBRo68EmD2svHtQ4sjPNwBgj3zVK352uPR1/Kw0KWGaTp6Hk/pCzOrMgw==}
+  sst-linux-arm64@3.2.36:
+    resolution: {integrity: sha512-xhJADynieU1NffSmGh6HQl48lYaGa/8WMGV6YxN9vQ6JeTEBovEFoExFwgK/CqiNVyPedhIWixJ4VBN/umROxw==}
     cpu: [arm64]
     os: [linux]
 
-  sst-linux-x64@3.2.33:
-    resolution: {integrity: sha512-kRuhNlK8g0ez4SgV7bNn20a7PR3edT2DQ6gCdv9dhMyivpnLrQVCQ3VfOYu37Cm40p5Rx/7tgmkKSq7CkNyIxw==}
+  sst-linux-x64@3.2.36:
+    resolution: {integrity: sha512-pXaWGNMPR0+UlOFPRKXFUndVVumI7YrRY2COh4HpTFeBLmMH9KWXxG3/H4ZOq8jhkInI5+5sPKokYMGgISfzmA==}
     cpu: [x64]
     os: [linux]
 
-  sst-linux-x86@3.2.33:
-    resolution: {integrity: sha512-pZhmIfK266yzQ+9rVM/Is4VZB1DDrz06AzgZBM9ys89r+Npb74gM/CcP5c0IiU2FP4SMdQT2Nj14lm+akuBvug==}
+  sst-linux-x86@3.2.36:
+    resolution: {integrity: sha512-EUQQGUjkyY7yF38W1IfFqlTjPTGwYe9xpUS0hVZMSEGRLAIbB09GvfsnJj26/naH1ml5OUAHyY6HRq2CVmfQzg==}
     cpu: [x86]
     os: [linux]
 
-  sst@3.2.33:
-    resolution: {integrity: sha512-8+jQgwlH4nmp26STMAJD4mCLqIO/LqRHUbT985aQj+KbQdqdo6IxnpvXYl3Sq8D2H1lKQkgEpGLUwmaOCWI8Kg==}
+  sst@3.2.36:
+    resolution: {integrity: sha512-e4KsHhcNkfv46/XUhiRlKUOj+BoPPzwrvCLnWzhTKRqGtl9oEzKXOULVkfVy4ehof2A/8KRA0oYATTW25mMOUw==}
     hasBin: true
     peerDependencies:
       hono: 4.x
@@ -7374,6 +7368,7 @@ snapshots:
       webpack: 5.94.0(esbuild@0.19.2)
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@mdx-js/mdx@3.0.1':
     dependencies:
@@ -7402,12 +7397,14 @@ snapshots:
       vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   '@mdx-js/react@3.0.1(@types/react@18.3.11)(react@18.3.1)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.11
       react: 18.3.1
+    optional: true
 
   '@mercadopago/sdk-js@0.0.3': {}
 
@@ -9497,6 +9494,7 @@ snapshots:
   '@types/acorn@4.0.6':
     dependencies:
       '@types/estree': 1.0.6
+    optional: true
 
   '@types/connect@3.4.36':
     dependencies:
@@ -9505,6 +9503,7 @@ snapshots:
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 0.7.34
+    optional: true
 
   '@types/eslint@8.56.12':
     dependencies:
@@ -9514,12 +9513,14 @@ snapshots:
   '@types/estree-jsx@1.0.5':
     dependencies:
       '@types/estree': 1.0.6
+    optional: true
 
   '@types/estree@1.0.6': {}
 
   '@types/hast@3.0.4':
     dependencies:
       '@types/unist': 3.0.3
+    optional: true
 
   '@types/js-cookie@3.0.6': {}
 
@@ -9530,10 +9531,12 @@ snapshots:
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
+    optional: true
 
   '@types/mdx@2.0.13': {}
 
-  '@types/ms@0.7.34': {}
+  '@types/ms@0.7.34':
+    optional: true
 
   '@types/mysql@2.15.26':
     dependencies:
@@ -9574,9 +9577,11 @@ snapshots:
 
   '@types/shimmer@1.2.0': {}
 
-  '@types/unist@2.0.11': {}
+  '@types/unist@2.0.11':
+    optional: true
 
-  '@types/unist@3.0.3': {}
+  '@types/unist@3.0.3':
+    optional: true
 
   '@types/uuid@9.0.8': {}
 
@@ -9902,7 +9907,8 @@ snapshots:
 
   ast-types-flow@0.0.8: {}
 
-  astring@1.9.0: {}
+  astring@1.9.0:
+    optional: true
 
   available-typed-arrays@1.0.7:
     dependencies:
@@ -9938,7 +9944,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  bail@2.0.2: {}
+  bail@2.0.2:
+    optional: true
 
   balanced-match@1.0.2: {}
 
@@ -10011,7 +10018,8 @@ snapshots:
 
   caniuse-lite@1.0.30001669: {}
 
-  ccount@2.0.1: {}
+  ccount@2.0.1:
+    optional: true
 
   chalk@2.4.2:
     dependencies:
@@ -10031,13 +10039,17 @@ snapshots:
 
   chalk@5.3.0: {}
 
-  character-entities-html4@2.1.0: {}
+  character-entities-html4@2.1.0:
+    optional: true
 
-  character-entities-legacy@3.0.0: {}
+  character-entities-legacy@3.0.0:
+    optional: true
 
-  character-entities@2.0.2: {}
+  character-entities@2.0.2:
+    optional: true
 
-  character-reference-invalid@2.0.1: {}
+  character-reference-invalid@2.0.1:
+    optional: true
 
   chokidar@3.6.0:
     dependencies:
@@ -10083,7 +10095,8 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  collapse-white-space@2.1.0: {}
+  collapse-white-space@2.1.0:
+    optional: true
 
   color-convert@1.9.3:
     dependencies:
@@ -10109,7 +10122,8 @@ snapshots:
       color-convert: 2.0.1
       color-string: 1.9.1
 
-  comma-separated-tokens@2.0.3: {}
+  comma-separated-tokens@2.0.3:
+    optional: true
 
   commander@10.0.1: {}
 
@@ -10185,6 +10199,7 @@ snapshots:
   decode-named-character-reference@1.0.2:
     dependencies:
       character-entities: 2.0.2
+    optional: true
 
   deep-equal@2.2.3:
     dependencies:
@@ -10225,7 +10240,8 @@ snapshots:
 
   delegates@1.0.0: {}
 
-  dequal@2.0.3: {}
+  dequal@2.0.3:
+    optional: true
 
   detect-libc@2.0.3: {}
 
@@ -10234,6 +10250,7 @@ snapshots:
   devlop@1.1.0:
     dependencies:
       dequal: 2.0.3
+    optional: true
 
   didyoumean@1.2.2: {}
 
@@ -10278,7 +10295,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.35.1(@neondatabase/serverless@0.10.1)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@18.3.11)(@vercel/postgres@0.10.0(utf-8-validate@6.0.4))(postgres@3.4.4)(react@18.3.1):
+  drizzle-orm@0.35.2(@neondatabase/serverless@0.10.1)(@opentelemetry/api@1.9.0)(@types/pg@8.11.6)(@types/react@18.3.11)(@vercel/postgres@0.10.0(utf-8-validate@6.0.4))(postgres@3.4.4)(react@18.3.1):
     optionalDependencies:
       '@neondatabase/serverless': 0.10.1
       '@opentelemetry/api': 1.9.0
@@ -10761,6 +10778,7 @@ snapshots:
   estree-util-attach-comments@3.0.0:
     dependencies:
       '@types/estree': 1.0.6
+    optional: true
 
   estree-util-build-jsx@3.0.1:
     dependencies:
@@ -10768,25 +10786,30 @@ snapshots:
       devlop: 1.1.0
       estree-util-is-identifier-name: 3.0.0
       estree-walker: 3.0.3
+    optional: true
 
-  estree-util-is-identifier-name@3.0.0: {}
+  estree-util-is-identifier-name@3.0.0:
+    optional: true
 
   estree-util-to-js@2.0.0:
     dependencies:
       '@types/estree-jsx': 1.0.5
       astring: 1.9.0
       source-map: 0.7.4
+    optional: true
 
   estree-util-visit@2.0.0:
     dependencies:
       '@types/estree-jsx': 1.0.5
       '@types/unist': 3.0.3
+    optional: true
 
   estree-walker@2.0.2: {}
 
   estree-walker@3.0.3:
     dependencies:
       '@types/estree': 1.0.6
+    optional: true
 
   esutils@2.0.3: {}
 
@@ -10794,7 +10817,8 @@ snapshots:
 
   export-to-csv@1.4.0: {}
 
-  extend@3.0.2: {}
+  extend@3.0.2:
+    optional: true
 
   fast-deep-equal@2.0.1: {}
 
@@ -11036,6 +11060,7 @@ snapshots:
       zwitch: 2.0.4
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   hast-util-to-jsx-runtime@2.3.2:
     dependencies:
@@ -11056,10 +11081,12 @@ snapshots:
       vfile-message: 4.0.2
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   hast-util-whitespace@3.0.0:
     dependencies:
       '@types/hast': 3.0.4
+    optional: true
 
   hmac-drbg@1.0.1:
     dependencies:
@@ -11118,9 +11145,11 @@ snapshots:
 
   ini@1.3.8: {}
 
-  inline-style-parser@0.1.1: {}
+  inline-style-parser@0.1.1:
+    optional: true
 
-  inline-style-parser@0.2.4: {}
+  inline-style-parser@0.2.4:
+    optional: true
 
   input-otp@1.2.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
@@ -11144,12 +11173,14 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  is-alphabetical@2.0.1: {}
+  is-alphabetical@2.0.1:
+    optional: true
 
   is-alphanumerical@2.0.1:
     dependencies:
       is-alphabetical: 2.0.1
       is-decimal: 2.0.1
+    optional: true
 
   is-arguments@1.1.1:
     dependencies:
@@ -11198,7 +11229,8 @@ snapshots:
     dependencies:
       has-tostringtag: 1.0.2
 
-  is-decimal@2.0.1: {}
+  is-decimal@2.0.1:
+    optional: true
 
   is-extglob@2.1.1: {}
 
@@ -11216,7 +11248,8 @@ snapshots:
     dependencies:
       is-extglob: 2.1.1
 
-  is-hexadecimal@2.0.1: {}
+  is-hexadecimal@2.0.1:
+    optional: true
 
   is-map@2.0.3: {}
 
@@ -11230,7 +11263,8 @@ snapshots:
 
   is-path-inside@3.0.3: {}
 
-  is-plain-obj@4.1.0: {}
+  is-plain-obj@4.1.0:
+    optional: true
 
   is-reference@1.2.1:
     dependencies:
@@ -11239,6 +11273,7 @@ snapshots:
   is-reference@3.0.2:
     dependencies:
       '@types/estree': 1.0.6
+    optional: true
 
   is-regex@1.1.4:
     dependencies:
@@ -11398,7 +11433,8 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
-  longest-streak@3.1.0: {}
+  longest-streak@3.1.0:
+    optional: true
 
   loose-envify@1.4.0:
     dependencies:
@@ -11434,7 +11470,8 @@ snapshots:
     dependencies:
       semver: 6.3.1
 
-  markdown-extensions@2.0.0: {}
+  markdown-extensions@2.0.0:
+    optional: true
 
   mdast-util-from-markdown@2.0.1:
     dependencies:
@@ -11452,6 +11489,7 @@ snapshots:
       unist-util-stringify-position: 4.0.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   mdast-util-mdx-expression@2.0.1:
     dependencies:
@@ -11463,6 +11501,7 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   mdast-util-mdx-jsx@3.1.3:
     dependencies:
@@ -11480,6 +11519,7 @@ snapshots:
       vfile-message: 4.0.2
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   mdast-util-mdx@3.0.0:
     dependencies:
@@ -11490,6 +11530,7 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   mdast-util-mdxjs-esm@2.0.1:
     dependencies:
@@ -11501,11 +11542,13 @@ snapshots:
       mdast-util-to-markdown: 2.1.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   mdast-util-phrasing@4.1.0:
     dependencies:
       '@types/mdast': 4.0.4
       unist-util-is: 6.0.0
+    optional: true
 
   mdast-util-to-hast@13.2.0:
     dependencies:
@@ -11518,6 +11561,7 @@ snapshots:
       unist-util-position: 5.0.0
       unist-util-visit: 5.0.0
       vfile: 6.0.3
+    optional: true
 
   mdast-util-to-markdown@2.1.0:
     dependencies:
@@ -11529,10 +11573,12 @@ snapshots:
       micromark-util-decode-string: 2.0.0
       unist-util-visit: 5.0.0
       zwitch: 2.0.4
+    optional: true
 
   mdast-util-to-string@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
+    optional: true
 
   memfs-browser@3.5.10302:
     dependencies:
@@ -11573,6 +11619,7 @@ snapshots:
       micromark-util-subtokenize: 2.0.1
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-extension-mdx-expression@3.0.0:
     dependencies:
@@ -11584,6 +11631,7 @@ snapshots:
       micromark-util-events-to-acorn: 2.0.2
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-extension-mdx-jsx@3.0.1:
     dependencies:
@@ -11598,10 +11646,12 @@ snapshots:
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
       vfile-message: 4.0.2
+    optional: true
 
   micromark-extension-mdx-md@2.0.0:
     dependencies:
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-extension-mdxjs-esm@3.0.0:
     dependencies:
@@ -11614,6 +11664,7 @@ snapshots:
       micromark-util-types: 2.0.0
       unist-util-position-from-estree: 2.0.0
       vfile-message: 4.0.2
+    optional: true
 
   micromark-extension-mdxjs@3.0.0:
     dependencies:
@@ -11625,12 +11676,14 @@ snapshots:
       micromark-extension-mdxjs-esm: 3.0.0
       micromark-util-combine-extensions: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-factory-destination@2.0.0:
     dependencies:
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-factory-label@2.0.0:
     dependencies:
@@ -11638,6 +11691,7 @@ snapshots:
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-factory-mdx-expression@2.0.2:
     dependencies:
@@ -11650,11 +11704,13 @@ snapshots:
       micromark-util-types: 2.0.0
       unist-util-position-from-estree: 2.0.0
       vfile-message: 4.0.2
+    optional: true
 
   micromark-factory-space@2.0.0:
     dependencies:
       micromark-util-character: 2.1.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-factory-title@2.0.0:
     dependencies:
@@ -11662,6 +11718,7 @@ snapshots:
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-factory-whitespace@2.0.0:
     dependencies:
@@ -11669,30 +11726,36 @@ snapshots:
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-util-character@2.1.0:
     dependencies:
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-util-chunked@2.0.0:
     dependencies:
       micromark-util-symbol: 2.0.0
+    optional: true
 
   micromark-util-classify-character@2.0.0:
     dependencies:
       micromark-util-character: 2.1.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-util-combine-extensions@2.0.0:
     dependencies:
       micromark-util-chunked: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-util-decode-numeric-character-reference@2.0.1:
     dependencies:
       micromark-util-symbol: 2.0.0
+    optional: true
 
   micromark-util-decode-string@2.0.0:
     dependencies:
@@ -11700,8 +11763,10 @@ snapshots:
       micromark-util-character: 2.1.0
       micromark-util-decode-numeric-character-reference: 2.0.1
       micromark-util-symbol: 2.0.0
+    optional: true
 
-  micromark-util-encode@2.0.0: {}
+  micromark-util-encode@2.0.0:
+    optional: true
 
   micromark-util-events-to-acorn@2.0.2:
     dependencies:
@@ -11713,22 +11778,27 @@ snapshots:
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
       vfile-message: 4.0.2
+    optional: true
 
-  micromark-util-html-tag-name@2.0.0: {}
+  micromark-util-html-tag-name@2.0.0:
+    optional: true
 
   micromark-util-normalize-identifier@2.0.0:
     dependencies:
       micromark-util-symbol: 2.0.0
+    optional: true
 
   micromark-util-resolve-all@2.0.0:
     dependencies:
       micromark-util-types: 2.0.0
+    optional: true
 
   micromark-util-sanitize-uri@2.0.0:
     dependencies:
       micromark-util-character: 2.1.0
       micromark-util-encode: 2.0.0
       micromark-util-symbol: 2.0.0
+    optional: true
 
   micromark-util-subtokenize@2.0.1:
     dependencies:
@@ -11736,10 +11806,13 @@ snapshots:
       micromark-util-chunked: 2.0.0
       micromark-util-symbol: 2.0.0
       micromark-util-types: 2.0.0
+    optional: true
 
-  micromark-util-symbol@2.0.0: {}
+  micromark-util-symbol@2.0.0:
+    optional: true
 
-  micromark-util-types@2.0.0: {}
+  micromark-util-types@2.0.0:
+    optional: true
 
   micromark@4.0.0:
     dependencies:
@@ -11762,6 +11835,7 @@ snapshots:
       micromark-util-types: 2.0.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   micromatch@4.0.8:
     dependencies:
@@ -12032,6 +12106,7 @@ snapshots:
       is-alphanumerical: 2.0.1
       is-decimal: 2.0.1
       is-hexadecimal: 2.0.1
+    optional: true
 
   parseley@0.12.1:
     dependencies:
@@ -12060,6 +12135,7 @@ snapshots:
       '@types/estree': 1.0.6
       estree-walker: 3.0.3
       is-reference: 3.0.2
+    optional: true
 
   pg-int8@1.0.1: {}
 
@@ -12177,7 +12253,7 @@ snapshots:
 
   postgres@3.4.4: {}
 
-  posthog-js@1.174.0:
+  posthog-js@1.174.2:
     dependencies:
       core-js: 3.38.1
       fflate: 0.4.8
@@ -12206,7 +12282,8 @@ snapshots:
 
   property-expr@2.0.6: {}
 
-  property-information@6.5.0: {}
+  property-information@6.5.0:
+    optional: true
 
   proto-list@1.2.4: {}
 
@@ -12347,6 +12424,7 @@ snapshots:
       micromark-extension-mdxjs: 3.0.0
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   remark-parse@11.0.0:
     dependencies:
@@ -12356,6 +12434,7 @@ snapshots:
       unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   remark-rehype@11.1.1:
     dependencies:
@@ -12364,6 +12443,7 @@ snapshots:
       mdast-util-to-hast: 13.2.0
       unified: 11.0.5
       vfile: 6.0.3
+    optional: true
 
   require-directory@2.1.1: {}
 
@@ -12516,34 +12596,35 @@ snapshots:
 
   source-map@0.7.4: {}
 
-  space-separated-tokens@2.0.2: {}
-
-  sst-darwin-arm64@3.2.33:
+  space-separated-tokens@2.0.2:
     optional: true
 
-  sst-darwin-x64@3.2.33:
+  sst-darwin-arm64@3.2.36:
     optional: true
 
-  sst-linux-arm64@3.2.33:
+  sst-darwin-x64@3.2.36:
     optional: true
 
-  sst-linux-x64@3.2.33:
+  sst-linux-arm64@3.2.36:
     optional: true
 
-  sst-linux-x86@3.2.33:
+  sst-linux-x64@3.2.36:
     optional: true
 
-  sst@3.2.33:
+  sst-linux-x86@3.2.36:
+    optional: true
+
+  sst@3.2.36:
     dependencies:
       aws4fetch: 1.0.20
       jose: 5.2.3
       openid-client: 5.6.4
     optionalDependencies:
-      sst-darwin-arm64: 3.2.33
-      sst-darwin-x64: 3.2.33
-      sst-linux-arm64: 3.2.33
-      sst-linux-x64: 3.2.33
-      sst-linux-x86: 3.2.33
+      sst-darwin-arm64: 3.2.36
+      sst-darwin-x64: 3.2.36
+      sst-linux-arm64: 3.2.36
+      sst-linux-x64: 3.2.36
+      sst-linux-x86: 3.2.36
 
   stacktrace-parser@0.1.10:
     dependencies:
@@ -12620,6 +12701,7 @@ snapshots:
     dependencies:
       character-entities-html4: 2.1.0
       character-entities-legacy: 3.0.0
+    optional: true
 
   strip-ansi@6.0.1:
     dependencies:
@@ -12638,10 +12720,12 @@ snapshots:
   style-to-object@0.4.4:
     dependencies:
       inline-style-parser: 0.1.1
+    optional: true
 
   style-to-object@1.0.8:
     dependencies:
       inline-style-parser: 0.2.4
+    optional: true
 
   styled-jsx@5.1.1(@babel/core@7.25.8)(react@18.3.1):
     dependencies:
@@ -12782,9 +12866,11 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  trim-lines@3.0.1: {}
+  trim-lines@3.0.1:
+    optional: true
 
-  trough@2.2.0: {}
+  trough@2.2.0:
+    optional: true
 
   ts-api-utils@1.3.0(typescript@5.6.3):
     dependencies:
@@ -12897,33 +12983,40 @@ snapshots:
       is-plain-obj: 4.1.0
       trough: 2.2.0
       vfile: 6.0.3
+    optional: true
 
   unist-util-is@6.0.0:
     dependencies:
       '@types/unist': 3.0.3
+    optional: true
 
   unist-util-position-from-estree@2.0.0:
     dependencies:
       '@types/unist': 3.0.3
+    optional: true
 
   unist-util-position@5.0.0:
     dependencies:
       '@types/unist': 3.0.3
+    optional: true
 
   unist-util-stringify-position@4.0.0:
     dependencies:
       '@types/unist': 3.0.3
+    optional: true
 
   unist-util-visit-parents@6.0.1:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
+    optional: true
 
   unist-util-visit@5.0.0:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
+    optional: true
 
   unplugin@1.0.1:
     dependencies:
@@ -12985,11 +13078,13 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       unist-util-stringify-position: 4.0.0
+    optional: true
 
   vfile@6.0.3:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
+    optional: true
 
   watchpack@2.4.2:
     dependencies:
@@ -13157,4 +13252,5 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zwitch@2.0.4: {}
+  zwitch@2.0.4:
+    optional: true
