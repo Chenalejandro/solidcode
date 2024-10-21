@@ -1,6 +1,7 @@
 import { getActiveSubscription } from "@/server/data/subscriptions-dto";
 import { stackServerApp } from "@/stack";
 import { redirect } from "@/i18n/routing";
+import { getLocale } from "next-intl/server";
 
 export default async function SuccessSubscription() {
   const user = await stackServerApp.getUser();
@@ -10,7 +11,8 @@ export default async function SuccessSubscription() {
 
   const activeSubscription = await getActiveSubscription(user.id);
   if (activeSubscription) {
-    redirect("/unsubscribe");
+    const locale = await getLocale();
+    redirect({ href: "/unsubscribe", locale });
   }
   return <div>Ya estás desuscripto!</div>;
 }

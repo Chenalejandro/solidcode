@@ -8,6 +8,7 @@ import {
 } from "@/server/data/subscriptions-dto";
 import { env } from "@/env";
 import { stackServerApp } from "@/stack";
+import { getLocale } from "next-intl/server";
 
 // We need to create a zod schemas from the type definitions
 // in order to do the validation.
@@ -80,7 +81,8 @@ export async function processPayment(data: unknown) {
     subscriptionStatus.data,
   );
   console.log(response);
-  redirect("/subscription/success");
+  const locale = await getLocale();
+  redirect({ href: "/subscription/success", locale });
 }
 
 async function createSubscription(

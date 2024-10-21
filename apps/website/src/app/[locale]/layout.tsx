@@ -10,9 +10,9 @@ import { TanstackQueryClientProvider } from "@/components/TanstackQueryClientPro
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "@/components/ui/toaster";
 import {
-  unstable_setRequestLocale,
   getMessages,
   getTranslations,
+  setRequestLocale,
 } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { type ResolvingMetadata, type Metadata } from "next";
@@ -21,6 +21,7 @@ import { StackProvider, StackTheme } from "@stackframe/stack";
 import { routing } from "@/i18n/routing";
 import { CSPostHogProvider } from "@/app/_analytics/provider";
 import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
 const PostHogPageView = dynamic(() => import("../PostHogPageView"), {
   ssr: false,
 });
@@ -53,7 +54,15 @@ export default async function RootLayout({
   children: ReactNode;
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
