@@ -22,6 +22,7 @@ import { routing } from "@/i18n/routing";
 import { CSPostHogProvider } from "@/app/_analytics/provider";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 const PostHogPageView = dynamic(() => import("../PostHogPageView"), {
   ssr: false,
 });
@@ -86,23 +87,25 @@ export default async function RootLayout({
             nonce={nonce}
             enableColorScheme={false}
           >
-            <StackProvider
-              app={stackServerApp}
-              lang={locale === "es" ? "es-ES" : "en-US"}
-            >
-              <StackTheme nonce={nonce}>
-                <TanstackQueryClientProvider>
-                  <CSPostHogProvider>
-                    <PostHogPageView />
-                    <TopNav />
-                    {children}
-                    <ReactQueryDevtools initialIsOpen={false} />
-                    <Sonner />
-                    <Toaster />
-                  </CSPostHogProvider>
-                </TanstackQueryClientProvider>
-              </StackTheme>
-            </StackProvider>
+            <NuqsAdapter>
+              <StackProvider
+                app={stackServerApp}
+                lang={locale === "es" ? "es-ES" : "en-US"}
+              >
+                <StackTheme nonce={nonce}>
+                  <TanstackQueryClientProvider>
+                    <CSPostHogProvider>
+                      <PostHogPageView />
+                      <TopNav />
+                      {children}
+                      <ReactQueryDevtools initialIsOpen={false} />
+                      <Sonner />
+                      <Toaster />
+                    </CSPostHogProvider>
+                  </TanstackQueryClientProvider>
+                </StackTheme>
+              </StackProvider>
+            </NuqsAdapter>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
