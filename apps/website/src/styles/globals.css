@@ -89,3 +89,22 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* uncomment the following lines to debug. Choose using outline or background, not both */
+/* *,
+*::before,
+*::after {
+  outline: 2px solid lime;
+  background: hsl(0 100% 50% / 0.1);
+} */
+
+.wrapper {
+  --wrapper-max-width: 926px;
+  --wrapper-padding: 2rem;
+
+  width: min(var(--wrapper-max-width), 100% - (var(--wrapper-padding) * 2));
+}
+
+.wrapper--xl {
+  --wrapper-max-width: 1600px;
+}

@@ -3,6 +3,7 @@ import { subscribed } from "@/server/data/subscriptions-dto";
 import { redirect } from "@/i18n/routing";
 import { env } from "@/env";
 import { stackServerApp } from "@/stack";
+import { getLocale } from "next-intl/server";
 
 export default async function Page() {
   const user = await stackServerApp.getUser();
@@ -11,7 +12,8 @@ export default async function Page() {
   }
   const isPaidUser = await subscribed(user.id);
   if (isPaidUser) {
-    redirect("/subscription/success");
+    const locale = await getLocale();
+    redirect({ href: "/subscription/success", locale });
   }
   if (!user.primaryEmail) {
     throw new Error("The user does not have an email");

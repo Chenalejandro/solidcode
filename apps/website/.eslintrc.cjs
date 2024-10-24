@@ -4,16 +4,20 @@ const config = {
   parserOptions: {
     project: true,
   },
-  plugins: ["@typescript-eslint", "drizzle", "@tanstack/query"],
+  plugins: [
+    "@typescript-eslint",
+    "drizzle",
+    "@tanstack/query",
+    "react-compiler",
+  ],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
   ],
-  ignorePatterns: [
-    "src/server/db/seeds/*", "sst.config.ts"
-  ],
+  ignorePatterns: ["src/server/db/seeds/*", "sst.config.ts"],
   rules: {
+    "react-compiler/react-compiler": "error",
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/consistent-type-imports": [

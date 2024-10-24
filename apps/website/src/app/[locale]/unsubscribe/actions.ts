@@ -8,6 +8,7 @@ import {
 import { stackServerApp } from "@/stack";
 import { MercadoPagoConfig, PreApproval } from "mercadopago";
 import { redirect } from "@/i18n/routing";
+import { getLocale } from "next-intl/server";
 
 export async function unsubscribe() {
   const user = await stackServerApp.getUser();
@@ -36,6 +37,11 @@ export async function unsubscribe() {
     throw new Error("missing fields");
   }
   const subscriptionStatus = subscriptionStatusEnum.parse(response.status);
-  await updateSubscription(activeSubscription.externalId, new Date(response.last_modified), subscriptionStatus);
-  redirect("/unsubscribe/success");
+  await updateSubscription(
+    activeSubscription.externalId,
+    new Date(response.last_modified),
+    subscriptionStatus,
+  );
+  const locale = await getLocale();
+  redirect({ href: "/unsubscribe/success", locale });
 }
