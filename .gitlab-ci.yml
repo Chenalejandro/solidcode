@@ -21,7 +21,7 @@ run_tests:
       alias: solidCode-Redis-Prod
     - name: hiett/serverless-redis-http:latest
       alias: serverless-Redis-Http
-  image: mcr.microsoft.com/playwright:v1.48.1-jammy
+  image: mcr.microsoft.com/playwright:v1.48.2-jammy
   script:
     - npm install -g pnpm@9.12.1
     - cd apps/website
