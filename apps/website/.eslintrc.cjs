@@ -5,9 +5,13 @@ const config = {
     project: true,
   },
   plugins: [
+    // @ts-ignore
     "@typescript-eslint",
+    // @ts-ignore
     "drizzle",
+    // @ts-ignore
     "@tanstack/query",
+    // @ts-ignore
     "react-compiler",
   ],
   extends: [

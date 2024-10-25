@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useActionState } from "react";
 import { useTheme } from "next-themes";
 import { codeSubmissionAction } from "@/app/[locale]/problems/[slug]/_actions/CodeSubmissionAction";
 import { toast } from "sonner";
@@ -10,7 +10,6 @@ import { ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 import { type ZodError } from "zod";
 import { type LanguagesSchema } from "@/server/data/languages-dto";
 import { ProgrammingLanguageSelector } from "@/app/[locale]/problems/[slug]/_components/programming-language-selector";
-import { useFormState } from "react-dom";
 import LoginModal from "@/components/LoginModal";
 import { type CodeTemplates } from "@/server/data/problems-dto";
 import { type ClientUser } from "../page";
@@ -77,7 +76,7 @@ export function CodeSubmissionForm({
   });
   const [code, setCode] = useState<string>(init);
 
-  const [, action] = useFormState(async () => {
+  const [, action] = useActionState(async () => {
     localStorage.setItem(
       `problem${problemId}-languageId`,
       currentSelectedLanguageId.toString(),

@@ -9,9 +9,13 @@ import { type ResolvingMetadata, type Metadata } from "next";
 export const dynamic = "force-static";
 
 export async function generateMetadata(
-  { params: { locale } }: { params: { locale: string } },
+  props: { params: Promise<{ locale: string }> },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const params = await props.params;
+
+  const { locale } = params;
+
   const t = await getTranslations({ locale, namespace: "App" });
   return {
     title: t("title"),
@@ -24,11 +28,13 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function HomePage({
-  params: { locale },
-}: {
-  params: { locale: string };
+export default async function HomePage(props: {
+  params: Promise<{ locale: string }>;
 }) {
+  const params = await props.params;
+
+  const { locale } = params;
+
   setRequestLocale(locale);
   const problems = await getAllProblems();
   return (

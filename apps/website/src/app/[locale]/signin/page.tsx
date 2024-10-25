@@ -6,7 +6,7 @@ import { getLocale } from "next-intl/server";
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const user = await stackServerApp.getUser();
   if (!user) {

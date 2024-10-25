@@ -22,6 +22,10 @@
   "pnpm": {
     "patchedDependencies": {
       "@stackframe/stack@2.6.12": "patches/@stackframe__stack@2.6.12.patch"
+    },
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
     }
   }
 }

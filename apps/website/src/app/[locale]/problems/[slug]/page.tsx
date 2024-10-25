@@ -14,21 +14,20 @@ async function getClientUser() {
 
 export type ClientUser = Awaited<ReturnType<typeof getClientUser>>;
 
-export default async function ProblemPage({
-  params,
-  searchParams,
-}: {
-  params: { slug: string };
-  searchParams: { selectedTab: string };
+export default async function ProblemPage(props: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ selectedTab: string }>;
 }) {
+  const searchParams = await props.searchParams;
+  const params = await props.params;
   const { selectedTab } = searchParams;
-  const { device } = userAgent({ headers: headers() });
+  const { device } = userAgent({ headers: await headers() });
   const problem = await validateAndGetProblem(params.slug);
   const codeTemplates = await getCodeTemplates(problem.id);
   const languages = await getLanguages();
   const clientUser = await getClientUser();
-  const horizontalLayout = cookies().get("horizontalLayout");
-  const verticalSubLayout = cookies().get("verticalSubLayout");
+  const horizontalLayout = (await cookies()).get("horizontalLayout");
+  const verticalSubLayout = (await cookies()).get("verticalSubLayout");
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const defaultHorizontalLayout: number[] = horizontalLayout
     ? JSON.parse(horizontalLayout.value)
@@ -40,10 +39,7 @@ export default async function ProblemPage({
   if (device.type === "mobile") {
     return (
       <main className="flex min-h-0 flex-grow flex-col">
-        <GeneralInformation
-          problemSlug={problem.slug}
-          problemId={problem.id}
-        />
+        <GeneralInformation problemSlug={problem.slug} problemId={problem.id} />
       </main>
     );
   }

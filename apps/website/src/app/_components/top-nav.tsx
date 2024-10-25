@@ -3,7 +3,7 @@ import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { getTranslations } from "next-intl/server";
 import dynamic from "next/dynamic";
-const RightContent = dynamic(() => import("./RightContent"), { ssr: false });
+const RightContent = dynamic(() => import("./RightContent"));
 
 export async function TopNav() {
   const t = await getTranslations("App");

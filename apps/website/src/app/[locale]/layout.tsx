@@ -23,14 +23,16 @@ import { CSPostHogProvider } from "@/app/_analytics/provider";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-const PostHogPageView = dynamic(() => import("../PostHogPageView"), {
-  ssr: false,
-});
+const PostHogPageView = dynamic(() => import("../PostHogPageView"));
 
 export async function generateMetadata(
-  { params: { locale } }: { params: { locale: string } },
+  props: { params: Promise<{ locale: string }> },
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
+  const params = await props.params;
+
+  const { locale } = params;
+
   const t = await getTranslations({ locale, namespace: "App" });
   return {
     title: t("title"),
@@ -48,13 +50,16 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: {
+export default async function RootLayout(props: {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const params = await props.params;
+
+  const { locale } = params;
+
+  const { children } = props;
+
   // Ensure that the incoming `locale` is valid
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
   if (!routing.locales.includes(locale as any)) {
@@ -68,7 +73,7 @@ export default async function RootLayout({
   // side is the easiest way to get started
   const messages = await getMessages();
 
-  const nonce = headers().get("x-nonce")!;
+  const nonce = (await headers()).get("x-nonce")!;
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
