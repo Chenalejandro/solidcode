@@ -3,7 +3,7 @@ import {
   getSubmission,
   type WrongAnswerDatas,
 } from "@/app/[locale]/problems/[slug]/_actions/GetSubmissionAction";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import {
   invalidSubmissionSchemaError,
   notAuthenticatedError,
@@ -50,7 +50,6 @@ function Result({
   onPoolingResultCompletes: () => void;
   user: ClientUser;
 }) {
-  const queryClient = useQueryClient();
   const { isPending, isError, data, error } = useQuery({
     queryKey: ["get-submission-status", submissionPublicId],
     queryFn: async () => await getSubmission(submissionPublicId),
@@ -83,7 +82,6 @@ function Result({
     },
     retryDelay: 500,
   });
-  // FIXME: We should be using revalidatePath() in the server action, but currently there are some issues
   useEffect(() => {
     if (
       !isError &&
@@ -92,11 +90,8 @@ function Result({
       data.submission.status !== "processing"
     ) {
       onPoolingResultCompletes();
-      void queryClient.invalidateQueries({
-        queryKey: [`${user?.id}-submission-results`],
-      });
     }
-  }, [data, isError, isPending, queryClient, user, onPoolingResultCompletes]);
+  }, [data, isError, isPending, onPoolingResultCompletes]);
   if (isError) {
     if (error.message === notAuthenticatedError.message) {
       return <div>{notAuthenticatedError.clientMessage}</div>;

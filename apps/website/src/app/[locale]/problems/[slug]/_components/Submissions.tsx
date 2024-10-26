@@ -1,26 +1,20 @@
-"use client";
-import { useQuery } from "@tanstack/react-query";
-import { getUserSubmissions } from "../actions";
+import { stackServerApp } from "@/stack";
 import { submissionColumns } from "./SubmissionColumns";
 import { SubmissionDataTable } from "./SubmissionDataTable";
+import { getSubmissions } from "@/server/data/submissions-dto";
 
-export function Submissions(props: { problemId: number; userId: string }) {
-  const { problemId, userId } = props;
-  const { data, isError, isPending } = useQuery({
-    queryKey: [`${userId}-submission-results`, problemId],
-    queryFn: async () => await getUserSubmissions(problemId),
-    refetchOnWindowFocus: false,
-    refetchOnMount: false,
-  });
-  if (isPending) {
-    return <div>Cargando los resultados...</div>;
+export async function Submissions(props: { problemId: number }) {
+  const { problemId } = props;
+  const user = await stackServerApp.getUser();
+  if (!user) {
+    return (
+      <div>Tenés que estar loggeado para ver tus ejecuciones del código</div>
+    );
   }
-  if (isError) {
-    return <div>Hubo un error</div>;
-  }
+  const userSubmissions = await getSubmissions(problemId, user.id);
   return (
     <>
-      <SubmissionDataTable columns={submissionColumns} data={data} />
+      <SubmissionDataTable columns={submissionColumns} data={userSubmissions} />
     </>
   );
 }

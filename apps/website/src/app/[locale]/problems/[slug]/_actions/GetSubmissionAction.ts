@@ -1,9 +1,13 @@
 "use server";
 import { notAuthenticatedError } from "@/app/[locale]/problems/[slug]/_errors";
 import { getSubmissionBy } from "@/server/data/submissions-dto";
-import { getNumberOfTestCases } from "@/server/data/problems-dto";
+import {
+  getNumberOfTestCases,
+  getProblemSlug,
+} from "@/server/data/problems-dto";
 import { stackServerApp } from "@/stack";
 import { z } from "zod";
+import { revalidatePath } from "next/cache";
 
 export type SubmissionData = Awaited<
   ReturnType<typeof getSubmission>
@@ -48,5 +52,7 @@ export async function getSubmission(publicIdNotParsed: unknown) {
       return 0;
     }
   });
+  const problemSlug = await getProblemSlug(problemId);
+  revalidatePath(`/problems/${problemSlug}`, "page");
   return { submission, testCasesCount };
 }

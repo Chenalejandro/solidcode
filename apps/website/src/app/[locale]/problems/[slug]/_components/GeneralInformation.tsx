@@ -14,7 +14,6 @@ import {
   getProblemExamples,
   type ProblemExamples,
 } from "@/server/data/problems-dto";
-import { stackServerApp } from "@/stack";
 import type { ReactNode } from "react";
 import { getTranslations } from "next-intl/server";
 import { Tabs } from "./tab";
@@ -37,7 +36,6 @@ export default async function GeneralInformation(props: {
   const problemExamples = await getProblemExamples(problemId);
 
   const t = await getTranslations("ProblemTab");
-  const user = await stackServerApp.getUser();
 
   const tabDatas: TabData[] = [
     {
@@ -57,14 +55,7 @@ export default async function GeneralInformation(props: {
     {
       name: "submissions",
       jsx: () => {
-        if (user) {
-          return <Submissions problemId={problemId} userId={user.id} />;
-        }
-        return (
-          <div>
-            Tenés que estar loggeado para ver tus ejecuciones del código
-          </div>
-        );
+        return <Submissions problemId={problemId} />;
       },
       className: "min-h-0 flex-grow overflow-y-auto",
     },

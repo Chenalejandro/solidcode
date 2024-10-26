@@ -47,6 +47,19 @@ export async function getProblem(slug: string) {
   return { title: titles(problem.slug), ...problem };
 }
 
+export async function getProblemSlug(problemId: number) {
+  const problem = await db.query.problems.findFirst({
+    columns: {
+      slug: true,
+    },
+    where: eq(problems.id, problemId),
+  });
+  if (!problem) {
+    throw new Error("This error should never happend");
+  }
+  return problem.slug;
+}
+
 export async function getProblemExamples(problemId: number) {
   return db
     .select({
