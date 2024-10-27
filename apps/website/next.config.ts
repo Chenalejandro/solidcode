@@ -25,9 +25,6 @@ const config: NextConfig = {
       fullUrl: true,
     },
   },
-  experimental: {
-    reactCompiler: true,
-  },
   webpack: (config, options) => {
     if (!options.isServer) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
