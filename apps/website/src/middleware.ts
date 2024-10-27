@@ -126,9 +126,7 @@ function withExtraMiddleware(next: NextMiddleware) {
 
 export default withExtraMiddleware(createMiddleware(routing));
 
-// FIXME: add type anotations in next.js 15
-// export const config: MiddlewareConfig = {
-export const config = {
+export const config: MiddlewareConfig = {
   matcher: [
     /*
      * Match all request paths except for the ones starting with:
