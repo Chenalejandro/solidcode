@@ -1,13 +1,13 @@
 /**
- * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
- * for Docker builds.
+ * You can run `build` or `dev` (or `lint`) with `SKIP_ENV_VALIDATION` to skip env validation.
+ * This is especially useful for Docker builds.
  */
-await import("./src/env.js");
+import { env } from "./src/env.js";
 import nextMdx from "@next/mdx";
 import { withSentryConfig } from "@sentry/nextjs";
 import createNextIntlPlugin from "next-intl/plugin";
 import MonacoWebpackPlugin from "monaco-editor-webpack-plugin";
-import { env } from "./src/env.js";
+import { type NextConfig } from "next";
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -19,8 +19,7 @@ const withMdx = nextMdx({
   },
 });
 
-/** @type {import("next").NextConfig} */
-const config = {
+const config: NextConfig = {
   logging: {
     fetches: {
       fullUrl: true,

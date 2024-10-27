@@ -50,6 +50,7 @@ function Result({
   onPoolingResultCompletes: () => void;
   user: ClientUser;
 }) {
+  "use no memo";
   const { isPending, isError, data, error } = useQuery({
     queryKey: ["get-submission-status", submissionPublicId],
     queryFn: async () => await getSubmission(submissionPublicId),
