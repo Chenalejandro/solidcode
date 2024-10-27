@@ -50,9 +50,6 @@ function Result({
   onPoolingResultCompletes: () => void;
   user: ClientUser;
 }) {
-  // "use no memo" is causing eslint error so we just disable it
-  // eslint-disable-next-line react-compiler/react-compiler
-  "use no memo";
   const { isPending, isError, data, error } = useQuery({
     queryKey: ["get-submission-status", submissionPublicId],
     queryFn: async () => await getSubmission(submissionPublicId),
