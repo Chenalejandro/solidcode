@@ -8,6 +8,9 @@
       "env": [],
       "outputs": ["dist/**"]
     },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
     "website#build": {
       "dependsOn": ["^build"],
       "env": [
