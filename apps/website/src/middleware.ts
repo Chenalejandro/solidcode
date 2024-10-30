@@ -51,11 +51,11 @@ function withExtraMiddleware(next: NextMiddleware) {
       request.nextUrl.pathname === "/es" || request.nextUrl.pathname === "/es/"
         ? ""
         : `'nonce-${nonce}'`
-    } ${env.NODE_ENV === "development" ? "'unsafe-eval'" : ""};
+    };
     script-src-elem 'self' ${
       request.nextUrl.pathname === "/es" || request.nextUrl.pathname === "/es/"
         ? "'unsafe-inline'"
-        : `'nonce-${nonce}' 'strict-dynamic'`
+        : `'nonce-${nonce}' ${env.NODE_ENV === "development" ? "" : "'strict-dynamic'"}`
     }
       https://us-assets.i.posthog.com
       https://http2.mlstatic.com
