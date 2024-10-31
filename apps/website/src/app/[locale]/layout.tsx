@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/app/_components/theme-provider";
+import { ThemeProvider } from "next-themes";
 import { TopNav } from "@/app/_components/top-nav";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { headers } from "next/headers";

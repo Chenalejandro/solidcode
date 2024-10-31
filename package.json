@@ -25,8 +25,8 @@
       "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
     },
     "patchedDependencies": {
-      "@stackframe/stack@2.6.15": "patches/@stackframe__stack@2.6.15.patch",
-      "monaco-editor@0.52.0": "patches/monaco-editor@0.52.0.patch"
+      "monaco-editor@0.52.0": "patches/monaco-editor@0.52.0.patch",
+      "@stackframe/stack@2.6.16": "patches/@stackframe__stack@2.6.16.patch"
     }
   }
 }
