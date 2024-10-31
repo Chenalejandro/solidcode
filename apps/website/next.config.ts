@@ -20,6 +20,11 @@ const withMdx = nextMdx({
 });
 
 const config: NextConfig = {
+  experimental: {
+    reactCompiler: {
+      compilationMode: "annotation",
+    },
+  },
   logging: {
     fetches: {
       fullUrl: true,

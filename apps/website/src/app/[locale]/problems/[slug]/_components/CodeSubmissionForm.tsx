@@ -36,6 +36,7 @@ export function CodeSubmissionForm({
   onSuccessSubmissionResponse: () => void;
   isPoolingSubmissionResult: boolean;
 }) {
+  "use memo";
   const { resolvedTheme } = useTheme();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState<boolean>(false);
   const [monacoEditorMounted, setMonacoEditorMounted] =
