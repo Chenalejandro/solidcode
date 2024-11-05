@@ -13,11 +13,14 @@ index ebaa18cdf3974bb17edd4ccb94dd6f22393441b3..ddb5e9d13e061cf5378aa9094d0d7150
      "script",
      {
 diff --git a/dist/esm/components/elements/ssr-layout-effect.js b/dist/esm/components/elements/ssr-layout-effect.js
-index 18703b4465ef31d04e1e890926fbbee5d71eeb3a..ebe03b9d7c8eaae044bcfd468047ea1a281f7b38 100644
+index 18703b4465ef31d04e1e890926fbbee5d71eeb3a..796df60c1433d16d5f61fead604e1561aff8fa7b 100644
 --- a/dist/esm/components/elements/ssr-layout-effect.js
 +++ b/dist/esm/components/elements/ssr-layout-effect.js
-@@ -5,9 +5,6 @@
- import { useLayoutEffect } from "react";
+@@ -2,12 +2,8 @@
+ "use client";
+ 
+ // src/components/elements/ssr-layout-effect.tsx
+-import { useLayoutEffect } from "react";
  import { jsx } from "react/jsx-runtime";
  function SsrScript(props) {
 -  useLayoutEffect(() => {
