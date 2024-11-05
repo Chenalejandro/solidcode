@@ -31,6 +31,10 @@ export function CodeSubmissionResult({
   onPoolingResultCompletes: () => void;
   user: ClientUser;
 }) {
+  // FIXME: we should probably find a better way to handle this pending state to avoid duplicated code
+  if (isXXXPending) {
+    return <div>Loading...</div>;
+  }
   if (!submissionPublicId) {
     return <></>;
   }

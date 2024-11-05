@@ -38,6 +38,8 @@ export function ResizeablePanel({
   const onLayoutChange = (sizes: number[], layoutCookieName: string) => {
     Cookies.set(layoutCookieName, JSON.stringify(sizes));
   };
+
+  // FIXME: find a better name for this state
   const [isXXXPending, setIsXXXPending] = useState<boolean>(false);
   const [submissionPublicId, setSubmissionPublicId] = useState<string>();
   const [isPoolingSubmissionResult, setIsPoolingSubmissionResult] =
