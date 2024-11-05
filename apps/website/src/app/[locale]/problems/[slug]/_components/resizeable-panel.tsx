@@ -38,6 +38,7 @@ export function ResizeablePanel({
   const onLayoutChange = (sizes: number[], layoutCookieName: string) => {
     Cookies.set(layoutCookieName, JSON.stringify(sizes));
   };
+  const [isXXXPending, setIsXXXPending] = useState<boolean>(false);
   const [submissionPublicId, setSubmissionPublicId] = useState<string>();
   const [isPoolingSubmissionResult, setIsPoolingSubmissionResult] =
     useState<boolean>(false);
@@ -83,6 +84,7 @@ export function ResizeablePanel({
             collapsedSize={6}
           >
             <CodeSubmissionForm
+              setIsXXXPending={setIsXXXPending}
               user={user}
               onNewSubmission={onNewSubmission}
               onSuccessSubmissionResponse={onSuccessSubmissionResponse}
@@ -100,6 +102,7 @@ export function ResizeablePanel({
             collapsedSize={6}
           >
             <CodeSubmissionResult
+              isXXXPending={isXXXPending}
               user={user}
               submissionPublicId={submissionPublicId}
               onPoolingResultCompletes={onPoolingResultCompletes}

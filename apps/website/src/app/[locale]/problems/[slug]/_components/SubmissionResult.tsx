@@ -21,10 +21,12 @@ import { useEffect } from "react";
 import { type ClientUser } from "../page";
 
 export function CodeSubmissionResult({
+  isXXXPending,
   submissionPublicId,
   onPoolingResultCompletes,
   user,
 }: {
+  isXXXPending: boolean;
   submissionPublicId?: string;
   onPoolingResultCompletes: () => void;
   user: ClientUser;
@@ -34,6 +36,7 @@ export function CodeSubmissionResult({
   }
   return (
     <Result
+      isXXXPending={isXXXPending}
       user={user}
       submissionPublicId={submissionPublicId}
       onPoolingResultCompletes={onPoolingResultCompletes}
@@ -42,10 +45,12 @@ export function CodeSubmissionResult({
 }
 
 function Result({
+  isXXXPending,
   submissionPublicId,
   onPoolingResultCompletes,
   user,
 }: {
+  isXXXPending: boolean;
   submissionPublicId: string;
   onPoolingResultCompletes: () => void;
   user: ClientUser;
@@ -105,7 +110,7 @@ function Result({
       </div>
     );
   }
-  if (isPending) {
+  if (isPending || isXXXPending) {
     return <div>Loading...</div>;
   }
   const { submission, testCasesCount } = data;

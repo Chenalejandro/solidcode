@@ -1,4 +1,10 @@
-import { useState, useActionState } from "react";
+import {
+  useState,
+  useActionState,
+  type Dispatch,
+  type SetStateAction,
+  useEffect,
+} from "react";
 import { useTheme } from "next-themes";
 import { codeSubmissionAction } from "@/app/[locale]/problems/[slug]/_actions/CodeSubmissionAction";
 import { toast } from "sonner";
@@ -27,6 +33,7 @@ export function CodeSubmissionForm({
   onNewSubmission,
   onSuccessSubmissionResponse,
   isPoolingSubmissionResult,
+  setIsXXXPending,
 }: {
   problemId: number;
   languages: LanguagesSchema;
@@ -35,6 +42,7 @@ export function CodeSubmissionForm({
   onNewSubmission: (newPublicId?: string) => void;
   onSuccessSubmissionResponse: () => void;
   isPoolingSubmissionResult: boolean;
+  setIsXXXPending: Dispatch<SetStateAction<boolean>>;
 }) {
   "use memo";
   const { resolvedTheme } = useTheme();
@@ -77,7 +85,7 @@ export function CodeSubmissionForm({
   });
   const [code, setCode] = useState<string>(init);
 
-  const [, action] = useActionState(async () => {
+  const [, action, isXXXPending] = useActionState(async () => {
     localStorage.setItem(
       `problem${problemId}-languageId`,
       currentSelectedLanguageId.toString(),
@@ -107,6 +115,14 @@ export function CodeSubmissionForm({
       toast.error("Error. The submission api backed is not deployed yet.");
     }
   }, null);
+
+  useEffect(() => {
+    if (isXXXPending) {
+      setIsXXXPending(true);
+    } else {
+      setIsXXXPending(false);
+    }
+  }, [isXXXPending]);
 
   const onSelectLanguageChange = (selectedLanguageId: number) => {
     setCurrentSelectedLanguageId(selectedLanguageId);
