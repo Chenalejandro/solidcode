@@ -19,6 +19,7 @@ import {
 import { type Status } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
 import { useEffect } from "react";
 import { type ClientUser } from "../page";
+import { useTranslations } from "next-intl";
 
 export function CodeSubmissionResult({
   isXXXPending,
@@ -33,7 +34,7 @@ export function CodeSubmissionResult({
 }) {
   // FIXME: we should probably find a better way to handle this pending state to avoid duplicated code
   if (isXXXPending) {
-    return <div>Loading...</div>;
+    return <LoadingText />;
   }
   if (!submissionPublicId) {
     return <></>;
@@ -115,11 +116,11 @@ function Result({
     );
   }
   if (isPending || isXXXPending) {
-    return <div>Loading...</div>;
+    return <LoadingText />;
   }
   const { submission, testCasesCount } = data;
   if (submission.status === "queued" || submission.status === "processing") {
-    return <div>Loading...</div>;
+    return <LoadingText />;
   }
   if (
     submission.status === "accepted" ||
@@ -287,4 +288,9 @@ function ErrorCardDescription({
         </>
       );
   }
+}
+
+function LoadingText() {
+  const t = useTranslations("Status");
+  return <div>{t("Loading")}</div>;
 }

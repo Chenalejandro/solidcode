@@ -23,5 +23,9 @@
     "highest-profit-path": "Camino de mayor ganancia",
     "water-containers": "Recipientes de agua",
     "invert-a-binary-tree": "Invertir arbol binario"
+  },
+  "Status": {
+    "loading": "cargando...",
+    "Loading": "Cargando..."
   }
 }
