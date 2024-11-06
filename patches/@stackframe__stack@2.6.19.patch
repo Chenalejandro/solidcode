@@ -1,9 +1,12 @@
 diff --git a/dist/components/elements/ssr-layout-effect.js b/dist/components/elements/ssr-layout-effect.js
-index ebaa18cdf3974bb17edd4ccb94dd6f22393441b3..ddb5e9d13e061cf5378aa9094d0d7150a8a3fc2e 100644
+index ebaa18cdf3974bb17edd4ccb94dd6f22393441b3..c4ea30996a97f005cb43d2a790b2f771f60cb53f 100644
 --- a/dist/components/elements/ssr-layout-effect.js
 +++ b/dist/components/elements/ssr-layout-effect.js
-@@ -28,9 +28,6 @@ module.exports = __toCommonJS(ssr_layout_effect_exports);
- var import_react = require("react");
+@@ -25,12 +25,8 @@ __export(ssr_layout_effect_exports, {
+   SsrScript: () => SsrScript
+ });
+ module.exports = __toCommonJS(ssr_layout_effect_exports);
+-var import_react = require("react");
  var import_jsx_runtime = require("react/jsx-runtime");
  function SsrScript(props) {
 -  (0, import_react.useLayoutEffect)(() => {
