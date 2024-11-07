@@ -16,18 +16,25 @@ export type ClientUser = Awaited<ReturnType<typeof getClientUser>>;
 
 export default async function ProblemPage(props: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ selectedTab: string }>;
 }) {
-  const searchParams = await props.searchParams;
   const params = await props.params;
-  const { selectedTab } = searchParams;
-  const { device } = userAgent({ headers: await headers() });
   const problem = await validateAndGetProblem(params.slug);
-  const codeTemplates = await getCodeTemplates(problem.id);
-  const languages = await getLanguages();
-  const clientUser = await getClientUser();
-  const horizontalLayout = (await cookies()).get("horizontalLayout");
-  const verticalSubLayout = (await cookies()).get("verticalSubLayout");
+  const codeTemplatesData = getCodeTemplates(problem.id);
+  const languagesData = getLanguages();
+  const clientUserData = getClientUser();
+  const cookieStoreData = cookies();
+  const headerStoreData = headers();
+  const [codeTemplates, languages, clientUser, cookieStore, headerStore] =
+    await Promise.all([
+      codeTemplatesData,
+      languagesData,
+      clientUserData,
+      cookieStoreData,
+      headerStoreData,
+    ]);
+  const { device } = userAgent({ headers: headerStore });
+  const horizontalLayout = cookieStore.get("horizontalLayout");
+  const verticalSubLayout = cookieStore.get("verticalSubLayout");
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const defaultHorizontalLayout: number[] = horizontalLayout
     ? JSON.parse(horizontalLayout.value)
