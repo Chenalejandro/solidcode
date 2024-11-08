@@ -15,6 +15,30 @@ index ebaa18cdf3974bb17edd4ccb94dd6f22393441b3..c4ea30996a97f005cb43d2a790b2f771
    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
      "script",
      {
+diff --git a/dist/components/user-button.d.mts b/dist/components/user-button.d.mts
+index 8ceeafacebdb2b7f8f6fdb0ca3e8dcd6306f07f2..cea0649740e7250f579ac7716efdb33ecce8022b 100644
+--- a/dist/components/user-button.d.mts
++++ b/dist/components/user-button.d.mts
+@@ -12,4 +12,6 @@ type UserButtonProps = {
+ };
+ declare function UserButton(props: UserButtonProps): react_jsx_runtime.JSX.Element;
+ 
+-export { UserButton };
++declare function UserAvatar(): react_jsx_runtime.JSX.Element;
++
++export { UserButton, UserAvatar };
+diff --git a/dist/components/user-button.d.ts b/dist/components/user-button.d.ts
+index 8ceeafacebdb2b7f8f6fdb0ca3e8dcd6306f07f2..cea0649740e7250f579ac7716efdb33ecce8022b 100644
+--- a/dist/components/user-button.d.ts
++++ b/dist/components/user-button.d.ts
+@@ -12,4 +12,6 @@ type UserButtonProps = {
+ };
+ declare function UserButton(props: UserButtonProps): react_jsx_runtime.JSX.Element;
+ 
+-export { UserButton };
++declare function UserAvatar(): react_jsx_runtime.JSX.Element;
++
++export { UserButton, UserAvatar };
 diff --git a/dist/esm/components/elements/ssr-layout-effect.js b/dist/esm/components/elements/ssr-layout-effect.js
 index 18703b4465ef31d04e1e890926fbbee5d71eeb3a..796df60c1433d16d5f61fead604e1561aff8fa7b 100644
 --- a/dist/esm/components/elements/ssr-layout-effect.js
@@ -32,3 +56,38 @@ index 18703b4465ef31d04e1e890926fbbee5d71eeb3a..796df60c1433d16d5f61fead604e1561
    return /* @__PURE__ */ jsx(
      "script",
      {
+diff --git a/dist/esm/components/user-button.js b/dist/esm/components/user-button.js
+index 1694184dda4b0292941625c64c7adcd15065fd8c..01a7452add7e19f4c3ae706ea10a7d15c7c269a1 100644
+--- a/dist/esm/components/user-button.js
++++ b/dist/esm/components/user-button.js
+@@ -91,6 +91,7 @@ function UserButtonInnerInner(props) {
+   ] });
+ }
+ export {
+-  UserButton
++  UserButton,
++  UserAvatar
+ };
+ //# sourceMappingURL=user-button.js.map
+\ No newline at end of file
+diff --git a/dist/esm/index.js b/dist/esm/index.js
+index 844c365b227253fffac2f300516cc1fad2a47321..dd6ea84c5fada4448cc2de53695fe3144a07e32a 100644
+--- a/dist/esm/index.js
++++ b/dist/esm/index.js
+@@ -10,7 +10,7 @@ import { EmailVerification } from "./components-page/email-verification";
+ import { PasswordReset } from "./components-page/password-reset";
+ import { ForgotPassword } from "./components-page/forgot-password";
+ import { MessageCard } from "./components/message-cards/message-card";
+-import { UserButton } from "./components/user-button";
++import { UserButton, UserAvatar } from "./components/user-button";
+ import { AccountSettings } from "./components-page/account-settings";
+ import { AuthPage } from "./components-page/auth-page";
+ import { CredentialSignIn } from "./components/credential-sign-in";
+@@ -39,6 +39,7 @@ export {
+   default3 as StackHandler,
+   default2 as StackProvider,
+   StackTheme,
++  UserAvatar,
+   UserButton,
+   useStackApp,
+   useUser

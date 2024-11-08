@@ -17,6 +17,8 @@ import { SignOutButton } from "@/components/auth/sign-out-button";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
 import { getUserInfo } from "../[locale]/actions";
+// @ts-expect-error "we are ignoring the import error since we patched the stack package"
+import { UserAvatar } from "@stackframe/stack";
 
 export default function RightContent({
   themeToggle,
@@ -80,11 +82,10 @@ export function UserIcon({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="icon" className="flex-none rounded-full">
-          <Avatar>
-            <AvatarImage src={profileImageUrl ?? "/favicon.ico"} />
-            <AvatarFallback>{displayName?.[0] ?? "?"}</AvatarFallback>
-          </Avatar>
+        <Button size="sm-icon" className="flex-none rounded-full">
+          <UserAvatar
+            user={{ primaryEmail: email, displayName, profileImageUrl }}
+          />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
