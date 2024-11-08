@@ -26,7 +26,7 @@
     },
     "patchedDependencies": {
       "monaco-editor@0.52.0": "patches/monaco-editor@0.52.0.patch",
-      "@stackframe/stack@2.6.20": "patches/@stackframe__stack@2.6.20.patch"
+      "@stackframe/stack@2.6.21": "patches/@stackframe__stack@2.6.21.patch"
     }
   }
 }

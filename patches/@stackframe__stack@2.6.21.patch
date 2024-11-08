@@ -16,28 +16,28 @@ index ebaa18cdf3974bb17edd4ccb94dd6f22393441b3..c4ea30996a97f005cb43d2a790b2f771
      "script",
      {
 diff --git a/dist/components/user-button.d.mts b/dist/components/user-button.d.mts
-index 8ceeafacebdb2b7f8f6fdb0ca3e8dcd6306f07f2..cea0649740e7250f579ac7716efdb33ecce8022b 100644
+index 8ceeafacebdb2b7f8f6fdb0ca3e8dcd6306f07f2..9551fdf7f39e63cd8e35e2b1b5ca737f56141aa3 100644
 --- a/dist/components/user-button.d.mts
 +++ b/dist/components/user-button.d.mts
-@@ -12,4 +12,6 @@ type UserButtonProps = {
+@@ -11,5 +11,5 @@ type UserButtonProps = {
+     }[];
  };
  declare function UserButton(props: UserButtonProps): react_jsx_runtime.JSX.Element;
- 
+-
 -export { UserButton };
 +declare function UserAvatar(): react_jsx_runtime.JSX.Element;
-+
 +export { UserButton, UserAvatar };
 diff --git a/dist/components/user-button.d.ts b/dist/components/user-button.d.ts
-index 8ceeafacebdb2b7f8f6fdb0ca3e8dcd6306f07f2..cea0649740e7250f579ac7716efdb33ecce8022b 100644
+index 8ceeafacebdb2b7f8f6fdb0ca3e8dcd6306f07f2..9551fdf7f39e63cd8e35e2b1b5ca737f56141aa3 100644
 --- a/dist/components/user-button.d.ts
 +++ b/dist/components/user-button.d.ts
-@@ -12,4 +12,6 @@ type UserButtonProps = {
+@@ -11,5 +11,5 @@ type UserButtonProps = {
+     }[];
  };
  declare function UserButton(props: UserButtonProps): react_jsx_runtime.JSX.Element;
- 
+-
 -export { UserButton };
 +declare function UserAvatar(): react_jsx_runtime.JSX.Element;
-+
 +export { UserButton, UserAvatar };
 diff --git a/dist/esm/components/elements/ssr-layout-effect.js b/dist/esm/components/elements/ssr-layout-effect.js
 index 18703b4465ef31d04e1e890926fbbee5d71eeb3a..796df60c1433d16d5f61fead604e1561aff8fa7b 100644
