@@ -43,7 +43,7 @@ importers:
         version: 2.1.5(react@19.0.0-rc-66855b96-20241106)
       '@hookform/resolvers':
         specifier: ^3.9.1
-        version: 3.9.1(react-hook-form@7.53.1(react@19.0.0-rc-66855b96-20241106))
+        version: 3.9.1(react-hook-form@7.53.2(react@19.0.0-rc-66855b96-20241106))
       '@mdx-js/loader':
         specifier: ^3.1.0
         version: 3.1.0(acorn@8.14.0)(webpack@5.94.0(esbuild@0.19.2))
@@ -168,8 +168,8 @@ importers:
         specifier: 19.0.0-rc-66855b96-20241106
         version: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
       react-hook-form:
-        specifier: ^7.53.1
-        version: 7.53.1(react@19.0.0-rc-66855b96-20241106)
+        specifier: ^7.53.2
+        version: 7.53.2(react@19.0.0-rc-66855b96-20241106)
       react-resizable-panels:
         specifier: ^2.1.6
         version: 2.1.6(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
@@ -183,8 +183,8 @@ importers:
         specifier: ^1.7.0
         version: 1.7.0(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       sst:
-        specifier: ^3.3.7
-        version: 3.3.7
+        specifier: ^3.3.10
+        version: 3.3.10
       svix:
         specifier: ^1.39.0
         version: 1.39.0
@@ -5295,8 +5295,8 @@ packages:
     peerDependencies:
       react: 19.0.0-rc-66855b96-20241106
 
-  react-hook-form@7.53.1:
-    resolution: {integrity: sha512-6aiQeBda4zjcuaugWvim9WsGqisoUk+etmFEsSUMm451/Ic8L/UAb7sRtMj3V+Hdzm6mMjU1VhiSzYUZeBm0Vg==}
+  react-hook-form@7.53.2:
+    resolution: {integrity: sha512-YVel6fW5sOeedd1524pltpHX+jgU2u3DSDtXEaBORNdqiNrsX/nUI/iGXONegttg0mJVnfrIkiV0cmTU6Oo2xw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -5537,33 +5537,33 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  sst-darwin-arm64@3.3.7:
-    resolution: {integrity: sha512-2CQh78YIdvrRpO8enZ/Jx51JsUSFtk564u9w4ldcu5SsMMDY1ocdw5p/XIwBy1eKeRtrXLizd35sYbtSfSy6sw==}
+  sst-darwin-arm64@3.3.10:
+    resolution: {integrity: sha512-1o54HxGfhc4kB7b3yHm95N+bl4CA8AohV13CNvwJtsn7XPDDAWN3va1pSM8YpfO/K+kiKG7tMicMOInQhSusfA==}
     cpu: [arm64]
     os: [darwin]
 
-  sst-darwin-x64@3.3.7:
-    resolution: {integrity: sha512-+hiDT3+am+CBO3xBy8yl3bmFeTjGXUT/+7V6NFOV2yxlRP3A8J65nEjWdzPTU/u7hRl+leE8EBu14j0grt/7/A==}
+  sst-darwin-x64@3.3.10:
+    resolution: {integrity: sha512-WQB2KYrf/Cv20xxI0TTLD2RKAHRV5D8NZpG/WE9X4/MARWo3ebPcNqQnSW4EQkXTgQBITTGanEqcmwDOgZPnzQ==}
     cpu: [x64]
     os: [darwin]
 
-  sst-linux-arm64@3.3.7:
-    resolution: {integrity: sha512-dYolpXAjq0S8QjL8sTKzcRpPNgZDeMcJ9PHnt/8GpdqxNxEpGlNF9gMl2cB7mleJyJYBNMPvi4YEeCGtcazmeQ==}
+  sst-linux-arm64@3.3.10:
+    resolution: {integrity: sha512-5i1rzUOOwHbD+yzetGNJlImTdz9iNr0p1cUan4C+XABRUBF9TQCHgn585j49FMYp2gQNjmqOzfh7813sSkvvRw==}
     cpu: [arm64]
     os: [linux]
 
-  sst-linux-x64@3.3.7:
-    resolution: {integrity: sha512-K2vPOZ5DS8mJmE4QtffgZN5Nem1MIBhoVozNtZ0NoufeKHbFz0Hyw9wbqxYSbs2MOoVNKvG8qwcX99ojVXTFKw==}
+  sst-linux-x64@3.3.10:
+    resolution: {integrity: sha512-eEAbBkYya8n6bNknenYf07zozEStrRYZI297a/M93tG/4lB2jafJymIkkoBX73CYmIulxkzO4Dt4v4L18L9/3A==}
     cpu: [x64]
     os: [linux]
 
-  sst-linux-x86@3.3.7:
-    resolution: {integrity: sha512-4rXj54+UJd+HLmrhCHQ0k9AOkugHZhhh6sCUnkUNChJr5ei62pRscUQ7ge8/jywvfzHZGZw3eXXJWCCsjilXFA==}
+  sst-linux-x86@3.3.10:
+    resolution: {integrity: sha512-bIIizhNMl5OkmJcHRiLzu04IbRrzmNiLATCq3VMjDzpOPqpgMldv7MtceLBhPXsHj6/596qoHIkJWVPArMW+mA==}
     cpu: [x86]
     os: [linux]
 
-  sst@3.3.7:
-    resolution: {integrity: sha512-qIJPQnGeIHarWZoUvphwi6R1nu6Pccd3Q2Qy9ltBLs4Z47TkSdwBNeqCBhgAzWA0eLDwStTXliexyQCcNM6gDQ==}
+  sst@3.3.10:
+    resolution: {integrity: sha512-W+0ftES7GzCqpXGMXAcvnvYmwGgDiebDEQdID1O/mqXhcjLbvzoO2erF+0GJ+dF3TbYW2xGkWEx7bzqrC247BQ==}
     hasBin: true
     peerDependencies:
       hono: 4.x
@@ -7389,9 +7389,9 @@ snapshots:
     dependencies:
       react: 19.0.0-rc-66855b96-20241106
 
-  '@hookform/resolvers@3.9.1(react-hook-form@7.53.1(react@19.0.0-rc-66855b96-20241106))':
+  '@hookform/resolvers@3.9.1(react-hook-form@7.53.2(react@19.0.0-rc-66855b96-20241106))':
     dependencies:
-      react-hook-form: 7.53.1(react@19.0.0-rc-66855b96-20241106)
+      react-hook-form: 7.53.2(react@19.0.0-rc-66855b96-20241106)
 
   '@humanfs/core@0.19.1': {}
 
@@ -9417,7 +9417,7 @@ snapshots:
       react: 19.0.0-rc-66855b96-20241106
       react-day-picker: 8.10.1(date-fns@3.6.0)(react@19.0.0-rc-66855b96-20241106)
       react-dom: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
-      react-hook-form: 7.53.1(react@19.0.0-rc-66855b96-20241106)
+      react-hook-form: 7.53.2(react@19.0.0-rc-66855b96-20241106)
       react-resizable-panels: 2.1.6(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       tailwind-merge: 2.5.4
     optionalDependencies:
@@ -9430,7 +9430,7 @@ snapshots:
 
   '@stackframe/stack@2.6.21(patch_hash=wojvf75ta4wdymrgb5r2jkash4)(@babel/core@7.26.0)(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-react-compiler@19.0.0-beta-6fc168f-20241025)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(tailwindcss@3.4.14)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1)':
     dependencies:
-      '@hookform/resolvers': 3.9.1(react-hook-form@7.53.1(react@19.0.0-rc-66855b96-20241106))
+      '@hookform/resolvers': 3.9.1(react-hook-form@7.53.2(react@19.0.0-rc-66855b96-20241106))
       '@simplewebauthn/browser': 11.0.0
       '@stackframe/stack-sc': 2.6.21(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-react-compiler@19.0.0-beta-6fc168f-20241025)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1)
       '@stackframe/stack-shared': 2.6.21(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(@playwright/test@1.48.2)(babel-plugin-react-compiler@19.0.0-beta-6fc168f-20241025)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106))(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)(types-react-dom@19.0.0-rc.1)(types-react@19.0.0-rc.1)(yup@1.4.0)
@@ -9449,7 +9449,7 @@ snapshots:
       react: 19.0.0-rc-66855b96-20241106
       react-avatar-editor: 13.0.2(@babel/core@7.26.0)(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       react-dom: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
-      react-hook-form: 7.53.1(react@19.0.0-rc-66855b96-20241106)
+      react-hook-form: 7.53.2(react@19.0.0-rc-66855b96-20241106)
       rimraf: 5.0.10
       server-only: 0.0.1
       tailwind-merge: 2.5.4
@@ -12158,7 +12158,7 @@ snapshots:
       react: 19.0.0-rc-66855b96-20241106
       scheduler: 0.25.0-rc-66855b96-20241106
 
-  react-hook-form@7.53.1(react@19.0.0-rc-66855b96-20241106):
+  react-hook-form@7.53.2(react@19.0.0-rc-66855b96-20241106):
     dependencies:
       react: 19.0.0-rc-66855b96-20241106
 
@@ -12461,32 +12461,32 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  sst-darwin-arm64@3.3.7:
+  sst-darwin-arm64@3.3.10:
     optional: true
 
-  sst-darwin-x64@3.3.7:
+  sst-darwin-x64@3.3.10:
     optional: true
 
-  sst-linux-arm64@3.3.7:
+  sst-linux-arm64@3.3.10:
     optional: true
 
-  sst-linux-x64@3.3.7:
+  sst-linux-x64@3.3.10:
     optional: true
 
-  sst-linux-x86@3.3.7:
+  sst-linux-x86@3.3.10:
     optional: true
 
-  sst@3.3.7:
+  sst@3.3.10:
     dependencies:
       aws4fetch: 1.0.20
       jose: 5.2.3
       openid-client: 5.6.4
     optionalDependencies:
-      sst-darwin-arm64: 3.3.7
-      sst-darwin-x64: 3.3.7
-      sst-linux-arm64: 3.3.7
-      sst-linux-x64: 3.3.7
-      sst-linux-x86: 3.3.7
+      sst-darwin-arm64: 3.3.10
+      sst-darwin-x64: 3.3.10
+      sst-linux-arm64: 3.3.10
+      sst-linux-x64: 3.3.10
+      sst-linux-x86: 3.3.10
 
   stacktrace-parser@0.1.10:
     dependencies:
