@@ -30,12 +30,12 @@ export const problemTestCases = createTable(
       .$onUpdate(() => sql`now()`)
       .notNull(),
   }),
-  (testCasesTable) => ({
-    uniqueOrdering: unique("unique_ordering").on(
+  (testCasesTable) => [
+    unique("unique_ordering").on(
       testCasesTable.problemId,
       testCasesTable.orderNumber,
     ),
-  }),
+  ],
 );
 
 export const problemExamples = createTable("problem_examples", (t) => ({
@@ -63,11 +63,7 @@ export const codeTemplates = createTable(
       .$onUpdate(() => sql`now()`)
       .notNull(),
   }),
-  (table) => {
-    return {
-      pk: primaryKey({ columns: [table.problemId, table.languageId] }),
-    };
-  },
+  (table) => [primaryKey({ columns: [table.problemId, table.languageId] })],
 );
 
 export const problemsRelations = relations(problems, ({ many }) => ({

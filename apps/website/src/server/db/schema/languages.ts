@@ -35,14 +35,14 @@ export const languageVersions = createTable(
     patchVersion: t.smallint().notNull(),
     createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
   }),
-  (languageVersionsTable) => ({
-    uniqueVersion: unique("unique_version").on(
+  (languageVersionsTable) => [
+    unique("unique_version").on(
       languageVersionsTable.languageId,
       languageVersionsTable.majorVersion,
       languageVersionsTable.minorVersion,
       languageVersionsTable.patchVersion,
     ),
-  }),
+  ],
 );
 
 export const languageVersionsRelations = relations(
