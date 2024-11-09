@@ -5,9 +5,55 @@ export default $config({
       name: "website",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
+      providers: { awsx: "2.17.0", aws: "6.58.0" },
     };
   },
   async run() {
+    const vpc = new awsx.ec2.Vpc("vpc");
+
+    const securityGroup = new aws.ec2.SecurityGroup("securityGroup", {
+      vpcId: vpc.vpcId,
+      egress: [
+        {
+          fromPort: 0,
+          toPort: 0,
+          protocol: "-1",
+          cidrBlocks: ["0.0.0.0/0"],
+          ipv6CidrBlocks: ["::/0"],
+        },
+      ],
+    });
+
+    const cluster = new aws.ecs.Cluster("cluster");
+
+    const lb = new awsx.lb.ApplicationLoadBalancer("lb");
+
+    const service = new awsx.ecs.EC2Service("service", {
+      cluster: cluster.arn,
+      networkConfiguration: {
+        subnets: vpc.privateSubnetIds,
+        securityGroups: [securityGroup.id],
+      },
+      desiredCount: 1,
+      taskDefinitionArgs: {
+        container: {
+          name: "futurejudge",
+          image: "alejandrochen97/futurejudge",
+          privileged: true,
+          cpu: 2,
+          memory: 2048,
+          essential: true,
+          portMappings: [
+            {
+              containerPort: 80,
+              targetGroup: lb.defaultTargetGroup,
+            },
+          ],
+        },
+      },
+    });
+
+    lb.loadBalancer.dnsName;
     new sst.aws.Nextjs("SolidCode", {
       openNextVersion: "3.2.1",
       server: {
