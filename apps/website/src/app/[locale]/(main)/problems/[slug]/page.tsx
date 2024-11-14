@@ -1,5 +1,9 @@
 import { notFound } from "next/navigation";
-import { getCodeTemplates, getProblem } from "@/server/data/problems-dto";
+import {
+  getAllProblems,
+  getCodeTemplates,
+  getProblem,
+} from "@/server/data/problems-dto";
 import { cookies, headers } from "next/headers";
 import { getLanguages } from "@/server/data/languages-dto";
 import { userAgent } from "next/server";
@@ -10,6 +14,13 @@ import { ResizeablePanel } from "./_components/resizeable-panel";
 async function getClientUser() {
   const user = await stackServerApp.getUser();
   return user?.toClientJson();
+}
+
+export const dynamicParams = false;
+
+export async function generateStaticParams({ params: { locale } }: { params: { locale: string } }) {
+  const problems = await getAllProblems();
+  return problems.map((problem) => ({ slug: problem.slug }));
 }
 
 export type ClientUser = Awaited<ReturnType<typeof getClientUser>>;
