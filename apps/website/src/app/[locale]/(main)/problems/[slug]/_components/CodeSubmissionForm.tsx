@@ -6,16 +6,16 @@ import {
   useEffect,
 } from "react";
 import { useTheme } from "next-themes";
-import { codeSubmissionAction } from "@/app/[locale]/problems/[slug]/_actions/CodeSubmissionAction";
+import { codeSubmissionAction } from "@/app/[locale]/(main)/problems/[slug]/_actions/CodeSubmissionAction";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { useFormStatus } from "react-dom";
-import { codeSchema } from "@/app/[locale]/problems/[slug]/_schemas/CodeSchema";
+import { codeSchema } from "@/app/[locale]/(main)/problems/[slug]/_schemas/CodeSchema";
 import { ExclamationTriangleIcon } from "@heroicons/react/16/solid";
 import { type ZodError } from "zod";
 import { type LanguagesSchema } from "@/server/data/languages-dto";
-import { ProgrammingLanguageSelector } from "@/app/[locale]/problems/[slug]/_components/programming-language-selector";
+import { ProgrammingLanguageSelector } from "@/app/[locale]/(main)/problems/[slug]/_components/programming-language-selector";
 import LoginModal from "@/components/LoginModal";
 import { type CodeTemplates } from "@/server/data/problems-dto";
 import { type ClientUser } from "../page";

@@ -80,6 +80,11 @@ export async function processPayment(data: unknown) {
     new Date(response.last_modified),
     subscriptionStatus.data,
   );
+  await user.update({
+    clientReadOnlyMetadata: {
+      subscribed: true,
+    },
+  });
   console.log(response);
   const locale = await getLocale();
   redirect({ href: "/subscription/success", locale });

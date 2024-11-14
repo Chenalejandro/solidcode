@@ -1,15 +1,15 @@
 import { TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ProblemExample from "@/app/[locale]/problems/[slug]/_components/ProblemExample.mdx";
-import DiceSum from "@/app/[locale]/problems/[slug]/_components/descriptions/dice-sum.mdx";
-import HighestProfitPath from "@/app/[locale]/problems/[slug]/_components/descriptions/highest-profit-path.mdx";
-import InOrderBinaryTreeTraversal from "@/app/[locale]/problems/[slug]/_components/descriptions/in-order-binary-tree-traversal.mdx";
-import InvertABinaryTree from "@/app/[locale]/problems/[slug]/_components/descriptions/invert-a-binary-tree.mdx";
-import MaximumLengthOfSongsOnCd from "@/app/[locale]/problems/[slug]/_components/descriptions/maximum-length-of-songs-on-cd.mdx";
-import MostEvenCut from "@/app/[locale]/problems/[slug]/_components/descriptions/most-even-cut.mdx";
-import MostGainCut from "@/app/[locale]/problems/[slug]/_components/descriptions/most-gain-cut.mdx";
-import ReverseTheArray from "@/app/[locale]/problems/[slug]/_components/descriptions/reverse-the-array.mdx";
-import SplitStudentsIntoGroups from "@/app/[locale]/problems/[slug]/_components/descriptions/split-students-into-groups.mdx";
-import WaterContainers from "@/app/[locale]/problems/[slug]/_components/descriptions/water-containers.mdx";
+import ProblemExample from "@/app/[locale]/(main)/problems/[slug]/_components/ProblemExample.mdx";
+import DiceSum from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/dice-sum.mdx";
+import HighestProfitPath from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/highest-profit-path.mdx";
+import InOrderBinaryTreeTraversal from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/in-order-binary-tree-traversal.mdx";
+import InvertABinaryTree from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/invert-a-binary-tree.mdx";
+import MaximumLengthOfSongsOnCd from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/maximum-length-of-songs-on-cd.mdx";
+import MostEvenCut from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/most-even-cut.mdx";
+import MostGainCut from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/most-gain-cut.mdx";
+import ReverseTheArray from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/reverse-the-array.mdx";
+import SplitStudentsIntoGroups from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/split-students-into-groups.mdx";
+import WaterContainers from "@/app/[locale]/(main)/problems/[slug]/_components/descriptions/water-containers.mdx";
 import {
   getProblemExamples,
   type ProblemExamples,

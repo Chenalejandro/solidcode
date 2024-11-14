@@ -1,10 +1,9 @@
 "use client";
 import { env } from "@/env";
-import { useQuery } from "@tanstack/react-query";
 import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import { useEffect, type ReactNode } from "react";
-import { getUserInfo } from "../[locale]/actions";
+import { useUser } from "@stackframe/stack";
 
 if (env.NEXT_PUBLIC_ENABLE_POSTHOG === "true") {
   if (typeof window !== "undefined") {
@@ -29,17 +28,13 @@ export function CSPostHogProvider({ children }: { children: ReactNode }) {
 }
 
 const PostHogAuthWrapper = ({ children }: { children: ReactNode }) => {
-  const { data, isPending, isError } = useQuery({
-    queryKey: ["get-user"],
-    queryFn: async () => await getUserInfo(),
-    refetchOnWindowFocus: false,
-  });
+  const user = useUser();
   useEffect(() => {
-    if (!isPending && !isError && data.id) {
-      posthog.identify(data.id, { email: data.email });
-    } else if (!isPending && !isError && !data.id) {
+    if (user) {
+      posthog.identify(user.id, { email: user.primaryEmail });
+    } else {
       posthog.reset();
     }
-  }, [data, isPending, isError]);
+  }, [user]);
   return <>{children}</>;
 };

@@ -1,19 +1,15 @@
 "use client";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { unsubscribe } from "./actions";
 import { Button, type ButtonProps } from "@/components/ui/button";
 
 export function UnsubscribeButton(
   props: Omit<ButtonProps, "onClick" | "disabled" | "variant">,
 ) {
-  const queryClient = useQueryClient();
   const { data, error, mutate, isPending } = useMutation({
     mutationKey: ["unsubscribe"],
     mutationFn: async () => {
       await unsubscribe();
-      void queryClient.invalidateQueries({
-        queryKey: ["get-user"],
-      });
     },
   });
   return (
@@ -33,6 +29,10 @@ export function UnsubscribeButton(
 
 function ErrorMessage({ error }: { error: Error | null }) {
   if (!error) {
+    return <></>;
+  }
+  if (error.message === "NEXT_REDIRECT") {
+    console.log('ignoring redirect error');
     return <></>;
   }
   return (

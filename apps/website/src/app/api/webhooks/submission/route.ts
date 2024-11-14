@@ -1,4 +1,4 @@
-import { futureJudgeResponseSchema } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
+import { futureJudgeResponseSchema } from "@/app/[locale]/(main)/problems/[slug]/_schemas/SubmissionSchema";
 import { textDecoder } from "@/lib/utils";
 import { Webhook } from "svix";
 import {

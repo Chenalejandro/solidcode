@@ -14,7 +14,6 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useQueryClient } from "@tanstack/react-query";
 import { UnsubscribeButton } from "../unsubscribe/UnsubscribeButton";
 import { updateProfileSchema, type UpdateProfileValues } from "./schema";
 import { useUser } from "@stackframe/stack";
@@ -26,7 +25,6 @@ export default function SettingsPage(props: {
   const { user, isSubscribed } = props;
 
   const { toast } = useToast();
-  const queryClient = useQueryClient();
   const form = useForm<UpdateProfileValues>({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: { name: user.userName },
@@ -35,9 +33,6 @@ export default function SettingsPage(props: {
   async function onSubmit(data: UpdateProfileValues) {
     try {
       await clientUser?.setDisplayName(data.name);
-      void queryClient.invalidateQueries({
-        queryKey: ["get-user"],
-      });
       toast({ description: "Profile updated." });
     } catch (error) {
       toast({

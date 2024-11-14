@@ -10,7 +10,6 @@ import { useState } from "react";
 import { processPayment } from "../action";
 import { useTheme } from "next-themes";
 import { env } from "@/env";
-import { useQueryClient } from "@tanstack/react-query";
 
 if (typeof window !== "undefined") {
   initMercadoPago(env.NEXT_PUBLIC_MELI_PUBLIC_KEY);
@@ -24,16 +23,17 @@ interface IPaymentForm {
 export default function PaymentForm({ amount, email }: IPaymentForm) {
   const [submitError, setSubmitError] = useState<boolean>(false);
   const { resolvedTheme } = useTheme();
-  const queryClient = useQueryClient();
   const onSubmit = async (
     formData: ICardPaymentFormData<ICardPaymentBrickPayer>,
   ) => {
     try {
       await processPayment(formData);
-      void queryClient.invalidateQueries({
-        queryKey: ["get-user"],
-      });
     } catch (error) {
+      // @ts-expect-error "ignoring type errors"
+      if (error?.message === "NEXT_REDIRECT") {
+        console.log("ignoring redirect error");
+        return;
+      }
       console.error(error);
       setSubmitError(true);
     }

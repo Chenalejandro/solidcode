@@ -2,12 +2,12 @@ import {
   type SubmissionData,
   getSubmission,
   type WrongAnswerDatas,
-} from "@/app/[locale]/problems/[slug]/_actions/GetSubmissionAction";
+} from "@/app/[locale]/(main)/problems/[slug]/_actions/GetSubmissionAction";
 import { useQuery } from "@tanstack/react-query";
 import {
   invalidSubmissionSchemaError,
   notAuthenticatedError,
-} from "@/app/[locale]/problems/[slug]/_errors";
+} from "@/app/[locale]/(main)/problems/[slug]/_errors";
 import {
   Card,
   CardContent,
@@ -16,7 +16,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { type Status } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
+import { type Status } from "@/app/[locale]/(main)/problems/[slug]/_schemas/SubmissionSchema";
 import { useEffect } from "react";
 import { type ClientUser } from "../page";
 import { useTranslations } from "next-intl";

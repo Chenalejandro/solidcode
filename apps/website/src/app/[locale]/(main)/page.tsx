@@ -1,6 +1,6 @@
 import { getAllProblems } from "@/server/data/problems-dto";
-import { ProblemDataTable } from "../_components/ProblemDataTable";
-import { problemColumns } from "../_components/ProblemColumns";
+import { ProblemDataTable } from "@/app/_components/ProblemDataTable";
+import { problemColumns } from "@/app/_components/ProblemColumns";
 import { routing } from "@/i18n/routing";
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";

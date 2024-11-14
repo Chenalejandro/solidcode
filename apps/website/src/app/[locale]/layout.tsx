@@ -99,14 +99,11 @@ export default async function RootLayout(props: {
               >
                 <StackTheme nonce={nonce}>
                   <TanstackQueryClientProvider>
-                    <CSPostHogProvider>
-                      <PostHogPageView />
-                      <TopNav />
+
                       {children}
                       <ReactQueryDevtools initialIsOpen={false} />
                       <Sonner />
                       <Toaster />
-                    </CSPostHogProvider>
                   </TanstackQueryClientProvider>
                 </StackTheme>
               </StackProvider>

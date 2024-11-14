@@ -1,5 +1,5 @@
 "use server";
-import { notAuthenticatedError } from "@/app/[locale]/problems/[slug]/_errors";
+import { notAuthenticatedError } from "@/app/[locale]/(main)/problems/[slug]/_errors";
 import { getSubmissionBy } from "@/server/data/submissions-dto";
 import {
   getNumberOfTestCases,

@@ -1,5 +1,5 @@
 import "server-only";
-import { type Status } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
+import { type Status } from "@/app/[locale]/(main)/problems/[slug]/_schemas/SubmissionSchema";
 import { db, dbWithTransaction } from "@/server/db";
 import {
   submissionDatas,

@@ -1,7 +1,6 @@
 "use client";
 import { type ReactNode } from "react";
 import { SignInButton } from "@/components/auth/sign-in-button";
-import { useQuery } from "@tanstack/react-query";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,14 +10,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Settings } from "lucide-react";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
-import { getUserInfo } from "../[locale]/actions";
 // @ts-expect-error "we are ignoring the import error since we patched the stack package"
-import { UserAvatar } from "@stackframe/stack";
+import { UserAvatar, useUser } from "@stackframe/stack";
 
 export default function RightContent({
   themeToggle,
@@ -27,29 +24,8 @@ export default function RightContent({
   themeToggle: ReactNode;
   subscribeButton: ReactNode;
 }) {
-  const { data, isPending, isError, error } = useQuery({
-    queryKey: ["get-user"],
-    queryFn: async () => await getUserInfo(),
-    refetchOnWindowFocus: false,
-  });
-  if (isError) {
-    console.log(error);
-    return (
-      <>
-        {themeToggle}
-        <>Hubo un error</>
-      </>
-    );
-  }
-  if (isPending) {
-    return (
-      <>
-        {themeToggle}
-        <></>
-      </>
-    );
-  }
-  if (!data.id) {
+  const user = useUser();
+  if (!user) {
     return (
       <>
         {themeToggle}
@@ -59,12 +35,13 @@ export default function RightContent({
   }
   return (
     <>
-      {!data.isUserSubscribed && subscribeButton}
+      { /* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
+      {!user.clientReadOnlyMetadata?.subscribed && subscribeButton}
       {themeToggle}
       <UserIcon
-        email={data.email}
-        profileImageUrl={data.profileImageUrl}
-        displayName={data.displayName}
+        email={user.primaryEmail}
+        profileImageUrl={user.profileImageUrl}
+        displayName={user.displayName}
       ></UserIcon>
     </>
   );

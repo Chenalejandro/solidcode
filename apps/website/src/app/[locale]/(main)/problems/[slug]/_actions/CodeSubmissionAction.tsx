@@ -1,8 +1,8 @@
 "use server";
-import { codeSubmissionSchema } from "@/app/[locale]/problems/[slug]/_schemas/CodeSchema";
+import { codeSubmissionSchema } from "@/app/[locale]/(main)/problems/[slug]/_schemas/CodeSchema";
 import { env } from "@/env";
 import { textEncoder } from "@/lib/utils";
-import { submissionResponseSchema } from "@/app/[locale]/problems/[slug]/_schemas/SubmissionSchema";
+import { submissionResponseSchema } from "@/app/[locale]/(main)/problems/[slug]/_schemas/SubmissionSchema";
 import { saveSubmission } from "@/server/data/submissions-dto";
 import { getFooterCode, getInputs } from "@/server/data/problems-dto";
 import { getExternalLanguageId } from "@/server/data/languages-dto";

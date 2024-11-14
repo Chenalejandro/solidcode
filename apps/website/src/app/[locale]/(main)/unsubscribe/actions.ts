@@ -42,6 +42,11 @@ export async function unsubscribe() {
     new Date(response.last_modified),
     subscriptionStatus,
   );
+  await user.update({
+    clientReadOnlyMetadata: {
+      subscribed: false,
+    },
+  });
   const locale = await getLocale();
   redirect({ href: "/unsubscribe/success", locale });
 }

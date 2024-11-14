@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/resizable";
 import { type LanguagesSchema } from "@/server/data/languages-dto";
 import { useState, type ReactNode } from "react";
-import { CodeSubmissionResult } from "@/app/[locale]/problems/[slug]/_components/SubmissionResult";
+import { CodeSubmissionResult } from "@/app/[locale]/(main)/problems/[slug]/_components/SubmissionResult";
 import { type Problem, type CodeTemplates } from "@/server/data/problems-dto";
 import { CodeSubmissionForm } from "./CodeSubmissionForm";
 import { type ClientUser } from "../page";

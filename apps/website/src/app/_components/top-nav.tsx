@@ -2,8 +2,7 @@ import ThemeToggle from "@/components/ui/theme-toggle";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { getTranslations } from "next-intl/server";
-import dynamic from "next/dynamic";
-const RightContent = dynamic(() => import("./RightContent"));
+import RightContentWrapper from "./RightContentWrapper";
 
 export async function TopNav() {
   const t = await getTranslations("App");
@@ -13,10 +12,10 @@ export async function TopNav() {
         <h1 className="font-semibold">{t("title")}</h1>
       </Link>
       <div className="flex items-center">
-        <RightContent
+        <RightContentWrapper
           subscribeButton={<SubscribeButton />}
           themeToggle={<ThemeToggle className="mr-5" />}
-        ></RightContent>
+        ></RightContentWrapper>
       </div>
     </nav>
   );
