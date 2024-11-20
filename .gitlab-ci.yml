@@ -23,7 +23,7 @@ run_tests:
       alias: serverless-Redis-Http
   image: mcr.microsoft.com/playwright:v1.49.0-jammy
   script:
-    - npm install -g pnpm@9.13.2
+    - npm install -g pnpm@9.14.1
     - cd apps/website
     - pnpm install
     - pnpm db:push
