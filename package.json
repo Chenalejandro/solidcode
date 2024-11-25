@@ -11,8 +11,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "prettier": "^3.3.3",
-    "turbo": "^2.3.1",
+    "prettier": "^3.4.1",
+    "turbo": "^2.3.2",
     "typescript": "^5.7.2"
   },
   "packageManager": "pnpm@9.14.1",
@@ -26,7 +26,7 @@
     },
     "patchedDependencies": {
       "monaco-editor@0.52.0": "patches/monaco-editor@0.52.0.patch",
-      "@stackframe/stack@2.6.28": "patches/@stackframe__stack@2.6.28.patch"
+      "@stackframe/stack@2.6.29": "patches/@stackframe__stack@2.6.29.patch"
     }
   }
 }
