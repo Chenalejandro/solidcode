@@ -12,10 +12,10 @@
   },
   "devDependencies": {
     "prettier": "^3.4.1",
-    "turbo": "^2.3.2",
+    "turbo": "^2.3.3",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@9.14.2",
+  "packageManager": "pnpm@9.14.4",
   "engines": {
     "node": ">=20"
   },
@@ -26,7 +26,7 @@
     },
     "patchedDependencies": {
       "monaco-editor@0.52.0": "patches/monaco-editor@0.52.0.patch",
-      "@stackframe/stack@2.6.29": "patches/@stackframe__stack@2.6.29.patch"
+      "@stackframe/stack@2.6.31": "patches/@stackframe__stack@2.6.31.patch"
     }
   }
 }
