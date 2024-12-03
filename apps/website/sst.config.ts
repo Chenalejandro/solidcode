@@ -11,6 +11,7 @@ export default $config({
     new sst.aws.Nextjs("SolidCode", {
       openNextVersion: "3.2.2",
       server: {
+        runtime: "nodejs22.x",
         architecture: "x86_64",
         memory: "2048 MB",
       },
