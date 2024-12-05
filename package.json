@@ -20,10 +20,6 @@
     "node": ">=20"
   },
   "pnpm": {
-    "overrides": {
-      "@types/react": "npm:types-react@19.0.0-rc.1",
-      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
-    },
     "patchedDependencies": {
       "monaco-editor@0.52.0": "patches/monaco-editor@0.52.0.patch",
       "@stackframe/stack@2.6.31": "patches/@stackframe__stack@2.6.31.patch"
