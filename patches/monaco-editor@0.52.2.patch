@@ -1,11 +1,13 @@
 diff --git a/esm/vs/base/common/worker/simpleWorker.js b/esm/vs/base/common/worker/simpleWorker.js
-index 85005f72fa8f356259711355424370f4b52acb8f..239ddebc819ba0fa1fa65203c0618ae32bb2144f 100644
+index 85005f72fa8f356259711355424370f4b52acb8f..448465d024d6126c04878695c78f684bd703944c 100644
 --- a/esm/vs/base/common/worker/simpleWorker.js
 +++ b/esm/vs/base/common/worker/simpleWorker.js
-@@ -426,6 +426,10 @@ export class SimpleWorkerServer {
+@@ -425,7 +425,11 @@ export class SimpleWorkerServer {
+             globalThis.require.config(loaderConfig);
          }
          if (isESM) {
-             const url = FileAccess.asBrowserUri(`${moduleId}.js`).toString(true);
+-            const url = FileAccess.asBrowserUri(`${moduleId}.js`).toString(true);
++        const url = FileAccess.asBrowserUri(`${moduleId}.js`).toString(true);
 +            if (process.env.NODE_ENV === "development") {
 +                throw new Error(`No RequestHandler!`);
 +                return;
