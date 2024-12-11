@@ -32,7 +32,6 @@ const config: NextConfig = {
   },
   webpack: (config, options) => {
     if (!options.isServer) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       config.plugins.push(
         new MonacoWebpackPlugin({
           // you can add other languages here as needed
@@ -42,7 +41,6 @@ const config: NextConfig = {
         }),
       );
     }
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return config;
   },
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
