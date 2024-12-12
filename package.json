@@ -21,8 +21,8 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "@stackframe/stack@2.6.34": "patches/@stackframe__stack@2.6.34.patch",
-      "monaco-editor@0.52.2": "patches/monaco-editor@0.52.2.patch"
+      "monaco-editor@0.52.2": "patches/monaco-editor@0.52.2.patch",
+      "@stackframe/stack@2.6.36": "patches/@stackframe__stack@2.6.36.patch"
     }
   }
 }
