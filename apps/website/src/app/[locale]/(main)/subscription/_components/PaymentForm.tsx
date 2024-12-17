@@ -5,7 +5,7 @@ import { CardPayment } from "@mercadopago/sdk-react";
 import {
   type ICardPaymentBrickPayer,
   type ICardPaymentFormData,
-} from "@mercadopago/sdk-react/bricks/cardPayment/type";
+} from "@mercadopago/sdk-react/esm/bricks/cardPayment/type";
 import { useState } from "react";
 import { processPayment } from "../action";
 import { useTheme } from "next-themes";
