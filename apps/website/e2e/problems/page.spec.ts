@@ -406,7 +406,9 @@ if (!process.env.CI) {
     await page
       .getByLabel("Contraseña", { exact: true })
       .fill(env.AUTH_EMAIL_PASSWORD);
-    await page.getByRole("button", { name: "Iniciar sesión", exact: true }).click();
+    await page
+      .getByRole("button", { name: "Iniciar sesión", exact: true })
+      .click();
     await page.waitForURL("http://localhost:3000/es", { timeout: 3000 });
     await page.goto("http://localhost:3000/es/problems/reverse-the-array");
     await page.getByText("Ejecutar").waitFor();

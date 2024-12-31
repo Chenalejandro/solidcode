@@ -32,7 +32,7 @@ function ErrorMessage({ error }: { error: Error | null }) {
     return <></>;
   }
   if (error.message === "NEXT_REDIRECT") {
-    console.log('ignoring redirect error');
+    console.log("ignoring redirect error");
     return <></>;
   }
   return (

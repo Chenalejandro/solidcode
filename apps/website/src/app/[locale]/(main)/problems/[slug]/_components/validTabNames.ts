@@ -1,2 +1,5 @@
-
-export const validTabNames = ["description", "submissions", "solutions"] as const;
+export const validTabNames = [
+  "description",
+  "submissions",
+  "solutions",
+] as const;

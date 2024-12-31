@@ -42,7 +42,7 @@ const LoginModal = ({
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="sm:justify-center">
-          <SignInButton afterAuthReturnTo={pathname}/>
+          <SignInButton afterAuthReturnTo={pathname} />
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -1,4 +1,7 @@
-import { CloudFrontClient, CreateInvalidationCommand } from "@aws-sdk/client-cloudfront";
+import {
+  CloudFrontClient,
+  CreateInvalidationCommand,
+} from "@aws-sdk/client-cloudfront";
 import { Resource } from "sst";
 
 const cloudFront = new CloudFrontClient({});

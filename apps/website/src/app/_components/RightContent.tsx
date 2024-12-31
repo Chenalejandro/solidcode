@@ -34,7 +34,7 @@ export default function RightContent({
   }
   return (
     <>
-      { /* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
+      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
       {!user.clientReadOnlyMetadata?.subscribed && subscribeButton}
       {themeToggle}
       <UserIcon

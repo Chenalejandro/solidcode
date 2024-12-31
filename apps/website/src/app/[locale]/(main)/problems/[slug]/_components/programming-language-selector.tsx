@@ -21,9 +21,11 @@ export function ProgrammingLanguageSelector(props: {
   return (
     <Select
       value={convertIdToStringRepresentation(selectedLanguageId)}
-      onValueChange={(value) => onSelectLanguageChange(convertStringIdToNumberRepresentation(value))}
+      onValueChange={(value) =>
+        onSelectLanguageChange(convertStringIdToNumberRepresentation(value))
+      }
     >
-      <SelectTrigger className="w-[180px] m-1">
+      <SelectTrigger className="m-1 w-[180px]">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
@@ -37,7 +39,14 @@ export function ProgrammingLanguageSelector(props: {
 }
 
 function createLanguageItem(language: Language) {
-  return <SelectItem value={convertIdToStringRepresentation(language.id)} key={language.id}>{language.name}</SelectItem>;
+  return (
+    <SelectItem
+      value={convertIdToStringRepresentation(language.id)}
+      key={language.id}
+    >
+      {language.name}
+    </SelectItem>
+  );
 }
 
 function convertIdToStringRepresentation(id: number) {
