@@ -15,14 +15,14 @@
     "turbo": "^2.3.3",
     "typescript": "^5.7.2"
   },
-  "packageManager": "pnpm@9.15.1",
+  "packageManager": "pnpm@9.15.2",
   "engines": {
     "node": ">=22"
   },
   "pnpm": {
     "patchedDependencies": {
       "monaco-editor@0.52.2": "patches/monaco-editor@0.52.2.patch",
-      "@stackframe/stack@2.7.0": "patches/@stackframe__stack@2.7.0.patch"
+      "@stackframe/stack@2.7.3": "patches/@stackframe__stack@2.7.3.patch"
     }
   }
 }
