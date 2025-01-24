@@ -4,12 +4,13 @@ export default $config({
     return {
       name: "website",
       removal: input?.stage === "production" ? "retain" : "remove",
+      protect: ["production"].includes(input?.stage),
       home: "aws",
     };
   },
   async run() {
     new sst.aws.Nextjs("SolidCode", {
-      openNextVersion: "3.3.1",
+      openNextVersion: "3.4.1",
       server: {
         runtime: "nodejs22.x",
         architecture: "x86_64",
