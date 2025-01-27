@@ -25,6 +25,7 @@ interface DataTableProps {
 }
 
 export function SubmissionDataTable({ columns, data }: DataTableProps) {
+  // eslint-disable-next-line react-compiler/react-compiler
   "use no memo";
   const table = useReactTable({
     data,
