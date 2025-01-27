@@ -25,6 +25,7 @@ interface DataTableProps {
 }
 
 export function SubmissionDataTable({ columns, data }: DataTableProps) {
+  "use no memo";
   const table = useReactTable({
     data,
     columns,

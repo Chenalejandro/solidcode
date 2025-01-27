@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  "use memo";
   const user = await stackServerApp.getUser();
   if (!user) {
     const locale = await getLocale();

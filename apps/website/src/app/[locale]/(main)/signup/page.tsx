@@ -8,7 +8,6 @@ export default async function SignInPage({
 }: {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
-  "use memo";
   const user = await stackServerApp.getUser();
   if (!user) {
     return (

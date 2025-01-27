@@ -26,6 +26,7 @@ interface DataTableProps {
 }
 
 export function ProblemDataTable({ columns, data }: DataTableProps) {
+  "use no memo";
   const table = useReactTable({
     data,
     columns,

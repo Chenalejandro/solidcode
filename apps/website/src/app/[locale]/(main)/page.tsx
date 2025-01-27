@@ -31,7 +31,6 @@ export function generateStaticParams() {
 export default async function HomePage(props: {
   params: Promise<{ locale: string }>;
 }) {
-  "use memo";
   const params = await props.params;
 
   const { locale } = params;

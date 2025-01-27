@@ -21,9 +21,7 @@ const withMdx = nextMdx({
 
 const config: NextConfig = {
   experimental: {
-    reactCompiler: {
-      compilationMode: "annotation",
-    },
+    reactCompiler: true,
   },
   logging: {
     fetches: {
