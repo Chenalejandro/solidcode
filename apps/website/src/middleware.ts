@@ -83,6 +83,7 @@ function withExtraMiddleware(next: NextMiddleware) {
     connect-src 'self' ${env.NODE_ENV === "development" ? "http://localhost:8102" : ""}
       data:
       https://o4507580172664832.ingest.us.sentry.io
+      https://us-assets.i.posthog.com
       https://us.i.posthog.com
       https://http2.mlstatic.com
       https://*.mercadopago.com
