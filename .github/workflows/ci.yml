@@ -3,7 +3,32 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      NODE_ENV: test
+      AUTH_EMAIL_USERNAME: ${{ vars.AUTH_EMAIL_USERNAME }}
+      DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
+      DATABASE_URL_UNPOOLED: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
+      GITLAB_CI_CD_ENVIRONMENT: ${{ vars.GITLAB_CI_CD_ENVIRONMENT }}
+      IS_TESTING: ${{ vars.IS_TESTING }}
+      NEXT_PUBLIC_ENABLE_POSTHOG: ${{ vars.NEXT_PUBLIC_ENABLE_POSTHOG }}
+      NEXT_PUBLIC_ENABLE_SENTRY: ${{ vars.NEXT_PUBLIC_ENABLE_SENTRY }}
+      POSTGRES_DRIVER: ${{ vars.POSTGRES_DRIVER }}
+      RATE_LIMIT_COUNT: ${{ vars.RATE_LIMIT_COUNT }}
+      AUTH_EMAIL_PASSWORD: ${{ secrets.AUTH_EMAIL_PASSWORD }}
+      FUTUREJUDGE_TOKEN: ${{ secrets.FUTUREJUDGE_TOKEN }}
+      FUTURE_JUDGE_API_URL: ${{ secrets.FUTURE_JUDGE_API_URL }}
+      KV_REST_API_TOKEN: "example_token"
+      KV_REST_API_URL: "http://127.0.0.1:5200"
+      MELI_ACCESS_TOKEN: ${{ secrets.MELI_ACCESS_TOKEN }}
+      MELI_WEBHOOK_SECRET: ${{ secrets.MELI_WEBHOOK_SECRET }}
+      NEXT_PUBLIC_MELI_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_MELI_PUBLIC_KEY }}
+      NEXT_PUBLIC_POSTHOG_HOST: ${{ secrets.NEXT_PUBLIC_POSTHOG_HOST }}
+      NEXT_PUBLIC_POSTHOG_KEY: ${{ secrets.NEXT_PUBLIC_POSTHOG_KEY }}
+      NEXT_PUBLIC_STACK_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_STACK_PROJECT_ID }}
+      NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY: ${{ secrets.NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      STACK_SECRET_SERVER_KEY: ${{ secrets.STACK_SECRET_SERVER_KEY }}
+      SVIX_WEBHOOK_SECRET: ${{ secrets.SVIX_WEBHOOK_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
