@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm install -g pnpm && pnpm install && pnpm install -g turbo
+      - name: Typecheck
+        run: turbo check-types
+      - name: Lint
+        run: turbo lint
