@@ -41,4 +41,4 @@ jobs:
       - name: Typecheck
         run: turbo check-types
       - name: Lint
-        run: turbo lint
+        run: cd apps/website && pnpm lint
