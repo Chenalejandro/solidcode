@@ -1,0 +1,14 @@
+diff --git a/dist/utils/caches.js b/dist/utils/caches.js
+index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..09670f3ebdb2c5cffe9efdb1aa3f45040fd33b59 100644
+--- a/dist/utils/caches.js
++++ b/dist/utils/caches.js
+@@ -148,9 +148,6 @@ class AsyncValueCache {
+                 if (--this._subscriptionsCount === 0) {
+                     const currentRefreshPromiseIndex = ++this._mostRecentRefreshPromiseIndex;
+                     runAsynchronously(async () => {
+-                        // wait a few seconds; if anything changes during that time, we don't want to refresh
+-                        // else we do unnecessary requests if we unsubscribe and then subscribe again immediately
+-                        await wait(5000);
+                         if (this._subscriptionsCount === 0 && currentRefreshPromiseIndex === this._mostRecentRefreshPromiseIndex) {
+                             this.invalidate();
+                         }

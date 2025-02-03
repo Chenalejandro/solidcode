@@ -14,7 +14,6 @@ import { Settings } from "lucide-react";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/routing";
-// @ts-expect-error "we are ignoring the import error since we patched the stack package"
 import { UserAvatar, useUser } from "@stackframe/stack";
 
 export default function RightContent({

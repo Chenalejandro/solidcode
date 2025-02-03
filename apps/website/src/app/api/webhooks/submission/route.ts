@@ -10,18 +10,22 @@ import { getProblemTestCaseResults } from "@/server/data/problems-dto";
 import { env } from "@/env";
 
 export async function POST(request: Request) {
-  const text = await request.text();
-  const webhook = new Webhook(env.SVIX_WEBHOOK_SECRET);
-  const svixHeaders = {
-    "svix-id": request.headers.get("svix-id") ?? "",
-    "svix-timestamp": request.headers.get("svix-timestamp") ?? "",
-    "svix-signature": request.headers.get("svix-signature") ?? "",
-  };
   let json: unknown;
-  try {
-    json = webhook.verify(text, svixHeaders);
-  } catch (error) {
-    return new Response("Bad request", { status: 401 });
+  if (process.env.VERIFY_WEBHOOK !== "false") {
+    const text = await request.text();
+    const webhook = new Webhook(env.SVIX_WEBHOOK_SECRET);
+    const svixHeaders = {
+      "svix-id": request.headers.get("svix-id") ?? "",
+      "svix-timestamp": request.headers.get("svix-timestamp") ?? "",
+      "svix-signature": request.headers.get("svix-signature") ?? "",
+    };
+    try {
+      json = webhook.verify(text, svixHeaders);
+    } catch (error) {
+      return new Response("Bad request", { status: 401 });
+    }
+  } else {
+    json = await request.json();
   }
   const submissionResponseJson = futureJudgeResponseSchema.safeParse(json);
   if (!submissionResponseJson.success) {

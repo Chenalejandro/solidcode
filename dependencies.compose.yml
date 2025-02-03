@@ -1,0 +1,111 @@
+x-logging: &default-logging
+  logging:
+    driver: json-file
+    options:
+      max-size: 100m
+
+services:
+  postgres:
+    <<: *default-logging
+    container_name: futureJudge-Postgres-Prod
+    image: postgres:17-alpine
+    ports:
+      - "127.0.0.1:5100:5432"
+    environment:
+      POSTGRES_DB: futureJudge-prod
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGUSER: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+  solidQueuePostgres:
+    <<: *default-logging
+    container_name: solidQueue-Postgres-Prod
+    image: postgres:17-alpine
+    ports:
+      - "127.0.0.1:6100:5432"
+    environment:
+      POSTGRES_DB: futureJudge-prod
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGUSER: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+  solidCachePostgres:
+    <<: *default-logging
+    container_name: solidCache-Postgres-Prod
+    image: postgres:17-alpine
+    ports:
+      - "127.0.0.1:6200:5432"
+    environment:
+      POSTGRES_DB: futureJudge-prod
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGUSER: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+  solidCablePostgres:
+    <<: *default-logging
+    container_name: solidCable-Postgres-Prod
+    image: postgres:17-alpine
+    ports:
+      - "127.0.0.1:6300:5432"
+    environment:
+      POSTGRES_DB: futureJudge-prod
+      POSTGRES_HOST_AUTH_METHOD: trust
+      PGUSER: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 2s
+      timeout: 2s
+      retries: 5
+
+  # ================= svix =================
+
+  svix-db:
+    container_name: svix-db-Prod
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: PASSWORD-PLACEHOLDER--KsoIMcchtp
+      POSTGRES_DB: svix
+    volumes:
+      - svix-postgres-prod-data:/var/lib/postgresql/data
+
+  svix-redis:
+    container_name: svix-redis-Prod
+    image: docker.io/redis:7-alpine
+    command: --save 60 500 --appendonly yes --appendfsync everysec --requirepass PASSWORD-PLACEHOLDER--oVn8GSD6b9
+    volumes:
+      - svix-redis-prod-data:/data
+
+  svix-server:
+    container_name: svix-server-Prod
+    image: svix/svix-server
+    environment:
+      WAIT_FOR: 'true'
+      SVIX_REDIS_DSN: redis://:PASSWORD-PLACEHOLDER--oVn8GSD6b9@svix-redis:6379
+      SVIX_DB_DSN: postgres://postgres:PASSWORD-PLACEHOLDER--KsoIMcchtp@svix-db:5432/svix
+      SVIX_CACHE_TYPE: memory
+      SVIX_JWT_SECRET: secret
+      SVIX_LOG_LEVEL: trace
+      SVIX_QUEUE_TYPE: redis
+      SVIX_WHITELIST_SUBNETS: "[127.0.0.1/32, 172.17.0.0/16]"
+    ports:
+      - 5213:8071
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+    - svix-redis
+    - svix-db
+
+
+volumes:
+  svix-redis-prod-data:
+  svix-postgres-prod-data:

@@ -33,6 +33,8 @@ jobs:
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
       STACK_SECRET_SERVER_KEY: ${{ secrets.STACK_SECRET_SERVER_KEY }}
       SVIX_WEBHOOK_SECRET: ${{ secrets.SVIX_WEBHOOK_SECRET }}
+      SOLIDCODE_AUTH_TOKEN: ${{ secrets.FUTUREJUDGE_TOKEN }}
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
     timeout-minutes: 60
     strategy:
       matrix:
@@ -49,6 +51,10 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
         run: pnpx playwright install --with-deps
+      - name: Start FutureJudge Dependencies
+        run: docker compose -f dependencies.compose.yml up -d
+      - name: Start FutureJudge
+        run: docker run --privileged --network host -e DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5100/futureJudge-prod" -e TEST_ENV=true -e SVIX_SERVER_URL=http://127.0.0.1:5213 -e SVIX_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NTUxNDA2MzksImV4cCI6MTk3MDUwMDYzOSwibmJmIjoxNjU1MTQwNjM5LCJpc3MiOiJzdml4LXNlcnZlciIsInN1YiI6Im9yZ18yM3JiOFlkR3FNVDBxSXpwZ0d3ZFhmSGlyTXUifQ.En8w77ZJWbd0qrMlHHupHUB-4cx17RfzFykseg95SUk -e SVIX_SOLID_CODE_APP_ID=abcdefghijiklmnopqrstuvwxyz -e SVIX_SOLID_CODE_APP_NAME=testName -e SOLID_QUEUE_IN_PUMA=true -e PORT=7000 -e RAILS_ENV=production -e SOLIDQUEUE_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:6100/queue" -e PORT=7000 -e SOLIDQUEUE_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:6100/queue" -e SOLIDCACHE_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:6200/cache" -e SOLIDCABLE_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:6300/cable" -e RAILS_MASTER_KEY -e SOLIDCODE_AUTH_TOKEN alejandrochen97/futurejudge:latest
       - name: Start Docker Compose
         run: docker compose -f ./apps/website/docker-compose.dev.yml up -d
       - name: Wait on Postgres
