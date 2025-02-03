@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: test
+      VERIFY_WEBHOOK: "false"
       AUTH_EMAIL_USERNAME: ${{ vars.AUTH_EMAIL_USERNAME }}
       DATABASE_URL: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
       DATABASE_URL_UNPOOLED: "postgresql://postgres:postgres@127.0.0.1:5400/solidCodeDev-postgres"
