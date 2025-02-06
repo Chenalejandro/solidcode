@@ -10,7 +10,7 @@ export default $config({
   },
   async run() {
     new sst.aws.Nextjs("SolidCode", {
-      openNextVersion: "3.4.1",
+      openNextVersion: "3.4.2",
       server: {
         runtime: "nodejs22.x",
         architecture: "x86_64",
