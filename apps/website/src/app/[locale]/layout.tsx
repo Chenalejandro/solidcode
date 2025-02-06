@@ -77,6 +77,9 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
+      <head>
+        <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
+      </head>
       <body
         className={cn(
           "flex max-h-dvh min-h-dvh flex-col bg-background font-sans antialiased",

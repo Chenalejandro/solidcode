@@ -57,6 +57,7 @@ function withExtraMiddleware(next: NextMiddleware) {
         ? "'unsafe-inline'"
         : `'nonce-${nonce}' ${env.NODE_ENV === "development" ? "" : "'strict-dynamic'"}`
     }
+      ${env.NODE_ENV === "development" ? "https://unpkg.com/react-scan/dist/auto.global.js" : ""}
       https://us-assets.i.posthog.com
       https://http2.mlstatic.com
       https://*.mercadopago.com
