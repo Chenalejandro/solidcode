@@ -1,14 +1,54 @@
 diff --git a/dist/utils/caches.js b/dist/utils/caches.js
-index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..09670f3ebdb2c5cffe9efdb1aa3f45040fd33b59 100644
+index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..537a3d88d1b87d9d1b2b51d5ef4bb77f4688d4b4 100644
 --- a/dist/utils/caches.js
 +++ b/dist/utils/caches.js
-@@ -148,9 +148,6 @@ class AsyncValueCache {
+@@ -1,6 +1,6 @@
+ import { DependenciesMap } from "./maps";
+ import { filterUndefined } from "./objects";
+-import { pending, rateLimited, resolved, runAsynchronously, wait } from "./promises";
++import { pending, rateLimited, resolved, runAsynchronously } from "./promises";
+ import { AsyncStore } from "./stores";
+ /**
+  * Can be used to cache the result of a function call, for example for the `use` hook in React.
+@@ -122,22 +122,20 @@ class AsyncValueCache {
+      * Invalidates the cache, marking it to refresh on the next read. If anyone was listening to it, it will refresh
+      * immediately.
+      */
+-    invalidate() {
++    async invalidate() {
+         this._store.setUnavailable();
+         this._pendingPromise = undefined;
+-        if (this._subscriptionsCount > 0) {
+-            runAsynchronously(this.refresh());
+-        }
++        return await this.refresh();
+     }
+     onStateChange(callback) {
+         const storeObj = this._store.onChange(callback);
+-        runAsynchronously(this.getOrWait("read-write"));
+         if (this._subscriptionsCount++ === 0 && this._options.onSubscribe) {
+             const unsubscribe = this._options.onSubscribe(() => {
+                 runAsynchronously(this.refresh());
+             });
+             this._unsubscribers.push(unsubscribe);
+         }
++        runAsynchronously(this.refresh());
+         let hasUnsubscribed = false;
+         return {
+             unsubscribe: () => {
+@@ -146,15 +144,6 @@ class AsyncValueCache {
+                 hasUnsubscribed = true;
+                 storeObj.unsubscribe();
                  if (--this._subscriptionsCount === 0) {
-                     const currentRefreshPromiseIndex = ++this._mostRecentRefreshPromiseIndex;
-                     runAsynchronously(async () => {
+-                    const currentRefreshPromiseIndex = ++this._mostRecentRefreshPromiseIndex;
+-                    runAsynchronously(async () => {
 -                        // wait a few seconds; if anything changes during that time, we don't want to refresh
 -                        // else we do unnecessary requests if we unsubscribe and then subscribe again immediately
 -                        await wait(5000);
-                         if (this._subscriptionsCount === 0 && currentRefreshPromiseIndex === this._mostRecentRefreshPromiseIndex) {
-                             this.invalidate();
-                         }
+-                        if (this._subscriptionsCount === 0 && currentRefreshPromiseIndex === this._mostRecentRefreshPromiseIndex) {
+-                            this.invalidate();
+-                        }
+-                    });
+                     for (const unsubscribe of this._unsubscribers) {
+                         unsubscribe();
+                     }
