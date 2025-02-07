@@ -35,6 +35,7 @@
     "@radix-ui/react-toast": "^1.2.6",
     "@sentry/nextjs": "^8.54.0",
     "@stackframe/stack": "^2.7.12",
+    "@stackframe/stack-shared": "^2.7.12",
     "@t3-oss/env-nextjs": "^0.12.0",
     "@tanstack/react-query": "^5.66.0",
     "@tanstack/react-table": "^8.20.6",
