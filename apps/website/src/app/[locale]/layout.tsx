@@ -23,6 +23,7 @@ import { CSPostHogProvider } from "@/app/_analytics/provider";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { env } from "@/env";
 const PostHogPageView = dynamic(() => import("../PostHogPageView"));
 
 export async function generateMetadata(
@@ -77,9 +78,14 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={locale} suppressHydrationWarning={true}>
-      <head>
-        <script src="https://unpkg.com/react-scan/dist/auto.global.js" async />
-      </head>
+      {env.NODE_ENV === "development" && (
+        <head>
+          <script
+            src="https://unpkg.com/react-scan/dist/auto.global.js"
+            async
+          />
+        </head>
+      )}
       <body
         className={cn(
           "flex max-h-dvh min-h-dvh flex-col bg-background font-sans antialiased",
