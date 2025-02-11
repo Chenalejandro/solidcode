@@ -1,4 +1,5 @@
 import { env } from "./env";
+import * as Sentry from "@sentry/nextjs";
 
 export async function register() {
   if (env.NEXT_PUBLIC_ENABLE_SENTRY === "true") {
@@ -11,3 +12,5 @@ export async function register() {
     }
   }
 }
+
+export const onRequestError = Sentry.captureRequestError;
