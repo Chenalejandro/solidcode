@@ -23,6 +23,8 @@ import { CSPostHogProvider } from "@/app/_analytics/provider";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import { env } from "@/env";
 const PostHogPageView = dynamic(() => import("../PostHogPageView"));
 
@@ -118,6 +120,8 @@ export default async function RootLayout(props: {
             </NuqsAdapter>
           </ThemeProvider>
         </NextIntlClientProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
