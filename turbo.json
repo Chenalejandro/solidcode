@@ -14,6 +14,8 @@
     "website#build": {
       "dependsOn": ["^build"],
       "env": [
+        "SUBSCRIPTION_PRICE",
+        "PREAPPROVAL_PLAN_ID",
         "NEXT_PUBLIC_ENABLE_SENTRY",
         "NEXT_PUBLIC_ENABLE_POSTHOG",
         "NEXT_PUBLIC_POSTHOG_KEY",

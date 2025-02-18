@@ -7,6 +7,11 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
+    PREAPPROVAL_PLAN_ID: z.string(),
+    SUBSCRIPTION_PRICE: z
+      .string()
+      .transform((s) => parseInt(s, 10))
+      .pipe(z.number()),
     RATE_LIMIT_COUNT: z
       .string()
       .transform((s) => parseInt(s, 10))
@@ -52,6 +57,8 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
+    PREAPPROVAL_PLAN_ID: process.env.PREAPPROVAL_PLAN_ID,
+    SUBSCRIPTION_PRICE: process.env.SUBSCRIPTION_PRICE,
     NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     NEXT_PUBLIC_ENABLE_POSTHOG: process.env.NEXT_PUBLIC_ENABLE_POSTHOG,
     NEXT_PUBLIC_ENABLE_SENTRY: process.env.NEXT_PUBLIC_ENABLE_SENTRY,

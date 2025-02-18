@@ -8,6 +8,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
+      PREAPPROVAL_PLAN_ID: "fake_plan_id"
+      SUBSCRIPTION_PRICE: "200"
       NODE_ENV: test
       VERIFY_WEBHOOK: "false"
       AUTH_EMAIL_USERNAME: ${{ vars.AUTH_EMAIL_USERNAME }}

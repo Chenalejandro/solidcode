@@ -4,6 +4,7 @@ import { redirect } from "@/i18n/routing";
 import { env } from "@/env";
 import { stackServerApp } from "@/stack";
 import { getLocale } from "next-intl/server";
+import MercadoPagoConfig, { Preference } from "mercadopago";
 
 export default async function Page() {
   const user = await stackServerApp.getUser();
@@ -18,10 +19,25 @@ export default async function Page() {
   if (!user.primaryEmail) {
     throw new Error("The user does not have an email");
   }
-
+  const client: MercadoPagoConfig = new MercadoPagoConfig({
+    accessToken: env.MELI_ACCESS_TOKEN,
+  });
+  const preference = await new Preference(client).create({
+    body: {
+      items: [
+        {
+          id: "subscription",
+          unit_price: env.SUBSCRIPTION_PRICE,
+          quantity: 1,
+          title: "Subscripción Solid Code",
+        },
+      ],
+    },
+  });
   return (
     <PaymentForm
-      amount={15}
+      preferenceId={preference.id}
+      amount={env.SUBSCRIPTION_PRICE}
       // We want to manually put the email in when not in production
       // since we are going to use mercadopago's test email
       email={env.NODE_ENV !== "production" ? undefined : user.primaryEmail}

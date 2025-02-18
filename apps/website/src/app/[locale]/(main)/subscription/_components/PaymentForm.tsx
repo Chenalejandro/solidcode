@@ -1,31 +1,37 @@
 "use client";
 
-import { initMercadoPago } from "@mercadopago/sdk-react";
-import { CardPayment } from "@mercadopago/sdk-react";
-import {
-  type ICardPaymentBrickPayer,
-  type ICardPaymentFormData,
-} from "@mercadopago/sdk-react/esm/bricks/cardPayment/type";
-import { useState } from "react";
+import { initMercadoPago, Payment } from "@mercadopago/sdk-react";
+import { type IPaymentFormData } from "@mercadopago/sdk-react/esm/bricks/payment/type";
+import { useEffect, useState } from "react";
 import { processPayment } from "../action";
 import { useTheme } from "next-themes";
 import { env } from "@/env";
 
-if (typeof window !== "undefined") {
-  initMercadoPago(env.NEXT_PUBLIC_MELI_PUBLIC_KEY);
-}
-
 interface IPaymentForm {
   amount: number;
   email?: string;
+  preferenceId?: string;
 }
 
-export default function PaymentForm({ amount, email }: IPaymentForm) {
+export default function PaymentForm({
+  amount,
+  email,
+  preferenceId,
+}: IPaymentForm) {
   const [submitError, setSubmitError] = useState<boolean>(false);
   const { resolvedTheme } = useTheme();
-  const onSubmit = async (
-    formData: ICardPaymentFormData<ICardPaymentBrickPayer>,
-  ) => {
+  useEffect(() => {
+    // Inicializamos el SDK
+    initMercadoPago(env.NEXT_PUBLIC_MELI_PUBLIC_KEY);
+
+    // Desmontamos el componente de bricks cuando se desmonte el componente
+    return () => {
+      // @ts-expect-error ignoring type error
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
+      window?.cardPaymentBrickController?.unmount();
+    };
+  }, []);
+  const onSubmit = async (formData: IPaymentFormData) => {
     try {
       await processPayment(formData);
     } catch (error) {
@@ -62,18 +68,28 @@ export default function PaymentForm({ amount, email }: IPaymentForm) {
   }
 
   return (
-    <CardPayment
-      initialization={{ amount, payer: { email } }}
+    <Payment
+      initialization={{
+        amount,
+        payer: { email },
+        preferenceId,
+      }}
       onSubmit={onSubmit}
-      onReady={onReady}
-      onError={onError}
       customization={{
         visual: {
           style: {
             theme: resolvedTheme === "dark" ? "dark" : "bootstrap",
           },
         },
+        paymentMethods: {
+          creditCard: "all",
+          prepaidCard: "all",
+          debitCard: "all",
+          mercadoPago: ["wallet_purchase"],
+        },
       }}
+      onReady={onReady}
+      onError={onError}
     />
   );
 }
