@@ -3,7 +3,6 @@ import { Inter as FontSans } from "next/font/google";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "next-themes";
-import { TopNav } from "@/app/_components/top-nav";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { headers } from "next/headers";
 import { TanstackQueryClientProvider } from "@/components/TanstackQueryClientProvider";
@@ -19,14 +18,13 @@ import { type ResolvingMetadata, type Metadata } from "next";
 import { stackServerApp } from "@/stack";
 import { StackProvider, StackTheme } from "@stackframe/stack";
 import { routing } from "@/i18n/routing";
-import { CSPostHogProvider } from "@/app/_analytics/provider";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import { env } from "@/env";
-const PostHogPageView = dynamic(() => import("../PostHogPageView"));
+const PostHogPageView = dynamic(() => import("./(main)/PostHogPageView"));
 
 export async function generateMetadata(
   props: { params: Promise<{ locale: string }> },

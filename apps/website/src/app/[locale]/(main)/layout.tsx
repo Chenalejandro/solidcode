@@ -1,14 +1,16 @@
-import { CSPostHogProvider } from "@/app/_analytics/provider";
 import { TopNav } from "@/app/_components/top-nav";
-import PostHogPageView from "@/app/PostHogPageView";
+import { env } from "@/env";
 import { type ReactNode } from "react";
+import { PostHogProvider } from "./PostHogProvider";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  return (
-    <CSPostHogProvider>
-      <PostHogPageView />
-      <TopNav />
-      {children}
-    </CSPostHogProvider>
-  );
+  if (env.NEXT_PUBLIC_ENABLE_POSTHOG === "true") {
+    return (
+      <PostHogProvider>
+        <TopNav />
+        {children}
+      </PostHogProvider>
+    );
+  }
+  return <>{children}</>;
 }
