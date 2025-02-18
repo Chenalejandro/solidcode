@@ -68,7 +68,7 @@
     "require-in-the-middle": "^7.5.1",
     "server-only": "^0.0.1",
     "sonner": "^1.7.4",
-    "sst": "^3.9.6",
+    "sst": "^3.9.7",
     "svix": "^1.57.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
