@@ -14,11 +14,11 @@ export function ResponsiveResizeable() {
   const isDesktop = useMediaQuery({ minWidth: 600 })
 
   // Define our panel data
-  const [panels, setPanels] = useState<PanelData[]>([
+  const [panels, setPanels] = useState([
     { id: "one", title: "One", content: "Content for panel one" },
     { id: "two", title: "Two", content: "Content for panel two" },
     { id: "three", title: "Three", content: "Content for panel three" },
-  ])
+  ] as const)
 
   // Function to render a panel's content
   const renderPanelContent = (panel: PanelData) => (
