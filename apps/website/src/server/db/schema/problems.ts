@@ -6,11 +6,11 @@ import { submissions, wrongSubmissionAnswerDatas } from "./submissions";
 export const problems = createTable("problems", (t) => ({
   id: t.integer().primaryKey().generatedAlwaysAsIdentity(),
   slug: t.text().notNull().unique(),
-  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: t
     .timestamp({ withTimezone: true })
-    .defaultNow()
-    .$onUpdate(() => sql`now()`)
+    .default(sql`CURRENT_TIMESTAMP`)
+    .$onUpdate(() => new Date())
     .notNull(),
 }));
 
@@ -23,11 +23,11 @@ export const problemTestCases = createTable(
     longRunningTest: t.boolean().notNull().default(false),
     input: t.text().notNull(),
     expectedResult: t.text().notNull(),
-    createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+    createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
     updatedAt: t
       .timestamp({ withTimezone: true })
-      .defaultNow()
-      .$onUpdate(() => sql`now()`)
+      .default(sql`CURRENT_TIMESTAMP`)
+      .$onUpdate(() => new Date())
       .notNull(),
   }),
   (testCasesTable) => [
@@ -41,11 +41,11 @@ export const problemTestCases = createTable(
 export const problemExamples = createTable("problem_examples", (t) => ({
   problemTestCaseId: t.integer().primaryKey(),
   description: t.text(),
-  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: t
     .timestamp({ withTimezone: true })
-    .defaultNow()
-    .$onUpdate(() => sql`now()`)
+    .default(sql`CURRENT_TIMESTAMP`)
+    .$onUpdate(() => new Date())
     .notNull(),
 }));
 
@@ -56,11 +56,11 @@ export const codeTemplates = createTable(
     languageId: t.integer().notNull(),
     submissionCode: t.text().notNull(),
     footerCode: t.text().notNull(),
-    createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+    createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
     updatedAt: t
       .timestamp({ withTimezone: true })
-      .defaultNow()
-      .$onUpdate(() => sql`now()`)
+      .default(sql`CURRENT_TIMESTAMP`)
+      .$onUpdate(() => new Date())
       .notNull(),
   }),
   (table) => [primaryKey({ columns: [table.problemId, table.languageId] })],

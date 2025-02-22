@@ -12,11 +12,11 @@ export const languages = createTable("languages", (t) => ({
   externalId: t.integer("external_id").notNull().unique(),
   name: t.varchar({ length: 256 }).notNull(),
   monacoName: monacoLanguagesEnum().notNull(),
-  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: t
     .timestamp({ withTimezone: true })
-    .defaultNow()
-    .$onUpdate(() => sql`now()`)
+    .default(sql`CURRENT_TIMESTAMP`)
+    .$onUpdate(() => new Date())
     .notNull(),
 }));
 
@@ -33,7 +33,7 @@ export const languageVersions = createTable(
     majorVersion: t.smallint().notNull(),
     minorVersion: t.smallint().notNull(),
     patchVersion: t.smallint().notNull(),
-    createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+    createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
   }),
   (languageVersionsTable) => [
     unique("unique_version").on(

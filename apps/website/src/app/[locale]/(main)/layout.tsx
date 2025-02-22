@@ -12,5 +12,10 @@ export default function Layout({ children }: { children: ReactNode }) {
       </PostHogProvider>
     );
   }
-  return <>{children}</>;
+  return (
+    <>
+      <TopNav />
+      {children}
+    </>
+  );
 }

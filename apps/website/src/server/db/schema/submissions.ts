@@ -35,11 +35,11 @@ export const submissions = createTable("submissions", (t) => ({
   languageVersionId: t.integer().notNull(),
   code: t.text().notNull(),
   status: submissionStatusEnum().notNull(),
-  createdAt: t.timestamp({ withTimezone: true }).defaultNow().notNull(),
+  createdAt: t.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
   updatedAt: t
     .timestamp({ withTimezone: true })
-    .defaultNow()
-    .$onUpdate(() => sql`now()`)
+    .default(sql`CURRENT_TIMESTAMP`)
+    .$onUpdate(() => new Date())
     .notNull(),
 }));
 

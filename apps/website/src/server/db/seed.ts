@@ -14,7 +14,7 @@ import {
   monacoLanguages,
 } from "./schema/languages";
 import { z } from "zod";
-import { sql, type InferSelectModel } from "drizzle-orm";
+import { sql, type InferSelectModel, eq, ne, and } from "drizzle-orm";
 
 const client = postgres(env.DATABASE_URL);
 const db = drizzle(client, { casing: "snake_case" });
@@ -76,7 +76,6 @@ async function main() {
           set: {
             name: futureJudgeLanguage.name,
             monacoName: futureJudgeLanguage.monaco_name,
-            updatedAt: sql`now()`,
           },
         })
         .returning();
@@ -378,9 +377,9 @@ async function main() {
           slug: seedProblem.slug,
         })
         .onConflictDoUpdate({
-          target: [problems.slug],
+          target: problems.slug,
           set: {
-            updatedAt: sql`now()`,
+            slug: seedProblem.slug,
           },
         })
         .returning();
@@ -396,7 +395,6 @@ async function main() {
               input: testCase.input,
               longRunningTest: !!testCase.longRunningTest,
               expectedResult: testCase.expectedResult,
-              updatedAt: sql`now()`,
             },
           });
       }
@@ -436,9 +434,10 @@ async function main() {
           .onConflictDoUpdate({
             target: [codeTemplates.problemId, codeTemplates.languageId],
             set: {
+              // FIXME: If we are changing the submissionCode,
+              // we should delete the code stored in the client localStorage
               submissionCode: seedCodeTemplate.submissionCode,
               footerCode: seedCodeTemplate.footerCode,
-              updatedAt: sql`now()`,
             },
           });
       }
