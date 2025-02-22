@@ -60,7 +60,6 @@ export async function saveSubmissionResult(
       .update(submissions)
       .set({
         status: status,
-        updatedAt: sql`now()`,
       })
       .where(eq(submissions.publicId, publicId))
       .returning();
