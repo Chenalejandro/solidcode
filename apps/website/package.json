@@ -60,7 +60,7 @@
     "next-intl": "^3.26.5",
     "next-themes": "^0.4.4",
     "nuqs": "^2.4.0",
-    "posthog-js": "^1.223.1",
+    "posthog-js": "^1.223.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
@@ -70,7 +70,7 @@
     "server-only": "^0.0.1",
     "sonner": "^2.0.1",
     "sst": "^3.9.10",
-    "svix": "^1.59.1",
+    "svix": "^1.59.2",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
