@@ -15,12 +15,12 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@aws-sdk/client-cloudfront": "^3.750.0",
+    "@aws-sdk/client-cloudfront": "^3.757.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^4.1.2",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "@mercadopago/sdk-react": "^0.0.24",
+    "@mercadopago/sdk-react": "^1.0.0",
     "@neondatabase/serverless": "^0.10.4",
     "@next/mdx": "^15.1.7",
     "@opennextjs/aws": "^3.4.2",

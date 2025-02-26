@@ -32,8 +32,8 @@ importers:
   apps/website:
     dependencies:
       '@aws-sdk/client-cloudfront':
-        specifier: ^3.750.0
-        version: 3.750.0
+        specifier: ^3.757.0
+        version: 3.757.0
       '@heroicons/react':
         specifier: ^2.2.0
         version: 2.2.0(react@19.0.0)
@@ -47,8 +47,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0(@types/react@19.0.10)(react@19.0.0)
       '@mercadopago/sdk-react':
-        specifier: ^0.0.24
-        version: 0.0.24(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.0.0
+        version: 1.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@neondatabase/serverless':
         specifier: ^0.10.4
         version: 0.10.4
@@ -334,8 +334,8 @@ packages:
     resolution: {integrity: sha512-kISKhqN1k48TaMPbLgq9jj7mO2jvbJdhirvfu4JW3jhFhENnkY0oCwTPvR4Q6Ne2as6GFAMo2XZDZq4rxC7YDw==}
     engines: {node: '>=14.0.0'}
 
-  '@aws-sdk/client-cloudfront@3.750.0':
-    resolution: {integrity: sha512-fKnoWuvt6ITMknk1tUfNuvWOAu0iuVh5216pMdBYtrBPUix87rRY1YUinLA5tJQBPFGvKh59hg2iTAXk1stO+w==}
+  '@aws-sdk/client-cloudfront@3.757.0':
+    resolution: {integrity: sha512-ngbaf+r0/9QLHyB4pGNgAzSvu7LjDgmWj0bWBlcl2h+hxBV5DHVKcCbDn8RsKyBXyXW4ousVhUVi0H2mQxR+aw==}
     engines: {node: '>=18.0.0'}
 
   '@aws-sdk/client-dynamodb@3.751.0':
@@ -1535,8 +1535,8 @@ packages:
   '@mercadopago/sdk-js@0.0.3':
     resolution: {integrity: sha512-kO48DNLHdfFAp3on12nuKdqNlEmw1x3+nM6wLd04BdWOXoFcAhkNMQV3AyUIanXdO/bB/dENakdacLT29297EQ==}
 
-  '@mercadopago/sdk-react@0.0.24':
-    resolution: {integrity: sha512-Y2IT2/LcRwWjxwvPm0IdSuQzcYPSJ8P9BPZMcbT7FHf8dJ2ENT9hmP6iBXVUAOcpo7O7IVKGSgGgJ/PSn2N23A==}
+  '@mercadopago/sdk-react@1.0.0':
+    resolution: {integrity: sha512-EKBOsQTU2RYXvouwBLCu1hju1kokmQSpWxnMdfzTihbGhTklX23yshfzjUrg1KgSpjNNiL/CU7YbxmmZf7LnZw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -6893,7 +6893,7 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
 
-  '@aws-sdk/client-cloudfront@3.750.0':
+  '@aws-sdk/client-cloudfront@3.757.0':
     dependencies:
       '@aws-crypto/sha256-browser': 5.2.0
       '@aws-crypto/sha256-js': 5.2.0
@@ -8566,7 +8566,7 @@ snapshots:
 
   '@mercadopago/sdk-js@0.0.3': {}
 
-  '@mercadopago/sdk-react@0.0.24(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@mercadopago/sdk-react@1.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@mercadopago/sdk-js': 0.0.3
       react: 19.0.0
