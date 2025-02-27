@@ -1,5 +1,5 @@
 diff --git a/dist/utils/caches.js b/dist/utils/caches.js
-index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..537a3d88d1b87d9d1b2b51d5ef4bb77f4688d4b4 100644
+index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..8ecaeff78d1a2326573d1a768168f834d8d69eba 100644
 --- a/dist/utils/caches.js
 +++ b/dist/utils/caches.js
 @@ -1,6 +1,6 @@
@@ -10,10 +10,28 @@ index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..537a3d88d1b87d9d1b2b51d5ef4bb77f
  import { AsyncStore } from "./stores";
  /**
   * Can be used to cache the result of a function call, for example for the `use` hook in React.
-@@ -122,22 +122,20 @@ class AsyncValueCache {
-      * Invalidates the cache, marking it to refresh on the next read. If anyone was listening to it, it will refresh
-      * immediately.
-      */
+@@ -63,7 +63,6 @@ class AsyncValueCache {
+         this._options = _options;
+         this._subscriptionsCount = 0;
+         this._unsubscribers = [];
+-        this._mostRecentRefreshPromiseIndex = 0;
+         this._store = new AsyncStore();
+         this._rateLimitOptions = {
+             concurrency: 1,
+@@ -112,32 +111,23 @@ class AsyncValueCache {
+     forceSetCachedValueAsync(value) {
+         return this._setAsync(value);
+     }
+-    /**
+-     * Refetches the value from the fetcher, and updates the cache with it.
+-     */
+     async refresh() {
+         return await this.getOrWait("write-only");
+     }
+-    /**
+-     * Invalidates the cache, marking it to refresh on the next read. If anyone was listening to it, it will refresh
+-     * immediately.
+-     */
 -    invalidate() {
 +    async invalidate() {
          this._store.setUnavailable();
@@ -36,7 +54,7 @@ index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..537a3d88d1b87d9d1b2b51d5ef4bb77f
          let hasUnsubscribed = false;
          return {
              unsubscribe: () => {
-@@ -146,15 +144,6 @@ class AsyncValueCache {
+@@ -146,15 +136,6 @@ class AsyncValueCache {
                  hasUnsubscribed = true;
                  storeObj.unsubscribe();
                  if (--this._subscriptionsCount === 0) {
