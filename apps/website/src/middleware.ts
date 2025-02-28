@@ -90,7 +90,7 @@ function withExtraMiddleware(next: NextMiddleware) {
       https://*.mercadopago.com
       https://*.mercadolibre.com
       https://*.stack-auth.com
-      https://*.solidcode.com;
+      https://*.solidcode.pro;
   `;
 
     // Replace newline characters and spaces
