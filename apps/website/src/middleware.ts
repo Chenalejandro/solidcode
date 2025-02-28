@@ -89,7 +89,8 @@ function withExtraMiddleware(next: NextMiddleware) {
       https://http2.mlstatic.com
       https://*.mercadopago.com
       https://*.mercadolibre.com
-      https://*.stack-auth.com;
+      https://*.stack-auth.com
+      https://*.solidcode.com;
   `;
 
     // Replace newline characters and spaces
