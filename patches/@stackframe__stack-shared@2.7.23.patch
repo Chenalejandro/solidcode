@@ -1,5 +1,5 @@
 diff --git a/dist/utils/caches.js b/dist/utils/caches.js
-index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..8ecaeff78d1a2326573d1a768168f834d8d69eba 100644
+index 7a3aa54f2adfc4058a2b071a183bdf440e5511af..5581248b34bf786bc40855a59bedde5461932d33 100644
 --- a/dist/utils/caches.js
 +++ b/dist/utils/caches.js
 @@ -1,6 +1,6 @@
@@ -10,7 +10,7 @@ index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..8ecaeff78d1a2326573d1a768168f834
  import { AsyncStore } from "./stores";
  /**
   * Can be used to cache the result of a function call, for example for the `use` hook in React.
-@@ -63,7 +63,6 @@ class AsyncValueCache {
+@@ -96,7 +96,6 @@ class AsyncValueCache {
          this._options = _options;
          this._subscriptionsCount = 0;
          this._unsubscribers = [];
@@ -18,7 +18,7 @@ index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..8ecaeff78d1a2326573d1a768168f834
          this._store = new AsyncStore();
          this._rateLimitOptions = {
              concurrency: 1,
-@@ -112,32 +111,23 @@ class AsyncValueCache {
+@@ -145,32 +144,23 @@ class AsyncValueCache {
      forceSetCachedValueAsync(value) {
          return this._setAsync(value);
      }
@@ -54,7 +54,7 @@ index ffa7d0f2004e5e41dfe868ec4d5e9c75cff31af4..8ecaeff78d1a2326573d1a768168f834
          let hasUnsubscribed = false;
          return {
              unsubscribe: () => {
-@@ -146,15 +136,6 @@ class AsyncValueCache {
+@@ -179,15 +169,6 @@ class AsyncValueCache {
                  hasUnsubscribed = true;
                  storeObj.unsubscribe();
                  if (--this._subscriptionsCount === 0) {
