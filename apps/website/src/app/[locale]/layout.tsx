@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
-import { Inter as FontSans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
 import { ThemeProvider } from "next-themes";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { headers } from "next/headers";
@@ -21,8 +20,8 @@ import { routing } from "@/i18n/routing";
 import dynamic from "next/dynamic";
 import { notFound } from "next/navigation";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import { env } from "@/env";
 const PostHogPageView = dynamic(() => import("./(main)/PostHogPageView"));
 
@@ -41,11 +40,6 @@ export async function generateMetadata(
     icons: [{ rel: "icon", url: "/favicon.ico" }],
   };
 }
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -77,7 +71,11 @@ export default async function RootLayout(props: {
   const nonce = (await headers()).get("x-nonce")!;
 
   return (
-    <html lang={locale} suppressHydrationWarning={true}>
+    <html
+      lang={locale}
+      suppressHydrationWarning={true}
+      className={`${GeistSans.variable}`}
+    >
       {env.NODE_ENV === "development" && (
         <head>
           <script
@@ -86,12 +84,7 @@ export default async function RootLayout(props: {
           />
         </head>
       )}
-      <body
-        className={cn(
-          "flex max-h-dvh min-h-dvh flex-col bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+      <body className="flex max-h-dvh min-h-dvh flex-col bg-background antialiased">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
