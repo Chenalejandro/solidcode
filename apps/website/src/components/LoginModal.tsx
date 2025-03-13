@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "./ui/dialog";
 import { SignInButton } from "./auth/sign-in-button";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "@/i18n/navigation";
 // import Image from "next/image";
 
 const LoginModal = ({

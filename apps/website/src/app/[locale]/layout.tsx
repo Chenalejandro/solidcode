@@ -12,7 +12,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
 import { type ResolvingMetadata, type Metadata } from "next";
 import { stackServerApp } from "@/stack";
 import { StackProvider, StackTheme } from "@stackframe/stack";
@@ -53,16 +53,14 @@ export default async function RootLayout(props: {
 
   const { locale } = params;
 
-  const { children } = props;
-
-  // Ensure that the incoming `locale` is valid
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
-  if (!routing.locales.includes(locale as any)) {
+  if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
   // Enable static rendering
   setRequestLocale(locale);
+
+  const { children } = props;
 
   // Providing all messages to the client
   // side is the easiest way to get started

@@ -1,4 +1,4 @@
-import { redirect } from "@/i18n/routing";
+import { redirect } from "@/i18n/navigation";
 import { stackServerApp } from "@/stack";
 import { SignIn } from "@stackframe/stack";
 import { getLocale } from "next-intl/server";

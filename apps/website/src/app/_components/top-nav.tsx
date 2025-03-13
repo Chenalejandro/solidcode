@@ -1,5 +1,5 @@
 import ThemeToggle from "@/components/ui/theme-toggle";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { getTranslations } from "next-intl/server";
 import RightContentWrapper from "./RightContentWrapper";

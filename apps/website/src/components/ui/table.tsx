@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { type ComponentProps } from "react";
 
 const Table = React.forwardRef<
