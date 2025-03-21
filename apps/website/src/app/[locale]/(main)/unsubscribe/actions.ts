@@ -7,7 +7,7 @@ import {
 } from "@/server/data/subscriptions-dto";
 import { stackServerApp } from "@/stack";
 import { MercadoPagoConfig, PreApproval } from "mercadopago";
-import { redirect } from "@/i18n/routing";
+import { redirect } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
 
 export async function unsubscribe() {

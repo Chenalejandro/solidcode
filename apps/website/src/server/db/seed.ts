@@ -3,8 +3,6 @@ import {
   problems,
   problemTestCases,
 } from "@/server/db/schema/problems";
-import postgres from "postgres";
-import { drizzle } from "drizzle-orm/postgres-js";
 import { env } from "@/env";
 import { readFileSync } from "node:fs";
 import path from "path";
@@ -15,9 +13,9 @@ import {
 } from "./schema/languages";
 import { z } from "zod";
 import { sql, type InferSelectModel, eq, ne, and } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/node-postgres";
 
-const client = postgres(env.DATABASE_URL);
-const db = drizzle(client, { casing: "snake_case" });
+const db = drizzle(env.DATABASE_URL, { casing: "snake_case" });
 
 const languageSchema = z.object({
   id: z.number().positive(),
@@ -478,12 +476,10 @@ function createTestCasesWithOrderNumber(
 }
 
 main()
-  .then(async () => {
-    await client.end();
+  .then(() => {
     process.exit(0);
   })
-  .catch(async (e) => {
+  .catch((e) => {
     console.error(e);
-    await client.end();
     process.exit(1);
   });

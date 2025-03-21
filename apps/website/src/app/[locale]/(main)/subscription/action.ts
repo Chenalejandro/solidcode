@@ -1,7 +1,7 @@
 "use server";
 import { MercadoPagoConfig, PreApproval } from "mercadopago";
 import { z } from "zod";
-import { redirect } from "@/i18n/routing";
+import { redirect } from "@/i18n/navigation";
 import {
   addSubscriptor,
   subscriptionStatusEnum,
