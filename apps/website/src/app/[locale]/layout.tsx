@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { GeistSans } from "geist/font/sans";
+import { Geist } from "next/font/google";
 import type { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -24,6 +24,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { env } from "@/env";
 const PostHogPageView = dynamic(() => import("./(main)/PostHogPageView"));
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
 
 export async function generateMetadata(
   props: { params: Promise<{ locale: string }> },
@@ -72,7 +77,7 @@ export default async function RootLayout(props: {
     <html
       lang={locale}
       suppressHydrationWarning={true}
-      className={`${GeistSans.variable}`}
+      className={`${geist.variable}`}
     >
       {env.NODE_ENV === "development" && (
         <head>
