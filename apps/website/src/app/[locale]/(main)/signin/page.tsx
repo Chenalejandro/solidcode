@@ -11,7 +11,7 @@ export default async function SignInPage({
   const user = await stackServerApp.getUser();
   if (!user) {
     return (
-      <div className="flex flex-grow items-center justify-center">
+      <div className="flex grow items-center justify-center">
         <SignIn></SignIn>
       </div>
     );

@@ -49,7 +49,7 @@ const TableFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "table-footer-group border-t bg-muted/50 font-medium [&>div]:last:border-b-0",
+      "table-footer-group border-t bg-muted/50 font-medium last:[&>div]:border-b-0",
       className,
     )}
     {...props}

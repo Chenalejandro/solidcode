@@ -74,12 +74,13 @@
     "sonner": "^2.0.1",
     "sst": "^3.10.11",
     "svix": "^1.62.0",
-    "tailwind-merge": "^2.6.0",
+    "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@playwright/test": "^1.51.1",
+    "@tailwindcss/postcss": "^4.0.16",
     "@tailwindcss/typography": "^0.5.16",
     "@tanstack/eslint-plugin-query": "^5.68.0",
     "@tanstack/react-query-devtools": "^5.69.0",
@@ -98,7 +99,7 @@
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.0.16",
     "tsx": "^4.19.3",
     "turbo": "^2.4.4",
     "typescript": "^5.8.2"
