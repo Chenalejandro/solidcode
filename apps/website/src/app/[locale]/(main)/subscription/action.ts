@@ -9,7 +9,7 @@ import {
 import { env } from "@/env";
 import { stackServerApp } from "@/stack";
 import { getLocale } from "next-intl/server";
-import { IPaymentFormData } from "@mercadopago/sdk-react/esm/bricks/payment/type";
+import { type IPaymentFormData } from "@mercadopago/sdk-react/esm/bricks/payment/type";
 
 // We need to create a zod schemas from the type definitions
 // in order to do the validation.

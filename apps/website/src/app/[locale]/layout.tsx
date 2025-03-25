@@ -12,7 +12,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { NextIntlClientProvider, Locale, hasLocale } from "next-intl";
+import { NextIntlClientProvider, type Locale, hasLocale } from "next-intl";
 import { type ResolvingMetadata, type Metadata } from "next";
 import { stackServerApp } from "@/stack";
 import { StackProvider, StackTheme } from "@stackframe/stack";
@@ -87,7 +87,7 @@ export default async function RootLayout(props: {
           />
         </head>
       )}
-      <body className="flex max-h-dvh min-h-dvh flex-col bg-background antialiased">
+      <body className="bg-background flex max-h-dvh min-h-dvh flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
