@@ -54,7 +54,7 @@ export function ResizeablePanel({
   };
   return (
     <ResizablePanelGroup
-      className="flex-grow rounded-lg border"
+      className="grow rounded-lg border"
       direction="horizontal"
       onLayout={(sizes: number[]) => onLayoutChange(sizes, "horizontalLayout")}
     >

@@ -73,7 +73,7 @@ export default function Editor(props: {
 
   return (
     <section className={cn({ hidden: !monacoEditor }, className)}>
-      <div ref={editorRef} className={"min-h-0 w-full flex-grow"} />
+      <div ref={editorRef} className={"min-h-0 w-full grow"} />
     </section>
   );
 }

@@ -50,21 +50,21 @@ export default async function GeneralInformation(props: {
           </>
         );
       },
-      className: "min-h-0 flex-grow overflow-y-auto",
+      className: "min-h-0 grow overflow-y-auto",
     },
     {
       name: "submissions",
       jsx: () => {
         return <Submissions problemId={problemId} />;
       },
-      className: "min-h-0 flex-grow overflow-y-auto",
+      className: "min-h-0 grow overflow-y-auto",
     },
     {
       name: "solutions",
       jsx: () => {
         return <></>;
       },
-      className: "min-h-0 flex-grow overflow-y-auto",
+      className: "min-h-0 grow overflow-y-auto",
     },
   ];
 

@@ -1,6 +1,6 @@
 import { getActiveSubscription } from "@/server/data/subscriptions-dto";
 import { stackServerApp } from "@/stack";
-import { redirect } from "@/i18n/routing";
+import { redirect } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
 
 export default async function SuccessSubscription() {

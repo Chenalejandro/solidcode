@@ -13,7 +13,7 @@ import {
 import { Settings } from "lucide-react";
 import { SignOutButton } from "@/components/auth/sign-out-button";
 import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { UserAvatar, useUser } from "@stackframe/stack";
 
 export default function RightContent({

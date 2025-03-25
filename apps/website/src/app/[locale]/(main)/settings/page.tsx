@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { redirect } from "@/i18n/routing";
+import { redirect } from "@/i18n/navigation";
 import SettingsPage from "@/app/[locale]/(main)/settings/SettingsPage";
 import { stackServerApp } from "@/stack";
 import { getActiveSubscription } from "@/server/data/subscriptions-dto";

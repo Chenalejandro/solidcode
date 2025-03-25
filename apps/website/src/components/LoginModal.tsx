@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "./ui/dialog";
 import { SignInButton } from "./auth/sign-in-button";
-import { usePathname } from "@/i18n/routing";
+import { usePathname } from "@/i18n/navigation";
 // import Image from "next/image";
 
 const LoginModal = ({
@@ -21,7 +21,7 @@ const LoginModal = ({
   const pathname = usePathname();
   return (
     <Dialog onOpenChange={setIsOpen} open={isOpen}>
-      <DialogContent className="absolute z-[9999999]">
+      <DialogContent className="absolute z-9999999">
         <DialogHeader>
           {/*<div className="relative mx-auto mb-2 h-24 w-24">*/}
           {/*  <Image*/}

@@ -136,17 +136,17 @@ export function CodeSubmissionForm({
   return (
     <>
       <LoginModal isOpen={isLoginModalOpen} setIsOpen={setIsLoginModalOpen} />
-      <form className="flex h-full flex-grow flex-col" action={action}>
+      <form className="flex h-full grow flex-col" action={action}>
         <ProgrammingLanguageSelector
           languages={languages}
           selectedLanguageId={currentSelectedLanguageId}
           onSelectLanguageChange={onSelectLanguageChange}
         ></ProgrammingLanguageSelector>
         {!monacoEditorMounted && (
-          <Skeleton className="relative flex h-full min-h-0 w-full flex-grow"></Skeleton>
+          <Skeleton className="relative flex h-full min-h-0 w-full grow"></Skeleton>
         )}
         <Editor
-          className="relative flex h-full min-h-0 w-full flex-grow"
+          className="relative flex h-full min-h-0 w-full grow"
           setMonacoEditorMounted={setMonacoEditorMounted}
           initialValue={init}
           language={

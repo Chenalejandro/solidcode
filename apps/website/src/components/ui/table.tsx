@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Link } from "@/i18n/routing";
+import { Link } from "@/i18n/navigation";
 import { type ComponentProps } from "react";
 
 const Table = React.forwardRef<
@@ -49,7 +49,7 @@ const TableFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "table-footer-group border-t bg-muted/50 font-medium [&>div]:last:border-b-0",
+      "table-footer-group border-t bg-muted/50 font-medium last:[&>div]:border-b-0",
       className,
     )}
     {...props}

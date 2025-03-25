@@ -45,13 +45,13 @@ export default async function ProblemPage(props: {
     : [67, 33];
   if (device.type === "mobile") {
     return (
-      <main className="flex min-h-0 flex-grow flex-col">
+      <main className="flex min-h-0 grow flex-col">
         <GeneralInformation problemSlug={problem.slug} problemId={problem.id} />
       </main>
     );
   }
   return (
-    <main className="flex min-h-0 flex-grow flex-col">
+    <main className="flex min-h-0 grow flex-col">
       <ResizeablePanel
         user={clientUser}
         defaultHorizontalLayout={defaultHorizontalLayout}

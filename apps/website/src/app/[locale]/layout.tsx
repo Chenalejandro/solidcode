@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { GeistSans } from "geist/font/sans";
+import { Geist } from "next/font/google";
 import type { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -12,7 +12,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, type Locale, hasLocale } from "next-intl";
 import { type ResolvingMetadata, type Metadata } from "next";
 import { stackServerApp } from "@/stack";
 import { StackProvider, StackTheme } from "@stackframe/stack";
@@ -24,6 +24,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { env } from "@/env";
 const PostHogPageView = dynamic(() => import("./(main)/PostHogPageView"));
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
 
 export async function generateMetadata(
   props: { params: Promise<{ locale: string }> },
@@ -53,16 +58,14 @@ export default async function RootLayout(props: {
 
   const { locale } = params;
 
-  const { children } = props;
-
-  // Ensure that the incoming `locale` is valid
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any
-  if (!routing.locales.includes(locale as any)) {
+  if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
   // Enable static rendering
   setRequestLocale(locale);
+
+  const { children } = props;
 
   // Providing all messages to the client
   // side is the easiest way to get started
@@ -74,7 +77,7 @@ export default async function RootLayout(props: {
     <html
       lang={locale}
       suppressHydrationWarning={true}
-      className={`${GeistSans.variable}`}
+      className={`${geist.variable}`}
     >
       {env.NODE_ENV === "development" && (
         <head>
@@ -84,7 +87,7 @@ export default async function RootLayout(props: {
           />
         </head>
       )}
-      <body className="flex max-h-dvh min-h-dvh flex-col bg-background antialiased">
+      <body className="bg-background flex max-h-dvh min-h-dvh flex-col antialiased">
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
