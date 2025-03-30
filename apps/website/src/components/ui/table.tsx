@@ -49,7 +49,7 @@ const TableFooter = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "table-footer-group border-t bg-muted/50 font-medium last:[&>div]:border-b-0",
+      "bg-muted/50 table-footer-group border-t font-medium [&>div]:last:border-b-0",
       className,
     )}
     {...props}
@@ -64,28 +64,13 @@ const TableRow = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "table-row border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+      "hover:bg-muted/50 data-[state=selected]:bg-muted table-row border-b transition-colors",
       className,
     )}
     {...props}
   />
 ));
 TableRow.displayName = "TableRow";
-
-const TableRowAsLink = React.forwardRef<
-  typeof Link,
-  ComponentProps<typeof Link>
->(({ className, href, ...props }, ref) => (
-  <Link
-    href={href}
-    className={cn(
-      "table-row border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
-      className,
-    )}
-    {...props}
-  />
-));
-TableRowAsLink.displayName = "TableRowAsLink";
 
 const TableHead = React.forwardRef<
   HTMLTableCellElement,
@@ -94,7 +79,7 @@ const TableHead = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "table-cell h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0",
+      "text-muted-foreground table-cell h-10 px-2 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
       className,
     )}
     {...props}
@@ -109,7 +94,7 @@ const TableCell = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "table-cell p-4 align-middle [&:has([role=checkbox])]:pr-0",
+      "table-cell p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
       className,
     )}
     {...props}
@@ -124,7 +109,7 @@ const TableCaption = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "mt-4 table-caption text-sm text-muted-foreground",
+      "text-muted-foreground mt-4 table-caption text-sm",
       className,
     )}
     {...props}
@@ -143,3 +128,19 @@ export {
   TableCell,
   TableCaption,
 };
+
+// Added by me
+const TableRowAsLink = React.forwardRef<
+  typeof Link,
+  ComponentProps<typeof Link>
+>(({ className, href, ...props }, ref) => (
+  <Link
+    href={href}
+    className={cn(
+      "hover:bg-muted/50 data-[state=selected]:bg-muted table-row border-b transition-colors",
+      className,
+    )}
+    {...props}
+  />
+));
+TableRowAsLink.displayName = "TableRowAsLink";
