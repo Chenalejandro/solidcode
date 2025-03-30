@@ -166,7 +166,7 @@ function CorrectAnswerCard(props: {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Respuesta correcta</CardTitle>
+        <CardTitle data-testid="result">Respuesta correcta</CardTitle>
         <CardDescription>{`${testCasesCount}/${testCasesCount} casos de pruebas pasadas`}</CardDescription>
       </CardHeader>
       <CardContent>
@@ -190,7 +190,7 @@ function WrongAnswerCard(props: {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Respuesta incorrecta</CardTitle>
+        <CardTitle data-testid="result">Respuesta incorrecta</CardTitle>
         <CardDescription>
           {`Falló el caso de prueba número ${failedTestCaseOrderNumber} (de ${testCasesCount})`}
         </CardDescription>
