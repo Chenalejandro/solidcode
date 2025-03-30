@@ -43,7 +43,7 @@ export function ProblemDataTable({ columns, data }: DataTableProps) {
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} className="text-base">
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -63,7 +63,7 @@ export function ProblemDataTable({ columns, data }: DataTableProps) {
                   href={`/problems/${row.original.slug}`}
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="hover:cursor-pointer"
+                  className="hover:cursor-pointer text-base"
                 >
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
