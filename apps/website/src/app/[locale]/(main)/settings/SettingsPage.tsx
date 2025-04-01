@@ -23,7 +23,7 @@ export default function SettingsPage(props: {
   isSubscribed: boolean;
 }) {
   const { user, isSubscribed } = props;
-  const form = useForm<UpdateProfileValues>({
+  const form = useForm({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: { name: user.userName },
   });
