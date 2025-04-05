@@ -26,7 +26,9 @@ async function SubscribeButton() {
   return (
     <Button asChild className="mr-5 whitespace-pre-wrap">
       <Link href="/subscription">
-        {t("Buy")} <span className="font-bold">{t("name")}</span>
+        <div>
+          {t("Buy")} <span className="inline-block font-bold">{t("name")}</span>
+        </div>
       </Link>
     </Button>
   );

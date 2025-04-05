@@ -16,7 +16,7 @@ test("change the display name", async ({ page }) => {
 
   await page.getByLabel("Usuario").fill("newName");
   await page.getByRole("button", { name: "Guardar", exact: true }).click();
-  await expect(
-    page.getByRole("status").filter({ hasNotText: "Notification" }),
-  ).toHaveText("Profile updated.");
+  await expect(page.getByLabel("Notifications alt+T")).toHaveText(
+    "Profile updated.",
+  );
 });
