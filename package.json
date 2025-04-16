@@ -15,15 +15,15 @@
     "turbo": "^2.5.0",
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@10.7.1",
+  "packageManager": "pnpm@10.8.1",
   "engines": {
     "node": ">=20"
   },
   "pnpm": {
     "patchedDependencies": {
       "monaco-editor@0.52.2": "patches/monaco-editor@0.52.2.patch",
-      "@stackframe/stack@2.8.2": "patches/@stackframe__stack@2.8.2.patch",
-      "@stackframe/stack-shared@2.8.2": "patches/@stackframe__stack-shared@2.8.2.patch"
+      "@stackframe/stack@2.8.5": "patches/@stackframe__stack@2.8.5.patch",
+      "@stackframe/stack-shared@2.8.5": "patches/@stackframe__stack-shared@2.8.5.patch"
     }
   }
 }
