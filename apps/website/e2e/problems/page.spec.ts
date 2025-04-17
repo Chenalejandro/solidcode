@@ -412,10 +412,7 @@ test("Given a code that respect precondition and postcondition then the submissi
   await page.goto("http://localhost:3000/es/problems/reverse-the-array");
   await page.getByText("Ejecutar").waitFor();
   await page.getByRole("button", { name: "Ejecutar" }).click();
-  await expect(page.getByRole("heading", { level: 3 })).toHaveText(
-    "Respuesta correcta",
-    { timeout: 8000 },
-  );
+  await expect(page.getByTestId("result")).toHaveText("Respuesta correcta");
   await expect(page.getByText("Tiempo de ejecución")).toHaveText(
     /Tiempo de ejecución: .* segundos/,
   );

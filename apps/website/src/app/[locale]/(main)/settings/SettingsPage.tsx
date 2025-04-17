@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import {
   Form,
   FormControl,
@@ -11,7 +12,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { UnsubscribeButton } from "../unsubscribe/UnsubscribeButton";
@@ -23,9 +23,7 @@ export default function SettingsPage(props: {
   isSubscribed: boolean;
 }) {
   const { user, isSubscribed } = props;
-
-  const { toast } = useToast();
-  const form = useForm<UpdateProfileValues>({
+  const form = useForm({
     resolver: zodResolver(updateProfileSchema),
     defaultValues: { name: user.userName },
   });
@@ -33,12 +31,9 @@ export default function SettingsPage(props: {
   async function onSubmit(data: UpdateProfileValues) {
     try {
       await clientUser?.setDisplayName(data.name);
-      toast({ description: "Profile updated." });
+      toast.success("Profile updated.");
     } catch (error) {
-      toast({
-        variant: "destructive",
-        description: "An error occurred. Please try again.",
-      });
+      toast.error("An error occurred. Please try again.");
     }
   }
 

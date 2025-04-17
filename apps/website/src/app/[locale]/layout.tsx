@@ -6,7 +6,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { headers } from "next/headers";
 import { TanstackQueryClientProvider } from "@/components/TanstackQueryClientProvider";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Toaster } from "@/components/ui/toaster";
 import {
   getMessages,
   getTranslations,
@@ -107,7 +106,6 @@ export default async function RootLayout(props: {
                     {children}
                     <ReactQueryDevtools initialIsOpen={false} />
                     <Sonner />
-                    <Toaster />
                   </TanstackQueryClientProvider>
                 </StackTheme>
               </StackProvider>
