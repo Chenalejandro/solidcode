@@ -8,6 +8,7 @@
     "test:e2e": "pnpm --filter=website test:e2e",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
