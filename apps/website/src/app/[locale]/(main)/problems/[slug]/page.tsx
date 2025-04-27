@@ -5,7 +5,7 @@ import { getLanguages } from "@/server/data/languages-dto";
 import { userAgent } from "next/server";
 import GeneralInformation from "./_components/GeneralInformation";
 import { stackServerApp } from "@/stack";
-import { ResizeablePanel } from "./_components/resizeable-panel";
+import { MainPanel } from "./_components/main-panel";
 
 async function getClientUser() {
   const user = await stackServerApp.getUser();
@@ -52,7 +52,7 @@ export default async function ProblemPage(props: {
   }
   return (
     <main className="flex min-h-0 grow flex-col">
-      <ResizeablePanel
+      <MainPanel
         user={clientUser}
         defaultHorizontalLayout={defaultHorizontalLayout}
         defaultVerticalSubLayout={defaultVerticalSubLayout}
