@@ -41,6 +41,6 @@ jobs:
       - name: Install Turbo
         run: pnpm install -g turbo
       - name: Typecheck
-        run: turbo check-types
+        run: turbo typecheck
       - name: Lint
         run: cd apps/website && pnpm lint

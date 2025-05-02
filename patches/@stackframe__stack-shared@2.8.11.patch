@@ -1,0 +1,70 @@
+diff --git a/dist/esm/utils/caches.js b/dist/esm/utils/caches.js
+index 56fb17939662944bb350108c53efafaa34423d10..9cc035202029f625b88126dd599df19c4e3d9a4a 100644
+--- a/dist/esm/utils/caches.js
++++ b/dist/esm/utils/caches.js
+@@ -1,7 +1,7 @@
+ // src/utils/caches.tsx
+ import { DependenciesMap } from "./maps";
+ import { filterUndefined } from "./objects";
+-import { pending, rateLimited, resolved, runAsynchronously, wait } from "./promises";
++import { pending, rateLimited, resolved, runAsynchronously } from "./promises";
+ import { AsyncStore } from "./stores";
+ function cacheFunction(f) {
+   const dependenciesMap = new DependenciesMap();
+@@ -63,7 +63,6 @@ var AsyncValueCache = class {
+     this._options = _options;
+     this._subscriptionsCount = 0;
+     this._unsubscribers = [];
+-    this._mostRecentRefreshPromiseIndex = 0;
+     this._store = new AsyncStore();
+     this._rateLimitOptions = {
+       concurrency: 1,
+@@ -112,31 +111,22 @@ var AsyncValueCache = class {
+   forceSetCachedValueAsync(value) {
+     return this._setAsync(value);
+   }
+-  /**
+-   * Refetches the value from the fetcher, and updates the cache with it.
+-   */
+   async refresh() {
+     return await this.getOrWait("write-only");
+   }
+-  /**
+-   * Invalidates the cache, marking it to refresh on the next read. If anyone was listening to it, it will refresh
+-   * immediately.
+-   */
+-  invalidate() {
++  async invalidate() {
+     this._store.setUnavailable();
+     this._pendingPromise = void 0;
+-    if (this._subscriptionsCount > 0) {
+-      runAsynchronously(this.refresh());
+-    }
++    return await this.refresh();
+   }
+   onStateChange(callback) {
+     const storeObj = this._store.onChange(callback);
+-    runAsynchronously(this.getOrWait("read-write"));
+     if (this._subscriptionsCount++ === 0 && this._options.onSubscribe) {
+       const unsubscribe = this._options.onSubscribe(() => {
+         runAsynchronously(this.refresh());
+       });
+       this._unsubscribers.push(unsubscribe);
++      runAsynchronously(this.refresh());
+     }
+     let hasUnsubscribed = false;
+     return {
+@@ -145,13 +135,6 @@ var AsyncValueCache = class {
+         hasUnsubscribed = true;
+         storeObj.unsubscribe();
+         if (--this._subscriptionsCount === 0) {
+-          const currentRefreshPromiseIndex = ++this._mostRecentRefreshPromiseIndex;
+-          runAsynchronously(async () => {
+-            await wait(5e3);
+-            if (this._subscriptionsCount === 0 && currentRefreshPromiseIndex === this._mostRecentRefreshPromiseIndex) {
+-              this.invalidate();
+-            }
+-          });
+           for (const unsubscribe of this._unsubscribers) {
+             unsubscribe();
+           }

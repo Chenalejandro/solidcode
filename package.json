@@ -8,22 +8,23 @@
     "test:e2e": "pnpm --filter=website test:e2e",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
     "prettier": "^3.5.3",
-    "turbo": "^2.5.0",
+    "turbo": "^2.5.2",
     "typescript": "^5.8.3"
   },
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.10.0",
   "engines": {
     "node": ">=20"
   },
   "pnpm": {
     "patchedDependencies": {
       "monaco-editor@0.52.2": "patches/monaco-editor@0.52.2.patch",
-      "@stackframe/stack@2.8.6": "patches/@stackframe__stack@2.8.6.patch",
-      "@stackframe/stack-shared@2.8.6": "patches/@stackframe__stack-shared@2.8.6.patch"
+      "@stackframe/stack@2.8.11": "patches/@stackframe__stack@2.8.11.patch",
+      "@stackframe/stack-shared@2.8.11": "patches/@stackframe__stack-shared@2.8.11.patch"
     }
   }
 }

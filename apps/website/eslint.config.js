@@ -2,7 +2,6 @@ import { FlatCompat } from "@eslint/eslintrc";
 import tseslint from "typescript-eslint";
 // @ts-ignore -- no types for this plugin
 import drizzle from "eslint-plugin-drizzle";
-// @ts-ignore -- no types for this plugin
 import reactCompiler from "eslint-plugin-react-compiler";
 
 const compat = new FlatCompat({
@@ -11,7 +10,7 @@ const compat = new FlatCompat({
 
 export default tseslint.config(
   {
-    ignores: [".next", "src/server/db/seeds/*", "sst.config.ts"],
+    ignores: [".next", "src/server/db/seeds/*"],
   },
   ...compat.extends("next/core-web-vitals"),
   {
