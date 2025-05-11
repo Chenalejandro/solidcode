@@ -24,7 +24,7 @@ export async function TopNav() {
 async function SubscribeButton() {
   const t = await getTranslations("App");
   return (
-    <Button asChild className="mr-5 whitespace-pre-wrap">
+    <Button className="mr-5 whitespace-pre-wrap">
       <Link href="/subscription">
         <div>
           {t("Buy")} <span className="inline-block font-bold">{t("name")}</span>
