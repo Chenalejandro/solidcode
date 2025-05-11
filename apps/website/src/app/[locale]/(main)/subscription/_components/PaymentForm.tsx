@@ -28,7 +28,7 @@ export default function PaymentForm({
     return () => {
       // @ts-expect-error ignoring type error
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
-      window?.cardPaymentBrickController?.unmount();
+      window?.paymentBrickController?.unmount();
     };
   }, []);
   const onSubmit = async (formData: IPaymentFormData) => {
