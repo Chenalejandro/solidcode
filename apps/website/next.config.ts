@@ -44,13 +44,13 @@ const config: NextConfig = {
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
   rewrites: async () => {
     return {
-      // Disallow access to the source nap files.
-      beforeFiles: [
+      // Disallow access to the source map files in production.
+      beforeFiles: env.NODE_ENV === "production" ? [
         {
           source: "/:path*.map",
           destination: "/404",
         },
-      ],
+      ] : undefined,
       afterFiles: [
         {
           source: "/ingest/static/:path*",
